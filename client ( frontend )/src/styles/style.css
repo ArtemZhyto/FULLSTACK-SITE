@@ -1,0 +1,761 @@
+body {
+  background-color: #28282E;
+}
+
+p {
+  margin: 0;
+}
+
+.meet-block__aboutus-img {
+  width: 30px;
+  height: 30px;
+}
+
+.meet-block {
+  width: 100vw;
+  height: 100vh;
+}
+
+.meet-block__meet-txt {
+  padding: 209.69px 499.13px 326.78px 109.29px;
+  width: 757.578px;
+  height: 160.581px;
+  flex-shrink: 0;
+  color: #D9D9D9;
+  font-family: "Anybody", sans-serif;
+  font-size: 84px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  white-space: inherit;
+}
+
+.meet-block__meet-desctxt {
+  color: #D9D9D9;
+  font-family: "Anybody";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 369.17px;
+  height: 18px;
+  flex-shrink: 0;
+  padding: 391.64px 880.98px 287.36px 115.85px;
+  position: absolute;
+}
+
+.meet-block__happy-guy {
+  position: absolute;
+  padding: 0.14px 0px 0px 194.98px;
+  flex-shrink: 0;
+
+}
+
+.desc-block {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+
+}
+
+.desc-block__descrition {
+  position: absolute;
+  width: 472.995px;
+  height: 401.204px;
+  flex-shrink: 0;
+  color: #D9D9D9;
+
+  font-family: "Anybody";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  padding: 190.5px 108px 105.3px 785.01px;
+}
+
+.desc-block__happy-girlimg {
+  padding: 0px 272.44px 0px 4px;
+}
+
+.comfort-block {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  top: 100vh;
+}
+
+.comfort-block__desc {
+  width: 472.995px;
+  height: 440px;
+  flex-shrink: 0;
+  color: #D9D9D9;
+
+  font-family: "Anybody";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  padding: 168.35px 785.01px 88.35px 108px;
+  margin-top: 0px;
+  position: absolute;
+}
+
+
+.meet-block__img-block {
+  width: 142.68px;
+  height: 90px;
+  flex-shrink: 0;
+  border-radius: 37px 25px 150px 25px;
+  background: #D9D9D9;
+  top: 30.23px;
+  right: 38.79px;
+  bottom: 576.77px;
+  left: 1184.53px;
+  position: fixed;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.desc-block__quickbuyer {
+  font-family: serif;
+}
+
+.comfort-block__heading {
+  width: 405.397px;
+  height: 80.29px;
+  flex-shrink: 0;
+  color: #D9D9D9;
+
+  font-family: "Anybody";
+  font-size: 84px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 88.35px 852.56px 0px 108px;
+  margin: 0;
+  position: absolute;
+}
+
+.comfort-block__shadow {
+  width: 350px;
+  height: 350px;
+  border-radius: 350px;
+  background: rgba(217, 217, 217, 0.15);
+
+  filter: blur(125px);
+
+  position: absolute;
+}
+
+.desc-block__imgmoonsun {
+  width: 350px;
+  height: 350px;
+  position: absolute;
+
+}
+
+.comfort-block__imgwithshadow {
+  padding: 173.5px 127.1px 173.5px 888.9px;
+}
+
+.button {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+}
+
+.meet-block__settings-button {
+  padding: 7.92px 50.3px 47.08px 57.38px;
+}
+
+.meet-block__profile-button {
+  padding: 7.92px 95.3px 47.08px 12.38px;
+}
+
+.meet-block__more-info-button {
+  padding: 52.96px 95.3px 2.04px 12.38px;
+}
+
+.buttonmeet-block__night-theme-button {
+  padding: 52.92px 50.34px 2.08px 57.34px;
+}
+
+.meet-block__close-button {
+  padding: 0px 0px 55px 107.68px
+}
+
+.meet-block__num {
+  color: #D9D9D9;
+
+  font-family: "Inter";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 37.23px 229.39px 638.77px 966.61px;
+  position: absolute;
+}
+
+.meet-block__yelbut {
+  width: 101.218px;
+  height: 30px;
+  border-radius: 25px;
+  background: #E69500;
+  margin: 429.14px 1155.49px 237.86px 109.29px;
+}
+
+.meet-block_buttxt {
+  margin: 0px;
+  color: #28282E;
+
+  font-family: "Anton", serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.stuff-block {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  top: 100vh;
+}
+
+.stuff-block__iphone {
+  position: absolute;
+  padding: 99.39px 0px 25.42px 875.41px;
+  z-index: -2px;
+
+}
+
+.stuff-block__heading {
+  width: 585px;
+  height: 169.5px;
+  color: #D9D9D9;
+  font-family: "Anybody";
+  font-size: 84px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 77.25px 673px 450.25px 108px;
+  position: absolute;
+}
+
+.stuff-block__desc {
+  color: #D9D9D9;
+
+  font-family: "Anybody";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  width: 472.995px;
+  height: 373px;
+  padding: 273.75px 785.01px 77.25px 108px;
+  position: absolute;
+}
+
+.stuff-block__blur1 {
+  padding: 99.39px 0px 25.42px 875.41px;
+  width: 491px;
+  height: 573px;
+  position: absolute;
+  box-shadow: inset 0px 0px 10px 40px #28282E;
+
+}
+
+.reliabledonate-block {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 100vh;
+
+}
+
+.reliabledonate-block__heading {
+  width: 719.801px;
+  height: 169.5px;
+  color: #D9D9D9;
+  font-family: "Anybody";
+  font-size: 84px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 43.25px 538.2px 484.25px 108px;
+  position: absolute;
+}
+
+.reliabledonate-block__desc {
+  color: #D9D9D9;
+  font-family: " Anybody";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  width: 565px;
+  height: 441px;
+  flex-shrink: 0;
+  padding: 212.75px 693px 43.25px 108px;
+  position: absolute;
+}
+
+.reliabledonate-block__credit-card {
+  padding: 12.03px 0px 87.97px 619px;
+}
+
+.top-sellers-block {
+  width: 100vw;
+  height: 100vh;
+  /* padding-top: 100vh; */
+}
+
+.top-sellers-block__heading {
+  color: #D9D9D9;
+  font-family: "Anybody";
+  font-size: 84px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 53px 373px 557px 373px;
+  position: absolute;
+}
+
+.top-sellers-block__guy-icon {
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  padding: 0px 25px 0px 25px;
+
+}
+
+.top-sellers-block__sergey {
+  width: 200px;
+  height: 400px;
+  padding: 224.87px 558px 72.13px 608px;
+  position: absolute;
+}
+
+.top-sellers-block__profile-name {
+  color: #D9D9D9;
+  font-family: "Anybody";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: inline-block;
+  padding: 0px 47.164px;
+}
+
+.top-sellers-block__years {
+  color: #D9D9D9;
+  font-family: "Anybody";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.top-sellers-block__rating {
+  color: #D9D9D9;
+  font-family: "Anybody";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.top-sellers-block__move-arrows {
+  padding: 383.37px 413px 278.63px 413px;
+  position: absolute;
+}
+
+.top-sellers-block__stas {
+  width: 200px;
+  height: 400px;
+  padding: 224.87px 0px 72.13px 0px;
+  position: absolute;
+}
+
+
+.top-sellers-block__masha {
+  width: 200px;
+  height: 400px;
+  padding: 224.87px 0px 72.13px 1170px;
+  position: absolute;
+}
+
+.top-sellers-block__blur1 {
+  width: 303px;
+  height: 502.74px;
+  padding: 120px 1063px 74.26px 0px;
+  position: absolute;
+  z-index: 10;
+}
+
+.top-sellers-block__blur2 {
+  z-index: 10;
+  width: 303px;
+  height: 502.74px;
+  padding: 120px 0px 74.26px 1063px;
+  position: absolute;
+}
+
+.reviews-block {
+  width: 100vw;
+  height: 100vh;
+
+}
+
+.review {
+  border-radius: 35px;
+  background: #D9D9D9;
+  width: 350px;
+  height: 150px;
+  flex-shrink: 0;
+  position: absolute;
+}
+
+.reviews-block__review-1 {
+  margin: 139px 888px 408px 128px;
+}
+
+.reviews-block__review-2 {
+  margin: 319px 888px 228px 128px;
+}
+
+.reviews-block__review-3 {
+  margin: 499px 888px 48px 128px;
+}
+
+.reviews-block__review-4 {
+  margin: 139px 508px 408px 508px;
+}
+
+.reviews-block__review-5 {
+  margin: 319px 508px 228px 508px;
+}
+
+.reviews-block__review-6 {
+  margin: 499px 508px 48px 508px;
+}
+
+.reviews-block__review-7 {
+  margin: 139px 128px 408px 888px;
+}
+
+.reviews-block__review-8 {
+  margin: 319px 128px 228px 888px;
+}
+
+.reviews-block__review-9 {
+  margin: 499px 128px 48px 888px;
+}
+
+
+.reviews-block__profile-icon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  padding: 10px 265px 80px 25px;
+  position: absolute;
+}
+
+.reviews-block__nickname {
+  color: #28282E;
+  font-family: " Anybody";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 22px 135px 110px 95px;
+  position: absolute;
+}
+
+.reviews-block__rate {
+  color: #28282E;
+  font-family: "Anybody";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 40px 222px 92px 95px;
+  position: absolute;
+}
+
+
+.reviews-block__revdesc {
+  width: 280px;
+  color: #28282E;
+  font-family: "Anybody";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  padding: 75px 45px 23px 25px;
+}
+
+.reviews-block__heading {
+  color: #D9D9D9;
+  font-family: " Anybody";
+  font-size: 84px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 28px 208.5px 582px 188.5px;
+  position: absolute;
+}
+
+.register-block {
+  width: 100vw;
+  height: 100vh;
+}
+
+.register-block__main {
+  width: 800px;
+  height: 500px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  background: #D9D9D9;
+  box-shadow: inset 0px 0px 20px 2px;
+  margin: 149.48px 294.06px 47.52px 271.94px;
+}
+
+.register-block__input-box {
+  width: 350px;
+  height: 450px;
+  border-radius: 50px;
+  background: #28282E;
+  position: relative;
+  top: 24px;
+  margin: 24px 13.94px 26px 436.06px;
+}
+
+.register-block-emailhead {
+  color: #D9D9D9;
+  font-family: "Inter";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 30px 270px 399px 30px;
+  position: absolute;
+}
+
+.register-block__emailinp {
+  width: 280px;
+  height: 31px;
+  flex-shrink: 0;
+  border-radius: 7.5px;
+  background: #D9D9D9;
+  margin: 61px 40px 358px 30px;
+  position: absolute;
+  z-index: 10;
+}
+
+.register-block__passwordinp {
+  width: 280px;
+  height: 31px;
+  flex-shrink: 0;
+  border-radius: 7.5px;
+  background: #D9D9D9;
+  margin: 149.5px 40px 269.5px 30px;
+  position: absolute;
+  z-index: 10;
+}
+
+.register-block-passwordhead {
+  color: #D9D9D9;
+  font-family: "Inter";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 118.5px 258px 310.5px 30px;
+  position: absolute;
+}
+
+
+.register-block__password-submithead {
+  color: #D9D9D9;
+  font-family: "Inter";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 207px 156px 222px 30px;
+  position: absolute;
+  width: 175px;
+}
+
+.register-block__password-submit-inp {
+  width: 280px;
+  height: 31px;
+  flex-shrink: 0;
+  border-radius: 7.5px;
+  background: #D9D9D9;
+  margin: 238px 40px 181px 30px;
+  position: absolute;
+  z-index: 10;
+}
+
+.register-block__but {
+  width: 215px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 25px;
+  background: #E69500;
+  position: absolute;
+  margin: 301.21px 64.71px 118.79px 70.29px;
+  z-index: 10;
+}
+
+.register-block__undertxt {
+  width: 150.469px;
+  height: 34px;
+  flex-shrink: 0;
+  color: #D9D9D9;
+  font-family: "Anybody";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  padding: 345.72px 94.29px 70.28px 105.42px;
+  position: absolute;
+  /* 200% */
+}
+
+.register-block_link {
+  color: #D9D9D9;
+  font-family: "Anybody";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  position: absolute;
+  padding: 391.82px 146.28px 25px 151.86px;
+  /* 200% */
+}
+
+.register-block__instrtxt {
+  width: 213px;
+  height: 49.129px;
+  flex-shrink: 0;
+  color: #28282E;
+  font-family: "Inter";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  padding: 74px 469.94px 376.87px 117.06px;
+}
+
+.register-block__txt1 {
+  width: 280px;
+  height: 38.956px;
+  flex-shrink: 0;
+  color: #28282E;
+  font-family: 'Inter';
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  padding: 135.65px 467.94px 325.39px 52.06px;
+}
+
+.register-block__txt2 {
+  color: #28282E;
+  font-family: "Inter";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 187.13px 400.94px 291.87px 52.06px;
+  position: absolute;
+}
+
+.register-block__txt3 {
+  width: 345.459px;
+  color: #28282E;
+  font-family: "Inter";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 220.65px 402.48px 258.35px 52.06px;
+  position: absolute;
+}
+
+.register-block__txt4 {
+  width: 343px;
+  color: #28282E;
+  font-family: "Inter";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 281.33px 404.94px 155.67px 52.06px;
+  position: absolute;
+}
+
+.register-block__txt5 {
+  width: 272px;
+  height: 42px;
+  flex-shrink: 0;
+  color: #28282E;
+  font-family: " Inter";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 384px 475.94px 74px 52.06px;
+  position: absolute;
+}
+
+.foot-block {
+  width: 1366px;
+  height: 250px;
+  flex-shrink: 0;
+}
+
+.foot-block__text-1 {
+  color: #D9D9D9;
+  font-family: "Anybody";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 387.315px;
+  padding: 145.22px 489.34px 86.78px 489.34px;
+}
+
+.foot-txt {
+  color: #D9D9D9;
+  font-family: "Anybody";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  z-index: 10;
+
+}
+
+.foot-block__text-2{
+  padding: 86.78px 844px 145.22px 455px;
+}
+
+.foot-block__text-3{
+  padding: 86.78px 693px 145.22px 567px;
+}
+
+.foot-block__text-4{
+  padding: 86.78px 577px 145.22px 718px;
+}
+
+.foot-block__text-5{
+  padding: 86.78px 455px 145.22px 834px;
+}
