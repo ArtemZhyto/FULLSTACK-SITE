@@ -1,23 +1,116 @@
+::-webkit-scrollbar {
+  width: 0;}
+
 body {
   background-color: #28282E;
 }
 
+div{
+}
+
+.meet-block{
+  height: 697px;
+  width: 1366px;
+}
+
+.desc-block{
+  height: 697px;
+  width: 1366px;
+}
 p {
   margin: 0;
 }
 
-.meet-block__aboutus-img {
-  width: 30px;
-  height: 30px;
+.meet-block__num {
+  color: #D9D9D9;
+
+  font-family: "Inter";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 37px 229px 620px 967px;
+  position: absolute;
 }
 
-.meet-block {
-  width: 100vw;
-  height: 100vh;
+
+
+.meet-block__img-block {
+  width: 142.68px;
+  height: 90px;
+  flex-shrink: 0;
+  border-radius: 37px 25px 150px 25px;
+  background: #D9D9D9;
+  top: 30px;
+  right: 39px;
+  bottom: 577px;
+  left: 1185px;
+  position: fixed;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.button {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+}
+
+.meet-block__settings-button {
+  padding: 8px 50px 47px 57px;
+}
+
+.meet-block__profile-button {
+  padding: 8px 95px 47px 12px;
+}
+
+.meet-block__more-info-button {
+  padding: 53px 95px 2px 12px;
+}
+
+.buttonmeet-block__night-theme-button {
+  padding: 53px 50px 2px 57px;
+}
+
+.meet-block__close-button {
+  padding: 0px 0px 55px 108px
+}
+
+
+.meet-block__happy-guy {
+  width: 896px;
+  height: 697px;
+  position: absolute;
+  padding: 0px 0px 0px 468px;
+  flex-shrink: 0;
+
+}
+
+.meet-block__botsh {
+  height: 262.823px;
+  width: 1169px;
+  padding: 639px 0px 0px 195px;
+  position: absolute;
+
+}
+
+
+.meet-block__meet-desctxt {
+  color: #D9D9D9;
+  font-family: "Anybody";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 369.17px;
+  height: 18px;
+  flex-shrink: 0;
+  padding: 392px 881px 287px 116px;
+  position: absolute;
 }
 
 .meet-block__meet-txt {
-  padding: 209.69px 499.13px 326.78px 109.29px;
+  padding: 210px 499px 327px 109px;
   width: 757.578px;
   height: 160.581px;
   flex-shrink: 0;
@@ -31,33 +124,49 @@ p {
   white-space: inherit;
 }
 
-.meet-block__meet-desctxt {
-  color: #D9D9D9;
-  font-family: "Anybody";
-  font-size: 17px;
+.meet-block__yelbut {
+  width: 101.218px;
+  height: 30px;
+  border-radius: 25px;
+  background: #E69500;
+  margin: 429px 1155px 238px 109px;
+}
+
+.meet-block_buttxt {
+  margin: 0px;
+  color: #28282E;
+
+  font-family: "Anton", serif;
+  font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  width: 369.17px;
-  height: 18px;
-  flex-shrink: 0;
-  padding: 391.64px 880.98px 287.36px 115.85px;
-  position: absolute;
 }
 
-.meet-block__happy-guy {
-  position: absolute;
-  padding: 0.14px 0px 0px 194.98px;
-  flex-shrink: 0;
 
+.desc-block__girlshd{
+  padding: 586px 272px 0px 0px;
+  position: relative;
+  z-index: 3;
 }
 
-.desc-block {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
 
+
+
+
+
+
+
+
+
+
+.meet-block__aboutus-img {
+  width: 30px;
+  height: 30px;
 }
+
+
+
 
 .desc-block__descrition {
   position: absolute;
@@ -75,17 +184,18 @@ p {
 }
 
 .desc-block__happy-girlimg {
-  padding: 0px 272.44px 0px 4px;
+  padding: 0px 517px 0px 0px ;
+  z-index: 3;
+  position: absolute;
 }
 
 .comfort-block {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  top: 100vh;
+  width: 1366px;
+  height: 697px;
 }
 
 .comfort-block__desc {
+  z-index: 4;
   width: 472.995px;
   height: 440px;
   flex-shrink: 0;
@@ -102,26 +212,15 @@ p {
 }
 
 
-.meet-block__img-block {
-  width: 142.68px;
-  height: 90px;
-  flex-shrink: 0;
-  border-radius: 37px 25px 150px 25px;
-  background: #D9D9D9;
-  top: 30.23px;
-  right: 38.79px;
-  bottom: 576.77px;
-  left: 1184.53px;
-  position: fixed;
-  z-index: 10;
-  box-sizing: border-box;
+.comfort-block__shadowformoon-sun{
+  float:right;
 }
-
 .desc-block__quickbuyer {
   font-family: serif;
 }
 
 .comfort-block__heading {
+  z-index: 4  ;
   width: 405.397px;
   height: 80.29px;
   flex-shrink: 0;
@@ -136,7 +235,7 @@ p {
   margin: 0;
   position: absolute;
 }
-
+/* 
 .comfort-block__shadow {
   width: 350px;
   height: 350px;
@@ -146,86 +245,34 @@ p {
   filter: blur(125px);
 
   position: absolute;
-}
+} */
 
-.desc-block__imgmoonsun {
+.comfort-block__imgmoonsun {
   width: 350px;
   height: 350px;
   position: absolute;
+  padding: 174px 127px 174px 889px;
 
 }
 
-.comfort-block__imgwithshadow {
-  padding: 173.5px 127.1px 173.5px 888.9px;
-}
 
-.button {
-  width: 35px;
-  height: 35px;
-  position: absolute;
-}
 
-.meet-block__settings-button {
-  padding: 7.92px 50.3px 47.08px 57.38px;
-}
 
-.meet-block__profile-button {
-  padding: 7.92px 95.3px 47.08px 12.38px;
-}
 
-.meet-block__more-info-button {
-  padding: 52.96px 95.3px 2.04px 12.38px;
-}
 
-.buttonmeet-block__night-theme-button {
-  padding: 52.92px 50.34px 2.08px 57.34px;
-}
 
-.meet-block__close-button {
-  padding: 0px 0px 55px 107.68px
-}
 
-.meet-block__num {
-  color: #D9D9D9;
 
-  font-family: "Inter";
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  padding: 37.23px 229.39px 638.77px 966.61px;
-  position: absolute;
-}
-
-.meet-block__yelbut {
-  width: 101.218px;
-  height: 30px;
-  border-radius: 25px;
-  background: #E69500;
-  margin: 429.14px 1155.49px 237.86px 109.29px;
-}
-
-.meet-block_buttxt {
-  margin: 0px;
-  color: #28282E;
-
-  font-family: "Anton", serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
 
 .stuff-block {
-  width: 100vw;
-  height: 100vh;
+  width: 1366px;
+  height: 697px;
   position: relative;
-  top: 100vh;
 }
 
 .stuff-block__iphone {
   position: absolute;
-  padding: 99.39px 0px 25.42px 875.41px;
+  padding: 99.39px 0px 25.42px 875px;
   z-index: -2px;
 
 }
@@ -253,23 +300,19 @@ p {
   line-height: 34px;
   width: 472.995px;
   height: 373px;
-  padding: 273.75px 785.01px 77.25px 108px;
+  padding: 273.75px 785.01px 50.25px 108px;
   position: absolute;
 }
 
-.stuff-block__blur1 {
-  padding: 99.39px 0px 25.42px 875.41px;
-  width: 491px;
-  height: 573px;
-  position: absolute;
-  box-shadow: inset 0px 0px 10px 40px #28282E;
 
+.stuff-block__iphone-blur{
+  padding: 614px 45px 0px 845px;
+  position: absolute;
 }
 
 .reliabledonate-block {
-  width: 100vw;
-  height: 100vh;
-  margin-top: 100vh;
+  width: 1366px;
+  height: 697px;
 
 }
 
@@ -301,12 +344,13 @@ p {
 }
 
 .reliabledonate-block__credit-card {
-  padding: 12.03px 0px 87.97px 619px;
+  padding: 0px 0px 0px 619px;
+  height: 697px;
 }
 
 .top-sellers-block {
-  width: 100vw;
-  height: 100vh;
+  width: 1366px;
+  height: 697px;
   /* padding-top: 100vh; */
 }
 
@@ -317,8 +361,9 @@ p {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  padding: 53px 373px 557px 373px;
+  padding: 53px 403.5px 463px 411.5px;
   position: absolute;
+
 }
 
 .top-sellers-block__guy-icon {
@@ -366,7 +411,7 @@ p {
 }
 
 .top-sellers-block__move-arrows {
-  padding: 383.37px 413px 278.63px 413px;
+  padding: 383.37px 413px 277.63px 413px;
   position: absolute;
 }
 
@@ -381,7 +426,7 @@ p {
 .top-sellers-block__masha {
   width: 200px;
   height: 400px;
-  padding: 224.87px 0px 72.13px 1170px;
+  padding: 224.87px 0px 72.13px 1166px;
   position: absolute;
 }
 
@@ -402,8 +447,8 @@ p {
 }
 
 .reviews-block {
-  width: 100vw;
-  height: 100vh;
+  width: 1366px;
+  height: 697px;
 
 }
 
@@ -503,13 +548,13 @@ p {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  padding: 28px 208.5px 582px 188.5px;
+  padding: 28px 208.5px 572px 188.5px;
   position: absolute;
 }
 
 .register-block {
-  width: 100vw;
-  height: 100vh;
+  width: 1366px;
+  height: 697px;
 }
 
 .register-block__main {
@@ -729,7 +774,7 @@ p {
   font-weight: 400;
   line-height: normal;
   width: 387.315px;
-  padding: 145.22px 489.34px 86.78px 489.34px;
+  padding: 145.22px 489.34px 84.78px 489.34px;
 }
 
 .foot-txt {
@@ -744,18 +789,18 @@ p {
 
 }
 
-.foot-block__text-2{
-  padding: 86.78px 844px 145.22px 455px;
+.foot-block__text-2 {
+  padding: 86.78px 844px 143.22px 455px;
 }
 
-.foot-block__text-3{
-  padding: 86.78px 693px 145.22px 567px;
+.foot-block__text-3 {
+  padding: 86.78px 693px 143.22px 567px;
 }
 
-.foot-block__text-4{
-  padding: 86.78px 577px 145.22px 718px;
+.foot-block__text-4 {
+  padding: 86.78px 577px 143.22px 718px;
 }
 
-.foot-block__text-5{
-  padding: 86.78px 455px 145.22px 834px;
+.foot-block__text-5 {
+  padding: 86.78px 455px 143.22px 834px;
 }
