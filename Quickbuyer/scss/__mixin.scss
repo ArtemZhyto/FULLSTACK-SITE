@@ -1,0 +1,19 @@
+@import "__vars";
+
+@mixin title {
+    font-size: 84px;
+    font-weight: 700;
+    line-height: normal;
+}
+
+@mixin subtitle {
+    font-size: 25px;
+}
+
+@mixin button {
+    display: block;
+    padding: 8px 25px;
+    background-color: $bgorange;
+    border-radius: 25px;
+    font-family: 'Anton', sans-serif;
+}
