@@ -1,0 +1,62 @@
+@import "_vars";
+
+body {
+    background-color: $fontcolorblack;
+    color: $fontcolor;
+
+    .header {
+
+        &__imblock-pen {
+            background: url(../img/lighttheme/profile/Карандаш\ СВЕТЛЫЙ.svg);
+        }
+
+        &__img {
+            background: url(../img/darktheme/guyiconslider.svg) 0 0 / 100% no-repeat;
+        }
+
+
+        &__imgblock {
+            background-color: $fontcolorblack;
+            color: $fontcolor;
+        }
+
+        // -
+        &__img-label div {
+            background: url(../img/lighttheme/profile/star.svg);
+        }
+
+        &__imgblock {
+            background-color: $fontcolor;
+            color: $fontcolorblack;
+        }
+
+        &__info {
+            background-color: $fontcolor;
+            color: $fontcolorblack;
+        }
+
+        &__info-eye {
+            background: url(../img/lighttheme/profile/Глаз\ СВЕТЛЫЙ.svg) 0 0 /100% no-repeat;
+        }
+
+        &__info-input {
+            &::placeholder {
+                color: $fontcolorblack;
+            }
+        }
+
+        &__info-subtitle-inst {
+            background: url(../img/lighttheme/profile/Инстаграм\ СВЕТЛЫЙ.svg);
+        }
+
+        &__info-subtitle-telegram {
+            background: url(../img/lighttheme/profile/Телеграм\ СВЕТЛЫЙ.svg);
+        }
+
+        &__info-checkbox:checked::before {
+            background: url(../img/lighttheme/profile/Чекбокс.svg) 0 0 / 100% no-repeat;
+        }
+    }
+
+
+}

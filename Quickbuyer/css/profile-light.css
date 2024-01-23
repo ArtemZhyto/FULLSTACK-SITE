@@ -1,0 +1,53 @@
+@charset "UTF-8";
+body {
+  background-color: #D9D9D9;
+  color: #28282E;
+}
+body .header__imblock-pen {
+  background: url(../img/lighttheme/profile/Карандаш\ СВЕТЛЫЙ.svg);
+}
+body .header__img {
+  background: url(../img/darktheme/guyiconslider.svg) 0 0/100% no-repeat;
+}
+body .header__imgblock {
+  background-color: #D9D9D9;
+  color: #28282E;
+}
+body .header__img-label div {
+  background: url(../img/lighttheme/profile/star.svg);
+}
+body .header__imgblock {
+  background-color: #28282E;
+  color: #D9D9D9;
+}
+body .header__info {
+  background-color: #28282E;
+  color: #D9D9D9;
+}
+body .header__info-eye {
+  background: url(../img/lighttheme/profile/Глаз\ СВЕТЛЫЙ.svg) 0 0/100% no-repeat;
+}
+body .header__info-input::-webkit-input-placeholder {
+  color: #D9D9D9;
+}
+body .header__info-input::-moz-placeholder {
+  color: #D9D9D9;
+}
+body .header__info-input:-ms-input-placeholder {
+  color: #D9D9D9;
+}
+body .header__info-input::-ms-input-placeholder {
+  color: #D9D9D9;
+}
+body .header__info-input::placeholder {
+  color: #D9D9D9;
+}
+body .header__info-subtitle-inst {
+  background: url(../img/lighttheme/profile/Инстаграм\ СВЕТЛЫЙ.svg);
+}
+body .header__info-subtitle-telegram {
+  background: url(../img/lighttheme/profile/Телеграм\ СВЕТЛЫЙ.svg);
+}
+body .header__info-checkbox:checked::before {
+  background: url(../img/lighttheme/profile/Чекбокс.svg) 0 0/100% no-repeat;
+}
