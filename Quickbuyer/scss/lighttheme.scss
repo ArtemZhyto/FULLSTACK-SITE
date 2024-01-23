@@ -1,0 +1,222 @@
+@import "_vars";
+@import "_mixin";
+
+body {
+    color: $fontcolor;
+    background-color: $fontcolorblack;
+    font-family: 'Anybody', sans-serif;
+    font-weight: 400;
+
+    .header {
+        &__top-link:first-child {
+            background-image: url(../img/header/lighttheme/profile.svg);
+        }
+
+        &__top-link:nth-child(2) {
+            background-image: url(../img/header/lighttheme/cart.svg)
+        }
+
+        &__top-link:nth-child(3) {
+            background-image: url(../img/header/lighttheme/theme.svg);
+        }
+
+        &__link--open {
+            background: url(../img/lighttheme/leftarrrow.svg) 0 0/100% no-repeat;
+        }
+
+        &__top-link:last-child {
+            background-image: url(../img/header/lighttheme/about.svg)
+        }
+
+        &__top-navigationbts {
+            background-color: $fontcolor;
+        }
+
+        &__top-closebtn {
+            background-image: url(../img/header/lighttheme/minus.png);
+
+            &::before {
+                background-color: $fontcolorblack;
+            }
+        }
+
+        &__top--open {
+            &::before {
+                background-color: $fontcolorblack;
+            }
+        }
+
+        &__top-input {
+            background-color: $fontcolor;
+
+            &::placeholder {
+                color: $fontcolorblack;
+            }
+        }
+
+        &__top-category div {
+            background: url(../img/header/lighttheme/Категории.svg);
+        }
+
+        &__imgblock {
+            @include box-shadow-light
+        }
+
+        &__categorys {
+            border-right: 1px solid $fontcolor;
+            background: $fontcolorblack;
+        }
+
+        &__category-li {
+            background-color: $fontcolor;
+
+        }
+
+        &__category-link {
+            color: $fontcolorblack;
+
+        }
+
+        &__li-child {
+            background-color: $fontcolor;
+            color: $fontcolorblack;
+        }
+
+        &__categorys--closebtn {
+            background: url(../img/header/lighttheme/larrow.svg);
+        }
+
+    }
+
+    .top-sellers {
+        &__slider-img {
+            background: url(../img/lighttheme/bigicon.svg);
+        }
+
+        &__btn-prev {
+
+            background: url(../img/lighttheme/rarrow.svg) 0 0/100% no-repeat;
+            transform: rotate(180deg);
+        }
+
+        &__btn-next {
+
+            background: url(../img/lighttheme/rarrow.svg) 0 0/100% no-repeat;
+
+        }
+    }
+
+    .reviews {
+        &__grid-item {
+            background-color: $fontcolor;
+            color: $fontcolorblack;
+        }
+
+        &__info-imgblock-img {
+            background: url(../img/lighttheme/gridicon.svg) 0 0/100% no-repeat;
+        }
+    }
+
+    .register {
+        color: $fontcolorblack;
+
+        &__block {
+            box-shadow: inset 0 0 20px 6px $fontcolorblack;
+            background: $fontcolor;
+        }
+
+        &__form {
+            background: $fontcolorblack;
+        }
+
+        &__form-label {
+            color: $fontcolor;
+        }
+
+        &__form-label input {
+            background: $fontcolor;
+        }
+
+        &__form-link {
+            color: $fontcolor;
+        }
+    }
+
+    .updates {
+        &__btn div {
+            background: url(../img/lighttheme/rarrow.svg);
+        }
+
+        &__btn--next div {
+            transform: rotate(180deg);
+        }
+    }
+
+    .stuff {
+        &__imgblock {
+            &::before {
+                box-shadow: inset 0px -20px 10px -5px $fontcolorblack;
+            }
+
+        }
+
+        .about {
+            &__imgblock {
+                &::before {
+                    box-shadow: inset 0px -20px 10px -5px $fontcolorblack;
+                }
+            }
+        }
+    }
+
+    .about {
+        &__imgblock {
+            @include box-shadow-light
+        }
+    }
+
+    // =================================== SHOP ===================================
+    .header {
+        &__top-filters div {
+            background: url(../img/lighttheme/Фильтр\ СВЕТЛЫЙ.svg);
+        }
+    }
+    .shop {
+        &__filters-input, &__filter-btn {
+            border: 1px solid $fontcolor;
+            background-color: $fontcolorblack;
+            color: $fontcolor;
+            &::placeholder {
+                color: $fontcolor
+            }
+        }
+        &__filters-input:active,
+        &__filter-btn:active{
+            background-color: $bgorange;
+            color: $fontcolorblack;
+        }
+        &__info-line  {
+            background-color: $fontcolorblack;
+        }
+        &__info-imgblock {
+            background-color: $fontcolorblack; 
+        }
+        &__info-img {
+            background: url(../img/darktheme/iphonegrid.png) 0 0/100% no-repeat;
+        }
+        &__info-btn:last-child {
+            background-color: $fontcolorblack;
+            color: $fontcolor;
+
+
+        }
+        &__info-li {
+            background-color: $fontcolor;
+        }
+        &__info {
+            color: $fontcolorblack;
+        }
+        &__filter-inputs div  {
+            background-color: $fontcolor;
+        }
+    }}

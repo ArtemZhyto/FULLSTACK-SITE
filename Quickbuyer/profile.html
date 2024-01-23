@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your profile</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/profile-light.css" class="profiletheme">
+    <!-- <link rel="stylesheet" href="css/profile-dark.css"> -->
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__imgblock">
+                <div class="header__imgblock-info">
+                    <p class="header__imgblock-subtitle">Лет на нашем сайте: 0</p>
+                    <p class="header__imgblock-subtitle">Средняя оценка:
+                        0/10</p>
+                    <div class="header__imgblock-line header__line"></div>
+                    <p class="header__imgblock-subtitle">Проданно товаров: 0</p>
+                    <a href="#" class="header__imgblock-btn">Выйти</a>
+                </div>
+                <div class="header__imgblock-img">
+                    <div class="header__img">
+                        <div class="header__img-wrapper">
+                            <label class="header__img-label" for="header__img-changebtn">
+                                <div></div>
+                            </label>
+                            <input type="file"class="header__img-changebtn" id="header__img-changebtn" name="avatar"></input>
+                        </div>
+                    </div>
+                    <p class="header__imgblock-subtitle header__imgblock-name">Имя_пользователя
+                        <a href="#" class="header__imblock-pen"></a>
+                    </p>
+                </div>
+            </div>
+            <form class="header__info">
+                <div class="header__info-subtitle">
+
+
+                    <label for="header__info-input"> Почта: </label>
+
+                    <input type="email" class="header__info-input" placeholder="блаблабла@gmail.com">
+                    <button type="submit" class="header__imblock-pen"></button>
+
+                </div>
+                <div class="header__info-subtitle">
+
+                    <a href="#" class="header__info-eye"></a>
+
+                    <label for="header__info-input">Пароль : </label>
+                    <input type="password" class="header__info-input" placeholder="00000000">
+                    <button type="submit" class="header__imblock-pen"></button>
+
+                </div>
+                <div class="header__info-subtitle">
+
+
+                    <label for="header__info-input"> Номер телефона:</label>
+
+                    <input type="tel" class="header__info-input" placeholder=" Не указан" req>
+                    <button type="submit" class="header__imblock-pen"></button>
+
+                </div>
+                <div class="header__info-subtitle">
+
+
+                    <label>
+                        Регион:
+                        <input type="text" class="header__info-input" placeholder="Украина">
+                        <button type="submit" class="header__imblock-pen"></button>
+                    </label>
+                </div>
+                <div class="header__info-line"></div>
+                <div class="header__checkbox">
+                    <p class="header__info-subtitle">Получать уведомления и новости:
+                    </p>
+                    <input type="checkbox" class="header__info-checkbox">
+                </div>
+                <div class="header__info-line"></div>
+                <p class="header__info-logo">
+                    <span class="header__info-subtitle-inst">
+
+                    </span>
+                    Instagram: Не указан
+                </p>
+                <p class="header__info-logo">
+                    <span class="header__info-subtitle-telegram"></span>
+                    Telegram: Не указан
+                </p>
+            </form>
+        </div>
+    </header>
+</body>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="js/profile.js"></script>
+
+<script type="module" src="js/app.js"></script>
+</html>
