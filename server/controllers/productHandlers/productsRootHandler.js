@@ -3,10 +3,9 @@ const loadAllProducts = require('../../../database/loadAllProducts.js')
 const getProductsRootHandler = async (req, res) => {
     try {
         const products = await loadAllProducts()
-        res.send(products)
+        res.status(200).send(products)
     } catch (err) {
-        console.log(err)
-        res.send(false)
+        res.status(504).send(false)
     }
 }
 

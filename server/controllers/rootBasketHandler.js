@@ -3,17 +3,18 @@ const loadProducts = require('../../database/findProductsBasket')
 
 const rootBasket = async (req, res) => {
     try {
-        const findUserBasket = await loadUser()
-        // const findUserBasket = await loadUser('CJUwUxcBgBjh0iaFiX4NXbaUP6IsKB8ufEBX2BtNk48qvRtCZr01yYr1Sox5UwtVIEkFPoae0I1xQ2TNWftxrfkDusyCNfyhESKQUodisI9sHK4kAsWrEB8O1J829flMLziExm8xQzLmCXixjYhVd4')
+        const findUserBasket = await loadUser(req.params.userID)
         if (findUserBasket == "nothing") {
-            res.send('nothing')
+            res.status(201).send('nothing')
+        } else if (findUserBasket == "nobody") {
+            res.status(404).send('nobody')
         } else {
             const findProductsBasket = await loadProducts(findUserBasket)
-            res.send(findProductsBasket)
+            res.status(200).send(findProductsBasket)
         }
     } catch (err) {
         console.log(err)
-        res.send(false)
+        res.status(404).send(false)
     }
 }
 

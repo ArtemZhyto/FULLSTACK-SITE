@@ -6,14 +6,9 @@ const {
 } = require('../controllers/productHandlers/productsRootHandler')
 
 const {
-    getProductBuyHandler
-} = require('../controllers/productHandlers/productBuyHandler')
-
-const {
     getProductIDHandler
 } = require('../controllers/productHandlers/productIDHandler')
 
-router.get('/:productID/buy', getProductBuyHandler)
 router.get('/:productID', getProductIDHandler)
 router.get('/', getProductsRootHandler)
 router.use((req, res) => {
