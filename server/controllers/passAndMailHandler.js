@@ -28,28 +28,25 @@ const doUser = async (req, res) => {
                     checkIDRes = await findID(checkID)
         
                     if (checkTokenRes && checkIDRes) {
-                        const user = await userServices.createUser(`user_${checkID}`, req.params.mail, req.params.password, checkToken, finaleDate, undefined, undefined, undefined, undefined, undefined, undefined, undefined, true, undefined, undefined)
+                        const user = await userServices.createUser(`user_${checkID}`, req.params.mail, req.params.password, checkToken, finaleDate, undefined, undefined, undefined, undefined, undefined, undefined, undefined, true, undefined, undefined, [])
                         await loadData(user)
-                        res.send(user.ID)
+                        res.status(200).send(user.ID)
                         return
                     } else {
                         attempts--
                     }
                 }   
             } catch (err) {
-                console.log(err)
-                res.send(false)
+                res.status(504).send(false)
                 return
             }
         } else {
-            res.status(404).send('errMail')
+            res.status(404).send('Ошибка. Почта уже используется')
             return
         }
-
-        res.status(404).send('Ошибка. Попробуйте снова').end()
     } catch (err) {
         console.log(err)
-        res.send(false)
+        res.status(504).send(false)
         return
     }
 }

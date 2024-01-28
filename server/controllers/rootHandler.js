@@ -1,5 +1,5 @@
 const getRootPage = (req, res) => {
-    res.send(true)
+    res.status(200).send(true)
 }
 
 module.exports = {
