@@ -2,10 +2,9 @@ const MongoClient = require('../server/node_modules/mongodb').MongoClient
 
 const url = 'mongodb://localhost:27017'
 const dbName = 'shopSite'
-const collectionName = 'users'
+const collectionName = 'products'
 
-//* Функция для добавления данных в коллекцию
-async function loadUser(userID) {
+async function findProductID(productID) {
     try {
         const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
         console.log('Успешное подключение к MongoDB')
@@ -13,17 +12,17 @@ async function loadUser(userID) {
         const db = client.db(dbName)
         const collection = db.collection(collectionName)
 
-        const result = await collection.findOne({ ID: userID }, { projection: {_id: 0, mail: 0, password: 0, allowNotifications: 0} })
+        const result = await collection.findOne({ ID: productID }, { projection: { name: 0, code: 0, ID: 0, price: 0, seller: 0, country: 0, type: 0, date: 0, sorting: 0, category: 0} })
         console.log('Данные успешно получены')
 
         //* Закрыть соединение с базой данных
         client.close()
         if (result) {
-            console.log('Пользователь найден')
-            return result
+            console.log('ID НЕ уникален')
+            return false
         } else {
-            console.log('Пользователь НЕ найден')
-            return "nobody"
+            console.log('ID уникален')
+            return true
         }
     } catch (err) {
         console.error('Ошибка при получение данных:', err)
@@ -31,4 +30,4 @@ async function loadUser(userID) {
     }
 }
 
-module.exports = loadUser
+module.exports = findProductID
