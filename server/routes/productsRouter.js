@@ -9,6 +9,13 @@ const {
     getProductIDHandler
 } = require('../controllers/productHandlers/productIDHandler')
 
+const {
+    postProductCreateHandler
+} = require('../controllers/productHandlers/productCreateHandler')
+
+router.use(express.json())
+
+router.post(`/create`, postProductCreateHandler)
 router.get('/:productID', getProductIDHandler)
 router.get('/', getProductsRootHandler)
 router.use((req, res) => {
