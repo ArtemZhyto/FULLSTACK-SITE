@@ -21,7 +21,7 @@ const {
     deleteAllProductsFromBasketHandler
 } = require('../controllers/productsAllDeleteFromBasketHandler')
 
-router.post('/:userID/add', getProductToBasketHandler)
+router.post('/:userID/add/:productID', getProductToBasketHandler)
 router.delete('/:userID/delete/:productID', deleteProductFromBasketHandler)
 router.delete('/:userID/clear', deleteAllProductsFromBasketHandler)
 router.get('/:userID/:productID', getProductIDHandler)
