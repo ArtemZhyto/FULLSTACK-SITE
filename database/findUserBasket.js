@@ -13,8 +13,8 @@ async function loadUser(userID) {
         const collection = db.collection(collectionName)
 
         const result = await collection.findOne({ ID: userID }, { projection: {name: 0, mail: 0, password: 0, ID: 0, regist_data: 0, role: 0, status: 0, sold: 0, rating: 0, contactMail: 0, phone: 0, region: 0, allowNotifications: 0, instagram: 0, telegram: 0} })
+        
         console.log('Дані успішно отримані')
-
         client.close()
         if (result) {
             if (result.products.length === 0) {
@@ -29,7 +29,7 @@ async function loadUser(userID) {
             return "nobody"
         }
     } catch (err) {
-        console.error('Помилка при отриманні даних:', err)
+        console.log('Помилка при отримані даних')
         return false
     }
 }

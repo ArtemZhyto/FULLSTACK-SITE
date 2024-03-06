@@ -14,12 +14,12 @@ async function loadData() {
 
         const productsCursor = await collection.find({}, { projection: { _id: 0 } })
         const products = await productsCursor.toArray()
+        
         console.log('Дані успішно отримані')
-
         client.close()
         return products
     } catch (err) {
-        console.error('Помилка при отриманні даних:', err)
+        console.log('Помилка при отримані даних')
         return false
     }
 }

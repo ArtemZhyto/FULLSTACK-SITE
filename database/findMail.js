@@ -14,6 +14,7 @@ async function findToken(mailForCheck) {
 
         const result = await collection.findOne({ mail: mailForCheck })
 
+        console.log('Дані успішно опрацьовані')
         client.close()
         if (!result) {
             console.log('Почта не використовується')
@@ -23,7 +24,7 @@ async function findToken(mailForCheck) {
             return false
         }
     } catch (err) {
-        console.error('Помилка при отриманні даних:', err)
+        console.log('Помилка при перевірці даних')
         return false
     }
 }

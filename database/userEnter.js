@@ -13,18 +13,18 @@ async function loadData(info) {
         const collection = db.collection(collectionName)
 
         const result = await collection.findOne({ password: info.password, mail: info.mail}, { projection: { _id: 0 } })
-        console.log('Дані успішно додані')
-
+        
+        console.log('Дані успішно отримані')
         client.close()
-        if (result) {
-            console.log('Користувач знайден')
-            return result
-        } else {
+        if (!result) {
             console.log('Користувач не знайден')
             return "nobody"
+        } else {
+            console.log('Користувач знайден')
+            return result
         }
     } catch (err) {
-        console.error('Помилка при отриманні даних:', err)
+        console.log('Помилка при отриманні даних')
         return false
     }
 }

@@ -25,15 +25,14 @@ const postProductCreateHandler = async (req, res) => {
             if (checkIDRes && checkCodeRes) {
                 const product = await productServices.createProduct(req.params.name, checkCode, checkID, req.params.price, req.params.seller, req.params.country, req.params.type, finaleDate, req.params.category)
                 await loadData(product)
-                res.status(200).send(true)
+                res.status(200).send(true) //@ Продукт було створено
                 return
             } else {
                 attempts--
             }
         }   
     } catch (err) {
-        console.log(err)
-        res.status(504).send(false)
+        res.status(504).send(false) //@ Продукт не було створено
         return
     }
 }

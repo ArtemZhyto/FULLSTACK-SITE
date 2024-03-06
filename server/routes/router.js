@@ -14,5 +14,8 @@ router.use('/enter', enterRouter)
 router.use('/products', productsRouter)
 router.use('/user', userRouter)
 router.use('/basket', basketRouter)
+router.use((req, res) => {
+    res.status(404).send(`Помилка. Маршрут не знайдено`) //@ Такого шляху не існує
+})
 
 module.exports = router

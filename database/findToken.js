@@ -14,6 +14,7 @@ async function findToken(token) {
 
         const result = await collection.findOne({ ID: token })
 
+        console.log('Дані успішно отримані')
         client.close()
         if (!result) {
             console.log('Токен унікальний')
@@ -23,7 +24,7 @@ async function findToken(token) {
             return false
         }
     } catch (err) {
-        console.error('Помилка при отриманні даних:', err)
+        console.log('Помилка при отримані даних')
         return false
     }
 }

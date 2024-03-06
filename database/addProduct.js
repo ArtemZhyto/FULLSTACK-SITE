@@ -12,13 +12,13 @@ async function addAllProducts(userID, addProductID) {
         const db = client.db(dbName)
         const collection = db.collection(collectionName)
 
-        const result = await collection.updateMany({ ID: userID }, { $push: { products: addProductID} })
+        await collection.updateMany({ ID: userID }, { $push: { products: addProductID} })
+        
         console.log('Продукт доданий')
-
         client.close()  
         return true
     } catch (err) {
-        console.error('Помилка при отриманні даних:', err)
+        console.log('Помилка при додаванні даних')
         return false
     }
 }

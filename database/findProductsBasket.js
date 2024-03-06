@@ -19,16 +19,15 @@ async function loadProduct(productArr) {
             if (product) {
                 result.push(product)
             } else {
-                console.warn(`Товар з ID ${productId} не знайден`)
+                console.log(`Товар з ID ${productId} не знайден`)
             }
         }
-        console.log('Дані успішно отримані')
 
+        console.log('Дані успішно отримані')
         client.close()
-        
         return result
     } catch (err) {
-        console.error('Помилка при отриманні даних:', err)
+        console.log('Помилка при отримані даних')
         return false
     }
 }
