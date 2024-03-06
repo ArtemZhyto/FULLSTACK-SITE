@@ -4,7 +4,7 @@ const getProfileID = async (req, res) => {
     try {
         const findUser = await findData(req.params.profileID)
         if (findUser == "nobody") {
-            res.status(201).send(`Error. You are not registered yet`)
+            res.status(201).send(`Помилка. Ви не зареєстровані`)
         } else {
             res.status(200).send(findUser)
         }

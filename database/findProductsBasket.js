@@ -7,7 +7,7 @@ const collectionName = 'products'
 async function loadProduct(productArr) {
     try {
         const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-        console.log('Успешное подключение к MongoDB')
+        console.log('Успішне підключення до MongoDB')
 
         const db = client.db(dbName)
         const collection = db.collection(collectionName)
@@ -19,18 +19,16 @@ async function loadProduct(productArr) {
             if (product) {
                 result.push(product)
             } else {
-                console.warn(`Товар с ID ${productId} не найден`)
+                console.warn(`Товар з ID ${productId} не знайден`)
             }
         }
+        console.log('Дані успішно отримані')
 
-        console.log('Данные успешно получены')
-
-        //* Закрыть соединение с базой данных
         client.close()
         
         return result
     } catch (err) {
-        console.error('Ошибка при получение данных:', err)
+        console.error('Помилка при отриманні даних:', err)
         return false
     }
 }

@@ -10,7 +10,7 @@ const registRouter = require('./registRouter')
 router.use('/registration', registRouter)
 router.get('/:profileID', getProfileID)
 router.use((req, res) => {
-    res.status(404).send(`Error. Router doesn't found`)
+    res.status(404).send(`Помилка. Маршрут не знайдено`)
 })
 
 module.exports = router

@@ -1,4 +1,4 @@
-const loadAllProducts = require('../../../database/loadAllProducts.js')
+const loadAllProducts = require('../../../database/loadAllProducts')
 
 const getProductsRootHandler = async (req, res) => {
     try {

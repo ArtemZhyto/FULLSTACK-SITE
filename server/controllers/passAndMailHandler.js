@@ -6,7 +6,7 @@ const findMail = require('../../database/findMail')
 const userServices = require('../services/userServices')
 const loadData = require('../../database/loadUser')
 
-const doUser = async (req, res) => {
+const getPassAndMail = async (req, res) => {
     let checkIDRes
     let checkTokenRes
     let checkMailRes
@@ -28,7 +28,7 @@ const doUser = async (req, res) => {
                     checkIDRes = await findID(checkID)
         
                     if (checkTokenRes && checkIDRes) {
-                        const user = await userServices.createUser(`user_${checkID}`, req.params.mail, req.params.password, checkToken, finaleDate, undefined, undefined, undefined, undefined, undefined, undefined, undefined, true, undefined, undefined, [])
+                        const user = await userServices.createUser(`user_${checkID}`, req.params.mail, req.params.password, checkToken, finaleDate, undefined, undefined, undefined, undefined, undefined, undefined, true, undefined, undefined, [])
                         await loadData(user)
                         res.status(200).send(user.ID)
                         return
@@ -41,7 +41,7 @@ const doUser = async (req, res) => {
                 return
             }
         } else {
-            res.status(404).send('Ошибка. Почта уже используется')
+            res.status(404).send('Помилка. Почта вже використовується')
             return
         }
     } catch (err) {
@@ -49,10 +49,6 @@ const doUser = async (req, res) => {
         res.status(504).send(false)
         return
     }
-}
-
-const getPassAndMail = (req, res) => {
-    doUser(req, res)
 }
 
 module.exports = {

@@ -15,11 +15,11 @@ const {
 
 router.use(express.json())
 
-router.post(`/create`, postProductCreateHandler)
+router.post(`/create/:name&:price&:seller&:country&:type&:date&:category`, postProductCreateHandler)
 router.get('/:productID', getProductIDHandler)
 router.get('/', getProductsRootHandler)
 router.use((req, res) => {
-    res.status(404).send(`Error. Router doesn't found`)
+    res.status(404).send(`Помилка. Маршрут не знайдено`)
 })
 
 module.exports = router

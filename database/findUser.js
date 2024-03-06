@@ -4,29 +4,27 @@ const url = 'mongodb://localhost:27017'
 const dbName = 'shopSite'
 const collectionName = 'users'
 
-//* Функция для добавления данных в коллекцию
 async function loadUser(userID) {
     try {
         const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-        console.log('Успешное подключение к MongoDB')
+        console.log('Успішне підключення до MongoDB')
 
         const db = client.db(dbName)
         const collection = db.collection(collectionName)
 
         const result = await collection.findOne({ ID: userID }, { projection: {_id: 0, mail: 0, password: 0, allowNotifications: 0} })
-        console.log('Данные успешно получены')
+        console.log('Дані успішно отримані')
 
-        //* Закрыть соединение с базой данных
         client.close()
         if (result) {
-            console.log('Пользователь найден')
+            console.log('Користувач знайден')
             return result
         } else {
-            console.log('Пользователь НЕ найден')
+            console.log('Користувач не знайден')
             return "nobody"
         }
     } catch (err) {
-        console.error('Ошибка при получение данных:', err)
+        console.error('Помилка при отриманні даних:', err)
         return false
     }
 }

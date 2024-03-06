@@ -5,9 +5,9 @@ const router = require('./routes/router')
 const {
     PORT,
     SETTINGS
-} = require('./config/config')
+} = require('./config/config.js')
 
-const package = fs.readFileSync('package.json', 'utf-8')
+const package = fs.readFileSync('./package.json', 'utf-8')
 const packageObj = JSON.parse(package)
 
 const app = express()
