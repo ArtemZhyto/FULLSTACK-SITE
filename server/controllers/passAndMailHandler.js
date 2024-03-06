@@ -30,23 +30,22 @@ const getPassAndMail = async (req, res) => {
                     if (checkTokenRes && checkIDRes) {
                         const user = await userServices.createUser(`user_${checkID}`, req.params.mail, req.params.password, checkToken, finaleDate, undefined, undefined, undefined, undefined, undefined, undefined, true, undefined, undefined, [])
                         await loadData(user)
-                        res.status(200).send(user.ID)
+                        res.status(200).send(user.ID) //@ Користувача було створено
                         return
                     } else {
                         attempts--
                     }
                 }   
             } catch (err) {
-                res.status(504).send(false)
+                res.status(504).send(false) //@ Помилка на сервері
                 return
             }
         } else {
-            res.status(404).send('Помилка. Почта вже використовується')
+            res.status(404).send('Помилка. Почта вже використовується') //@ Почта, яку ввів користувач, вже використовується 
             return
         }
     } catch (err) {
-        console.log(err)
-        res.status(504).send(false)
+        res.status(504).send(false) //@ Помилка на сервері
         return
     }
 }

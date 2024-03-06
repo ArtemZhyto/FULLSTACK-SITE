@@ -12,13 +12,13 @@ async function deleteAllProducts(userID) {
         const db = client.db(dbName)
         const collection = db.collection(collectionName)
 
-        const result = await collection.updateMany({ ID: userID }, { $set: { products: [] } })
+        await collection.updateMany({ ID: userID }, { $set: { products: [] } })
+        
         console.log('Продукти видалені')
-
         client.close()  
-        return result
+        return true
     } catch (err) {
-        console.error('Помилка при отриманні даних:', err)
+        console.log('Помилка при видаленні даних')
         return false
     }
 }

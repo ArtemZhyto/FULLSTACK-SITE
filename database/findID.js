@@ -14,6 +14,7 @@ async function findID(ID) {
 
         const result = await collection.findOne({ ID: ID })
 
+        console.log('Дані успішно опрацьовані')
         client.close()
         if (!result) {
             console.log('ID унікальний')
@@ -23,7 +24,7 @@ async function findID(ID) {
             return false
         }
     } catch (err) {
-        console.error('Помилка при отриманні даних:', err)
+        console.log('Помилка при перевірці даних')
         return false
     }
 }

@@ -19,7 +19,7 @@ router.post(`/create/:name&:price&:seller&:country&:type&:date&:category`, postP
 router.get('/:productID', getProductIDHandler)
 router.get('/', getProductsRootHandler)
 router.use((req, res) => {
-    res.status(404).send(`Помилка. Маршрут не знайдено`)
+    res.status(404).send(`Помилка. Маршрут не знайдено`) //@ Такого шляху не існує
 })
 
 module.exports = router

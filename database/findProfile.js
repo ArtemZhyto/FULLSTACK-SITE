@@ -14,6 +14,7 @@ async function findData(userID) {
 
         const result = await collection.findOne({ ID: userID }, { projection: { ID: 0, _id: 0 } })
 
+        console.log('Дані успішно отримані')
         client.close()
         if (result) {
             console.log('Користувач знайден')
@@ -23,7 +24,7 @@ async function findData(userID) {
             return "nobody"
         }
     } catch (err) {
-        console.error('Помилка при отриманні даних:', err)
+        console.log('Помилка при отримані даних')
         return false
     }
 }

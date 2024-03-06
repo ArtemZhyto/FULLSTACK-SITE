@@ -4,13 +4,15 @@ const getProfileID = async (req, res) => {
     try {
         const findUser = await findData(req.params.profileID)
         if (findUser == "nobody") {
-            res.status(201).send(`Помилка. Ви не зареєстровані`)
+            res.status(404).send(`Помилка. Ви не зареєстровані`) //@ Користувача з переданим ID не існує
+            return
         } else {
-            res.status(200).send(findUser)
+            res.status(200).send(findUser) //@ Відправити інформацію про користувача
+            return
         }
     } catch (err) {
-        console.log(err)
-        res.status(404).send(false)
+        res.status(504).send(false) //@ Помилка на сервері
+        return
     }
 }
 

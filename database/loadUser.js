@@ -12,13 +12,13 @@ async function loadData(dataToInsert) {
         const db = client.db(dbName)
         const collection = db.collection(collectionName)
 
-        const result = await collection.insertOne(dataToInsert)
+        await collection.insertOne(dataToInsert)
+        
         console.log('Дані успішно додані')
-
         client.close()
         return true
     } catch (err) {
-        console.error('Помилка при отриманні даних:', err)
+        console.log('Помилка при додавані даних')
         return false
     }
 }

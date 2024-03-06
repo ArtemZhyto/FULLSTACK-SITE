@@ -27,7 +27,7 @@ router.delete('/:userID/clear', deleteAllProductsFromBasketHandler)
 router.get('/:userID/:productID', getProductIDHandler)
 router.get('/:userID', rootBasket)
 router.use((req, res) => {
-    res.status(404).send(`Помилка. Маршрут не знайдено`)
+    res.status(404).send(`Помилка. Маршрут не знайдено`) //@ Такого шляху не існує
 })
 
 module.exports = router
