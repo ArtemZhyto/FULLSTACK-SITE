@@ -4,7 +4,7 @@ const getProductIDHandler = async (req, res) => {
     try {
         const findProduct = await loadProduct(req.params.productID)
         if (findProduct == "nothing") {
-            res.status(404).send(`Error. Product not found`)
+            res.status(404).send(`Помилка. Продукт не знайдено`)
         } else {
             res.status(200).send(findProduct)
         }

@@ -7,20 +7,18 @@ const collectionName = 'users'
 async function deleteAllProducts(userID, deleteProductID) {
     try {
         const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-        console.log('Успешное подключение к MongoDB')
+        console.log('Успішне підключення до MongoDB')
 
         const db = client.db(dbName)
         const collection = db.collection(collectionName)
 
         const result = await collection.updateMany({ ID: userID }, { $pull: { products: deleteProductID} })
+        console.log('Продукт видален')
 
-        console.log('Продукты удалены')
-
-        //* Закрыть соединение с базой данных
         client.close()  
         return result
     } catch (err) {
-        console.error('Ошибка при получение данных:', err)
+        console.error('Помилка при отриманні даних:', err)
         return false
     }
 }

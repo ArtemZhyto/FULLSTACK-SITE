@@ -1,11 +1,11 @@
-const loadUser = require('../../database/findUser')
+const loadUser = require('../../database/findSellerName')
 
-const getUserID = async (req, res) => {
+const getUserName = async (req, res) => {
     try {
-        const findUser = await loadUser(req.params.userID)
+        const findUser = await loadUser(req.params.sellerName)
         if (findUser == "nobody") {
             res.status(404)
-            res.send(`Error. User not found`)
+            res.send(`Помилка. Користувач не знайден`)
         } else {
             res.send(findUser)
         }
@@ -16,5 +16,5 @@ const getUserID = async (req, res) => {
 }
 
 module.exports = {
-    getUserID
+    getUserName
 }

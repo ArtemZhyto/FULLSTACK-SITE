@@ -7,24 +7,23 @@ const collectionName = 'users'
 async function findToken(token) {
     try {
         const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-        console.log('Успешное подключение к MongoDB')
+        console.log('Успішне підключення до MongoDB')
 
         const db = client.db(dbName)
         const collection = db.collection(collectionName)
 
         const result = await collection.findOne({ ID: token })
 
-        //* Закрыть соединение с базой данных
         client.close()
         if (!result) {
-            console.log('Токен уникален')
+            console.log('Токен унікальний')
             return true
         } else {
-            console.log('Токен НЕ уникален')
+            console.log('Токен не унікальний')
             return false
         }
     } catch (err) {
-        console.error('Ошибка при добавлении данных:', err)
+        console.error('Помилка при отриманні даних:', err)
         return false
     }
 }

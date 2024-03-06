@@ -10,7 +10,7 @@ const {
 } = require('../controllers/rootBasketHandler')
 
 const {
-    getProductToBasketHandler
+    postProductToBasketHandler
 } = require('../controllers/productToBasketHandler')
 
 const {
@@ -21,13 +21,13 @@ const {
     deleteAllProductsFromBasketHandler
 } = require('../controllers/productsAllDeleteFromBasketHandler')
 
-router.post('/:userID/add/:productID', getProductToBasketHandler)
+router.post('/:userID/add/:productID', postProductToBasketHandler)
 router.delete('/:userID/delete/:productID', deleteProductFromBasketHandler)
 router.delete('/:userID/clear', deleteAllProductsFromBasketHandler)
 router.get('/:userID/:productID', getProductIDHandler)
 router.get('/:userID', rootBasket)
 router.use((req, res) => {
-    res.status(404).send(`Error. Router doesn't found`)
+    res.status(404).send(`Помилка. Маршрут не знайдено`)
 })
 
 module.exports = router

@@ -7,7 +7,7 @@ const {
     SETTINGS
 } = require('./config/config.js')
 
-const package = fs.readFileSync('./server/package.json', 'utf-8')
+const package = fs.readFileSync('./package.json', 'utf-8')
 const packageObj = JSON.parse(package)
 
 const app = express()
