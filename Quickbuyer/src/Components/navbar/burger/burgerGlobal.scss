@@ -1,0 +1,57 @@
+@import "../../../colors";
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+@import "./burgerDarkTheme.scss";
+@import "./burgerWhiteTheme.scss";
+
+$grid-breakpoints: (
+    xs: 0,
+    ss: 320px,
+    sm: 480px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+);
+
+.header {
+    &__burgerbtn {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 20px;
+        right: auto;
+        background-color: #5c5c5e;
+        border-radius: 50%;
+        padding: 10px;
+        transition: all .3s;
+
+        &:hover {
+            padding: 15px;
+        }
+
+    }
+
+    &__burger-line {
+        width: 25px;
+        height: 3px;
+        background-color: $black;
+        margin-bottom: 4px;
+        border-radius: 3px;
+    }
+
+    &__burger-line:last-child {
+        margin: 0;
+    }
+
+    // &____burgerbtn
+}
+
+@include media-breakpoint-down(lg) {
+    .header {
+        &__burgerbtn {
+            display: inline-block;
+            width: auto;
+        }
+    }
+}

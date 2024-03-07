@@ -1,0 +1,61 @@
+@import "./BestUsersWhite.scss";
+@import "./BestUsersBlack.scss";
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
+.best-users {
+    position: relative;
+
+    &__elem {
+        text-align: center;
+    }
+    &__title {
+        text-align: center;
+        padding-bottom: 80px;
+    }
+    &__buttons {
+        position: absolute;
+        top: 63%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
+        width: 30%;
+        z-index: 100;
+    }
+    .slider {
+            osition: relative;
+    }
+    &__avatar {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+
+    &__elem-info {
+        font-size: 20px;
+        padding-bottom: 12px;
+    }
+
+    .slider-button-next {
+        &::before {
+            display: none;
+            content: "";
+        }
+    }
+
+    &__arrow {
+        cursor: pointer;
+    }
+
+    &__arrowNext {
+        transform: rotate(180deg);
+    }
+
+    @include media-breakpoint-down(lg) {
+        .best-users__buttons {
+            display: none;
+        }
+    }
+}

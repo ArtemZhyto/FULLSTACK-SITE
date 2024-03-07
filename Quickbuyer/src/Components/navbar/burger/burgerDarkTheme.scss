@@ -1,0 +1,11 @@
+@import "../../../colors";
+
+#dark .header {
+    &__burger-line {
+        background-color: $white;
+    }
+
+    // &__burgerbtn {
+    //     background-color: #5c5c5e;
+    // }
+}

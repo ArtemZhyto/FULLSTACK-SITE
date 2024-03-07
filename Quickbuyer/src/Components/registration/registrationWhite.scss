@@ -1,0 +1,28 @@
+@import "../../../src/colors";
+
+#light .register {
+    background-color: $black;
+    color: $white;
+
+
+    &__info {}
+
+    &__inputs {
+        background-color: $white;
+        color: $black;
+
+        border: 10px $black solid;
+
+        input {
+            background-color: $black;
+
+            color: $white;
+
+
+
+            &::placeholder {
+                color: rgba(217, 217, 217, 0.6);
+            }
+        }
+    }
+}

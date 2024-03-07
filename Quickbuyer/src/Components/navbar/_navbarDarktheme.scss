@@ -1,0 +1,63 @@
+@import "../../colors";
+
+
+#dark {
+    .header {
+        &__search-input {
+            background-color: $white;
+        }
+
+        &__btnblock-findsubmit {
+            background: url(../../../public/images/darktheme/header/loopa.svg) 0 0/ 100% no-repeat;
+        }
+
+        &__stuff {
+            background: url(../../../public/images/darktheme/header/allstuff.svg) 0 0/ 100% no-repeat;
+        }
+
+        &__categorys {
+            background: url(../../../public/images/darktheme/header/categorys.svg) 0 0/ 100% no-repeat;
+        }
+
+        &__btnblock-min {
+            background: url(../../../public/images/darktheme/header/buttonless.svg) 0 0/ 100% no-repeat;
+        }
+
+        &__btnblock-profile {
+            background: url(../../../public/images/darktheme/header/profile.svg) 0 0/ 100% no-repeat;
+        }
+
+        &__btnblock-shop {
+            background: url(../../../public/images/darktheme/header/bucket.svg) 0 0/ 100% no-repeat;
+        }
+
+        &__btnblock-shop {
+            background: url(../../../public/images/darktheme/header/bucket.svg) 0 0/ 100% no-repeat;
+        }
+
+        &__btnblock-theme {
+            background: url(../../../public/images/darktheme/header/theme.svg) 0 0/ 100% no-repeat;
+        }
+
+        &__btnblock-add {
+            background: url(../../../public/images/darktheme/header/create.svg) 0 0/ 100% no-repeat;
+        }
+
+        &__btnblock-plus {
+            background: url(../../../public/images/darktheme/header/create.svg) 0 0/ 100% no-repeat;
+        }
+
+        &__btnblock-min {
+            &::before {
+                background-color: $black;
+            }
+        }
+
+
+
+        &__btnblock--active {
+            background: $white;
+        }
+
+    }
+}

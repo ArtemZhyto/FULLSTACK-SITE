@@ -1,0 +1,122 @@
+@import "./BurgerPanelDark.scss";
+@import "./BurgerPanelLight.scss";
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
+.cover {
+    width: 100vw;
+    height: 100%;
+    z-index: 500;
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    background: #00010694;
+    cursor: pointer;
+}
+
+.panel {
+    padding: 56px 0 156px 0;
+    display: none;
+    transform: translateX(-100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transition: all .3s;
+    width: 50vw;
+    z-index: 1000;
+
+    &-show {
+        transform: translateX(0);
+    }
+
+    &__profile-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__profile-links a {
+        word-wrap: break-word;
+    }
+
+    &__profile-links a {
+        font-weight: 500;
+        font-size: 17px;
+    }
+
+    &__buttons li {
+        margin-bottom: 25px;
+        display: inline-block;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0;
+        margin-top: 30%;
+    }
+
+    &__buttons li a {
+        flex-wrap: wrap;
+    }
+
+    &__profile-links a:nth-child(2) {
+        margin: 0 auto;
+    }
+
+    &__profile {
+        display: flex;
+        margin: 0 auto 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    &__buttons li a {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+    }
+
+    &__buttons-item {
+        margin-left: 8px;
+    }
+
+    &__profile-pfp {
+        width: 100px;
+        height: 100px;
+        min-width: 50px
+    }
+
+    &__buttons-item {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+
+    .panel {
+
+        .panel__profile-links a:nth-child(2) {
+            margin: 0;
+        }
+
+        .panel__profile-links a {
+            font-size: 14px;
+        }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .panel {
+        display: inline-block;
+    }
+
+    .cover {
+        display: block;
+    }
+}

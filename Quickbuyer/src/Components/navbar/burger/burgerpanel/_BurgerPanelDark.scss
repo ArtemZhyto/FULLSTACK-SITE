@@ -1,0 +1,46 @@
+@import "../../../../colors";
+
+#dark {
+    .panel {
+        background-color: $black;
+        // border: 0px 3px 0 0 solid;
+        border-right: 2px solid $white;
+        border-bottom: 2px solid $white;
+        border-top: 2px solid $white;
+
+        a {
+            color: $white;
+            text-decoration: none;
+        }
+
+        &__profile-pfp {
+            background: url(../../../../../public/images/darktheme/header/profile.svg) 0 0/100% no-repeat;
+        }
+
+
+
+        &__buttons-stuff {
+            background: url(../../../../../public/images/darktheme/header/allstuff.svg) 0 0/100% no-repeat;
+        }
+
+        &__buttons-category {
+            background: url(../../../../../public/images/darktheme/header/categorys.svg) 0 0/100% no-repeat;
+        }
+
+        &__buttons-profile {
+            background: url(../../../../../public/images/darktheme/header/profile.svg) 0 0/100% no-repeat;
+        }
+
+        &__buttons-bucket {
+            background: url(../../../../../public/images/darktheme/header/bucket.svg) 0 0/100% no-repeat;
+        }
+
+        &__buttons-theme {
+            background: url(../../../../../public/images/darktheme/header/theme.svg) 0 0/100% no-repeat;
+        }
+
+        &__buttons-create {
+            background: url(../../../../../public/images/lighttheme/header/create.svg) 0 0/100% no-repeat;
+        }
+    }
+}
