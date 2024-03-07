@@ -1,0 +1,7 @@
+@import "../../../colors";
+
+#black .header {
+    &__burger-line {
+        background-color: $dark;
+    }
+}

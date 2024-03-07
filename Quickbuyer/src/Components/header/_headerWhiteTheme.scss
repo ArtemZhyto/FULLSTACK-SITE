@@ -1,0 +1,8 @@
+@import "../../colors";
+@import "../../mixins";
+
+#light {
+    .header__image {
+        @include box-shadow-light
+    }
+}

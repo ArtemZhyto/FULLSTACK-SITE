@@ -1,0 +1,40 @@
+@import "../../mixins";
+@import "./textPhotoWhite.scss";
+@import "./textPhotoDark.scss";
+@import "../../myBreakpoints";
+
+.textPhoto {
+    align-items: center;
+
+    &__info {
+        display: inline-block;
+        height: auto;
+
+        p {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+    }
+    &__imgblock {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-width: 100%;
+
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .textPhoto {
+        &__imgblock {
+            &::before {
+                display: none;
+            }
+        }
+    }
+}

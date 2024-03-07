@@ -1,0 +1,71 @@
+@import "./registrationBlack.scss";
+@import "./registrationWhite.scss";
+@import "../../mixins";
+
+.register {
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+
+    // flex-wrap: wrap;
+    &__info {}
+
+    &__inputs-label {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
+        margin: 0 auto;
+        max-width: 280px;
+        width: 100%;
+    }
+
+    &__info-text {
+        padding-bottom: 40px;
+        font-size: 17px;
+    }
+
+    &__title {
+        margin-top: 80px;
+        font-size: 36px;
+    }
+
+    &__inputs {
+        max-width: 350px;
+        width: 100%;
+        border-radius: 50px;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+
+        input {
+            width: 100%;
+            border-radius: 8px;
+            text-align: center;
+            height: 31px;
+            margin: 0 auto;
+        }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .register {
+        &__info {
+            display: none;
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .register {
+        &__inputs {
+            padding: 100px 8%;
+            input {
+                margin-bottom: 20px;
+            }
+            
+        }
+
+    }
+
+}

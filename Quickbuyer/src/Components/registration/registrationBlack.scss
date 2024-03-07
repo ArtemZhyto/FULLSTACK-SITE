@@ -1,0 +1,33 @@
+@import "../../../src/colors";
+@import "../../reset.css";
+
+
+#dark .register {
+    background-color: $white;
+    color: $black;
+
+    a {
+        text-decoration: none;
+        color: $white;
+    }
+    &__info {}
+
+    &__inputs {
+        background-color: $black;
+        color: $white;
+
+        border: 10px $white solid;
+
+        input {
+            background-color: $white;
+
+            color: $black;
+
+
+
+            &::placeholder {
+                color: rgba(217, 217, 217, 0.6);
+            }
+        }
+    }
+}
