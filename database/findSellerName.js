@@ -12,7 +12,7 @@ async function loadUser(sellerName) {
         const db = client.db(dbName)
         const collection = db.collection(collectionName)
 
-        const result = await collection.findOne({ name: sellerName}, { projection: {_id: 0, mail: 0, password: 0, allowNotifications: 0} })
+        const result = await collection.findOne({ name: sellerName}, { projection: {_id: 0, mail: 0, password: 0, allowNotifications: 0, products: 0} })
         
         console.log('Дані успішно отримані')
         client.close()

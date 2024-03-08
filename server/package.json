@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "description": "This is server for shop site",
   "main": "app.js",
   "scripts": {},
