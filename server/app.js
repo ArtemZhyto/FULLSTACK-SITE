@@ -21,6 +21,6 @@ app.use(router)
 const server = https.createServer(SETTINGS, app)
 
 server.listen(PORT, () => {
-    console.log(`Server start on port ${PORT}`)
-    console.log(`Version - ${packageObj.version}`)
+    console.log(`Сервер працює на порту ${PORT}`)
+    console.log(`Версія - ${packageObj.version}`)
 })
