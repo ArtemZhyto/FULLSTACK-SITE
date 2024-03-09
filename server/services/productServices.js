@@ -1,8 +1,8 @@
 const Product = require('../models/product')
 
 class ProductService {
-    createProduct(name, code, ID, price, seller, country, type, date, category) {
-        const product = new Product(name, code, ID, price, seller, country, type, date, category)
+    createProduct(name, code, ID, price, seller, country, type, date, category, img) {
+        const product = new Product(name, code, ID, price, seller, country, type, date, category, img)
         return product
     }
 }

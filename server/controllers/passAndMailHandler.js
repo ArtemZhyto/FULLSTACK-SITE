@@ -28,7 +28,7 @@ const getPassAndMail = async (req, res) => {
                     checkIDRes = await findID(checkID)
         
                     if (checkTokenRes && checkIDRes) {
-                        const user = await userServices.createUser(`user_${checkID}`, req.params.mail, req.params.password, checkToken, finaleDate, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined)
+                        const user = await userServices.createUser(`user_${checkID}`, req.params.mail, req.params.password, checkToken, finaleDate, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined)
                         await loadData(user)
                         res.status(200).send(user.ID) //@ Користувача було створено
                         return
