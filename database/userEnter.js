@@ -6,7 +6,8 @@ const collectionName = 'users'
 
 async function loadData(info) {
     try {
-        const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+        const client = await MongoClient.connect(url)
+        console.log()
         console.log('Успішне підключення до MongoDB')
 
         const db = client.db(dbName)

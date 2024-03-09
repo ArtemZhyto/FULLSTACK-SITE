@@ -13,8 +13,6 @@ const {
     postProductCreateHandler
 } = require('../controllers/productHandlers/productCreateHandler')
 
-router.use(express.json())
-
 router.post(`/create/:name/:price/:seller/:country/:type/:date/:category`, postProductCreateHandler)
 router.get('/:productID', getProductIDHandler)
 router.get('/', getProductsRootHandler)
