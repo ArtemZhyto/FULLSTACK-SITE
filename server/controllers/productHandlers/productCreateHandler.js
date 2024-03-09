@@ -25,7 +25,7 @@ const postProductCreateHandler = async (req, res) => {
 
             try {
                 if (checkIDRes && checkCodeRes) {
-                    const product = await productServices.createProduct(req.params.name, checkCode, checkID, req.params.price, req.params.seller, req.params.country, req.params.type, finaleDate, req.params.category)
+                    const product = await productServices.createProduct(req.params.name, checkCode, checkID, req.params.price, req.params.seller, req.params.country, req.params.type, finaleDate, req.params.category, req.params.img)
                     
                     const loadDataRes = await loadData(product, req.params.seller)
                     if (!loadDataRes) {

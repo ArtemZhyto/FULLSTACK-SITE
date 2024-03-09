@@ -1,5 +1,5 @@
 class User {
-    constructor(name, mail, password, ID, regist_data, sold, contactMail, phone, region, allowNotifications, instagram, telegram, products) {
+    constructor(name, mail, password, ID, regist_data, sold, contactMail, phone, region, allowNotifications, instagram, telegram, img, products) {
         this.name = name
         this.mail = mail
         this.password = password
@@ -12,6 +12,7 @@ class User {
         this.allowNotifications = allowNotifications    
         this.instagram = instagram
         this.telegram = telegram
+        this.img = img
         this.products = products
     }
 }
