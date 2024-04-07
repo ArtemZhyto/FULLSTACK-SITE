@@ -6,20 +6,9 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.6.7",
-    "bootstrap": "^5.3.3",
-    "cors": "^2.8.5",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
-    "react-dropzone": "^14.2.3",
-    "react-router": "^6.22.2",
-    "react-router-dom": "^6.22.2",
     "react-scripts": "5.0.1",
-    "react-slick": "^0.30.2",
-    "router": "^1.3.8",
-    "sass": "^1.71.1",
-    "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -45,8 +34,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
