@@ -1,0 +1,20 @@
+// @font-face {
+//     font-family: "Anybody";
+//     src: url) format("ttf");
+// }
+@import "./shared/utils/colours.scss";
+
+#main {
+    font-size: 17px;
+}
+
+#light   {
+    background-color: $white;
+    color : $dark;
+}
+
+#dark   {
+    background-color: $dark;
+    color : $white;
+}
+

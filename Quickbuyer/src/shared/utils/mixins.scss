@@ -1,0 +1,7 @@
+@import "./colours.scss";
+
+@mixin yellowButton {
+    background-color: $yellow;
+    padding: 10%;
+    border-radius: 15px;
+}
