@@ -1,8 +1,7 @@
-import { Children } from "react"
-import { styles } from "./yellowBtn.module.scss"
+import styles from "./yellowBtn.module.scss"
 
-const yellowBtn = () => {
-	return <button className={styles.yellowBtn}>{Children}</button>
+const YellowBtn = ({ children }) => {
+	return <button className={styles.yellowBtn}>{children}</button>
 }
 
-export default yellowBtn
+export default YellowBtn

@@ -1,11 +1,13 @@
-// @font-face {
-//     font-family: "Anybody";
-//     src: url) format("ttf");
-// }
+@font-face {
+    font-family: "Anybody";
+    src: url("../public/Anybody/Anybody-VariableFont_wdth\,wght.ttf") format("ttf");
+}
 @import "./shared/utils/colours.scss";
 
-#main {
+.main {
     font-size: 17px;
+    font-family: "Anybody";
+    font-weight: 400;
 }
 
 #light   {
@@ -16,5 +18,9 @@
 #dark   {
     background-color: $dark;
     color : $white;
+}
+
+header, footer, main {
+    padding: 100px 0;
 }
 

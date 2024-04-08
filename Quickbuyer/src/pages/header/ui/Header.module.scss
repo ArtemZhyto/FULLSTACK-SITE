@@ -1,0 +1,23 @@
+@import "../../../shared/utils/mixins.scss";
+@import "../../../shared/utils/breakpoints.scss";
+
+
+.header {
+    &__title {
+        @include title
+    }
+    &__imgblock {
+        height: 100%;
+    }
+    &__subtitle {
+        margin-left: 50px;
+    }
+    &__info {
+        padding-top: 100px;
+        padding-left: 50px;
+    }
+    &__guy {
+        width: 100%;
+        height: 100%;
+    }
+}
