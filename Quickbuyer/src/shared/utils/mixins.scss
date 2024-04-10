@@ -38,7 +38,56 @@
 @mixin title {
     font-size: 104px;
     font-weight: 700;
+
     @include media-breakpoint-down(sm) {
-        font-size: 64px;
+        font-size: 52px;
+
+    }
+
+    @include media-breakpoint-down(lg) {
+        text-align: center;
+    }
+}
+
+@mixin subtitle {
+    font-size: 32px;
+
+    // text-align: center;
+    @include media-breakpoint-down(sm) {
+        font-size: 17px;
+    }
+
+    @include media-breakpoint-down(lg) {
+        text-align: center;
+    }
+}
+
+@mixin box-shadow-dark {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        box-shadow: inset 0px -55px 10px -5px $dark;
+        z-index: 1;
+    }
+}
+
+@mixin box-shadow-light {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        box-shadow: inset 0px -55px 10px -5px $white;
+        z-index: 1;
     }
 }

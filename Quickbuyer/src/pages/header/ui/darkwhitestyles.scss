@@ -1,0 +1,12 @@
+@import "../../../shared/utils/mixins.scss";
+
+#dark {
+    .imgblock {
+        @include box-shadow-dark
+    }
+}
+#light {
+    .imgblock {
+        @include box-shadow-light
+    }
+}

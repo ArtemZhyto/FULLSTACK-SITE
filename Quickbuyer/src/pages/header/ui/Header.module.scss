@@ -1,20 +1,30 @@
 @import "../../../shared/utils/mixins.scss";
 @import "../../../shared/utils/breakpoints.scss";
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
 
 
 .header {
     &__title {
         @include title
     }
+
     &__imgblock {
         height: 100%;
     }
+
     &__subtitle {
         margin-left: 50px;
     }
+
     &__info {
         padding-top: 100px;
         padding-left: 50px;
+
+        @include media-breakpoint-down(md) {
+            padding: 0;
+        }
     }
     &__guy {
         width: 100%;

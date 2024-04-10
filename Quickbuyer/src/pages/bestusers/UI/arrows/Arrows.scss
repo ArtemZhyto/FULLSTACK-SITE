@@ -1,0 +1,54 @@
+#dark {
+    .bestUsers__rarrow {
+        position: absolute;
+        top: 50%;
+        left: auto;
+        right: 33%;
+        cursor: pointer;
+        display: block;
+        width: 35px;
+        height: 35px;
+        background: url("../../../../../public/photos/dark-theme/rarrow.svg")0 0 / 100% no-repeat;
+    }
+
+    .bestUsers__larrow {
+        position: absolute;
+        top: 50%;
+        right: auto;
+        left: 33%;
+        cursor: pointer;
+        display: block;
+        transform: rotate(180deg);
+        width: 35px;
+        height: 35px;
+        background: url("../../../../../public/photos/dark-theme/rarrow.svg")0 0 / 100% no-repeat;
+    }
+}
+
+#light {
+    .bestUsers__rarrow {
+        position: absolute;
+        top: 50%;
+        left: auto;
+        right: 33%;
+        display: block;
+        cursor: pointer;
+        width: 35px;
+        height: 35px;
+        background: url("../../../../../public/photos/white-theme/rarrow.svg")0 0 / 100% no-repeat;
+    }
+
+    .bestUsers__larrow {
+        position: absolute;
+        top: 50%;
+        right: auto;
+        left: 33%;
+        display: block;
+        cursor: pointer;
+        transform: rotate(180deg);
+        width: 35px;
+        height: 35px;
+        background: url("../../../../../public/photos/white-theme/rarrow.svg")0 0 / 100% no-repeat;
+
+    }
+}
