@@ -1,0 +1,64 @@
+@import "../../shared/utils/colours.scss";
+
+
+
+#dark {
+    .featuresBlock {
+        background-color: $white;
+
+        &__plus {
+            position: absolute;
+
+            &::after{
+                transform: translate(-50%, -50%) rotate(90deg);
+            }
+
+        }
+
+        &__cart {
+            background: url("../../../public/photos/cart-dark.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__profile {
+            background: url("../../../public/photos/profile-dark.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__theme {
+            background: url("../../../public/photos/themechanger-dark.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__addproduct {
+            background: url("../../../public/photos/addgood-dark.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__togglebtn {
+            background: url("../../../public/photos/dark-theme/minus-dark.svg") 0 0 / 100% no-repeat;
+        }
+    }
+}
+
+#white {
+    .featuresBlock {
+        background-color: $dark;
+
+        &__cart {
+            background: url("../../../public/photos/cart-white.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__profile {
+            background: url("../../../public/photos/profile-white.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__theme {
+            background: url("../../../public/photos/themechanger-white.svg  ") 0 0 / 100% no-repeat;
+        }
+
+        &__addproduct {
+            background: url("../../../public/photos/addgood-white.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__minus {
+            background: url("../../../public/photos/white-theme/minus-white.svg") 0 0 / 100% no-repeat;
+        }
+    }
+}

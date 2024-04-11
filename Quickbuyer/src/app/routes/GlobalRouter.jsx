@@ -4,7 +4,6 @@ import {
 	createRoutesFromElements,
 } from "react-router-dom"
 import Main from "../Main"
-import Example from "./Example"
 import Navbar from "../../pages/navbar/UI/Navbar"
 
 const router = createBrowserRouter(
