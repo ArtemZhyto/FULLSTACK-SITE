@@ -1,0 +1,28 @@
+@import "../../shared/utils/mixins.scss";
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
+
+.footer {
+    &__links {
+        display: flex;
+        width: 50%;
+        flex-wrap: wrap;
+        font-size: 20px;
+        justify-content: space-between;
+        margin: 0 auto;
+        @include media-breakpoint-down(lg) {
+            flex-direction: column;
+            align-items: center;
+            a {
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+    &__rights {
+        margin: 30px auto 0;
+        text-align: center;
+    }
+}

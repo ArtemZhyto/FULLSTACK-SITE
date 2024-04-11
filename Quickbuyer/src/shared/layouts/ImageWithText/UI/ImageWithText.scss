@@ -41,7 +41,7 @@
     }
 }
 
-#light {
+#white {
     .imgblock {
         position: relative;
 
@@ -78,12 +78,22 @@
 #dark {
     .comfort__image {
         background: url("../../../../../public/photos/dark-theme/theme-comfort.png") center/cover no-repeat;
+
+        @include media-breakpoint-down(sm) {
+            width: 150px;
+            height: 150px;
+        }
     }
 
 }
 
-#light {
+#white {
     .comfort__image {
         background: url("../../../../../public/photos/white-theme/theme-comfort.png") center/cover no-repeat;
+
+        @include media-breakpoint-down(sm) {
+            width: 150px;
+            height: 150px;
+        }
     }
 }

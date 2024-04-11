@@ -7,12 +7,12 @@ import YellowBtn from "../../../shared/ui/yellowBtn/YellowBtn"
 const Header = () => {
 	return (
 		<header className={styles.header}>
-			5<Container fluid>
+			<Container fluid>
 				<Row>
 					<Col xs={12} lg={6}>
 						<div className={styles.header__info}>
 							<h1 className={styles.header__title}>Эмоции в каждом товаре</h1>
-							<h3 className="header__subtitle">
+							<h3 className={styles.header__subtitle}>
 								Ваш лучший адрес для шопинга в онлайне
 							</h3>
 							<YellowBtn>

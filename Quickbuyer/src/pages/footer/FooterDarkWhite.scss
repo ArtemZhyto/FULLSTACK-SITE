@@ -1,0 +1,21 @@
+@import "../../shared/utils/colours.scss";
+
+#dark {
+    #footer {
+        border-top: .5px $white solid;
+        &__navlink {
+            color: $white;
+            
+        }
+    }
+
+}
+
+#white {
+    #footer {
+        border-top: .5px $dark solid;
+        &__navlink {
+            color: $dark;
+        }
+    }
+}

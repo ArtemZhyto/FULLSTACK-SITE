@@ -1,12 +1,12 @@
 import React, { useRef } from "react"
-import { settings } from "../CONFIG/settings"
+import { settings } from "../../../shared/CONFIG/settings"
 import Slider from "react-slick"
-import { bestUsersList } from "../data/bestUsersList"
-import User from "./user/User"
+import { bestUsersList } from "../../../entities/data/bestUsersList"
+import User from "../../../shared/ui/user/User"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import styles from "./BestUsers.module.scss"
-import Arrow from "./arrows/Arrows"
+import Arrow from "../../../widgets/arrows/Arrows"
 
 const BestUsers = () => {
 	return (

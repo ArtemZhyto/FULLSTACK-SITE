@@ -1,5 +1,6 @@
 #dark {
     .bestUsers__rarrow {
+        z-index: 100;
         position: absolute;
         top: 50%;
         left: auto;
@@ -8,10 +9,11 @@
         display: block;
         width: 35px;
         height: 35px;
-        background: url("../../../../../public/photos/dark-theme/rarrow.svg")0 0 / 100% no-repeat;
+        background: url("../../../public/photos/dark-theme/rarrow.svg")0 0 / 100% no-repeat;
     }
 
     .bestUsers__larrow {
+        z-index: 100;
         position: absolute;
         top: 50%;
         right: auto;
@@ -21,12 +23,13 @@
         transform: rotate(180deg);
         width: 35px;
         height: 35px;
-        background: url("../../../../../public/photos/dark-theme/rarrow.svg")0 0 / 100% no-repeat;
+        background: url("../../../public/photos/dark-theme/rarrow.svg")0 0 / 100% no-repeat;
     }
 }
 
-#light {
+#white {
     .bestUsers__rarrow {
+        z-index: 100;
         position: absolute;
         top: 50%;
         left: auto;
@@ -35,10 +38,11 @@
         cursor: pointer;
         width: 35px;
         height: 35px;
-        background: url("../../../../../public/photos/white-theme/rarrow.svg")0 0 / 100% no-repeat;
+        background: url("../../../public/photos/white-theme/rarrow.svg")0 0 / 100% no-repeat;
     }
 
     .bestUsers__larrow {
+        z-index: 100;
         position: absolute;
         top: 50%;
         right: auto;
@@ -48,7 +52,7 @@
         transform: rotate(180deg);
         width: 35px;
         height: 35px;
-        background: url("../../../../../public/photos/white-theme/rarrow.svg")0 0 / 100% no-repeat;
+        background: url("../../../public/photos/white-theme/rarrow.svg")0 0 / 100% no-repeat;
 
     }
 }
