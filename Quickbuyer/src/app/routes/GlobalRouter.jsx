@@ -1,12 +1,18 @@
-import { createBrowserRouter } from "react-router-dom";
-import App from "../App"
+import {
+	Route,
+	createBrowserRouter,
+	createRoutesFromElements,
+} from "react-router-dom"
+import Main from "../Main"
+import Example from "./Example"
+import Navbar from "../../pages/navbar/UI/Navbar"
 
+const router = createBrowserRouter(
+	createRoutesFromElements(
+		<Route path="/" element={<Navbar />}>
+			<Route index element={<Main />} />
+		</Route>
+	)
+)
 
-const router = createBrowserRouter([
-    {
-        path : "/", 
-        element : <App /> 
-    }
-])
-
-export default router   
+export default router

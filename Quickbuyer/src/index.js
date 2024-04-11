@@ -5,6 +5,12 @@ import "./index.scss"
 import { RouterProvider } from "react-router-dom"
 import router from "./app/routes/GlobalRouter"
 import "./resetglobal.css"
+import { Provider } from "react-redux"
+import { store } from "./app/redux/store"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(<RouterProvider router={router} />)
+root.render(
+	<Provider store={store}>
+		<RouterProvider router={router} />
+	</Provider>
+)
