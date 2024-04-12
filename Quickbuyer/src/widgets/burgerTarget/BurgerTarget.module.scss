@@ -1,0 +1,66 @@
+.burgertarget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    padding: 50px 0;
+    transition: all .3s;
+    transform: translateX(-100%);
+    z-index: 100;
+
+    &__info {
+        display: flex;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    &__infobtns {
+        display: grid;
+
+        :nth-child(2) {
+            justify-self: center;
+        }
+    }
+
+    &__larrow {
+        top: 30px;
+        left: auto;
+        right: 20px;
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        transform: rotate(180deg);
+    }
+
+    &__usericon {
+        width: 100px;
+        height: 100px;
+    }
+
+    &__productsbtn {
+        width: 35px;
+        height: 35px;
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+    }
+
+    &__title {
+        margin-right: 10px;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-around;
+    }
+}
+
+.burgertargetOpened {
+    transform: translate(0);
+}

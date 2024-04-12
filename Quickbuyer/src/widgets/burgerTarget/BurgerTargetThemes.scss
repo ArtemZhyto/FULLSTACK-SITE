@@ -1,0 +1,78 @@
+@import "../../shared/utils/colours.scss";
+
+#dark {
+    .burgertarget {
+        background-color: $dark;
+        border-right: $white 5px solid;
+
+        &__products {
+            background: url("../../../public/photos/goods-dark.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__categorys {
+            background: url("../../../public/photos/category-dark.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__profile {
+            background: url("../../../public/photos/profile-dark.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__bucket {
+            background: url("../../../public/photos/cart-dark.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__themes {
+            background: url("../../../public/photos/themechanger-dark.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__createGood {
+            background: url("../../../public/photos/addgood-dark.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__usericon {
+            background: url("../../../public/photos/profile-dark.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__larrow {
+            background: url("../../../public/photos/dark-theme/rarrow.svg") 0 0/ 100% no-repeat;
+        }
+    }
+}
+
+#white {
+    .burgertarget {
+        background-color: $white;
+        border-right: $dark 5px solid;
+
+        &__products {
+            background: url("../../../public/photos/goods-white.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__categorys {
+            background: url("../../../public/photos/category-white.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__profile {
+            background: url("../../../public/photos/profile-white.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__bucket {
+            background: url("../../../public/photos/cart-white.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__themes {
+            background: url("../../../public/photos/themechanger-white.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__createGood {
+            background: url("../../../public/photos/addgood-white.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__usericon {
+            background: url("../../../public/photos/profile-white.svg") 0 0/ 100% no-repeat;
+        }
+        &__larrow {
+            background: url("../../../public/photos/white-theme/rarrow.svg") 0 0/ 100% no-repeat;
+        }
+    }
+}
