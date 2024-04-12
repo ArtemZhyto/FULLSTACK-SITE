@@ -57,6 +57,7 @@ const FeaturesBlock = () => {
 					onClick={toggleOpen}
 				></button>
 			</li>
+			
 		</div>
 	)
 }

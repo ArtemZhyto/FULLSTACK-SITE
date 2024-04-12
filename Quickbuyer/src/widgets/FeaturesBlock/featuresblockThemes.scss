@@ -9,7 +9,7 @@
         &__plus {
             position: absolute;
 
-            &::after{
+            &::after {
                 transform: translate(-50%, -50%) rotate(90deg);
             }
 
@@ -41,6 +41,15 @@
     .featuresBlock {
         background-color: $dark;
 
+        &__plus {
+            position: absolute;
+
+            &::after {
+                transform: translate(-50%, -50%) rotate(90deg);
+            }
+
+        }
+
         &__cart {
             background: url("../../../public/photos/cart-white.svg") 0 0 / 100% no-repeat;
         }
@@ -59,6 +68,10 @@
 
         &__minus {
             background: url("../../../public/photos/white-theme/minus-white.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__togglebtn {
+            background: url("../../../public/photos/dark-theme/minus-dark.svg") 0 0 / 100% no-repeat;
         }
     }
 }

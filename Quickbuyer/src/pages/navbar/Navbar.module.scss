@@ -1,0 +1,57 @@
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+
+    &__input {
+        border-radius: 15px 10px 10px 15px;
+        width: 280px;
+        height: 31px;
+        padding: 0 10px;
+    }
+
+    &__btnphoto {
+        width: 35px;
+        height: 35px;
+        margin: 0 15px;
+    }
+
+    &__inputblock {
+        position: relative;
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+    }
+
+    &__searchbtn {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: auto;
+        right: -5px;
+        background: none;
+    }
+
+    &__hamburger {
+        display: none;
+
+        font-size: 30px;
+        @include media-breakpoint-down(lg) {
+            display: block;
+        }
+    }
+
+}
+
+.navbarWrapper {
+    position: fixed;
+    width: 100%;
+}

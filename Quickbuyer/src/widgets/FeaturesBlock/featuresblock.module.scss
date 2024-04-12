@@ -5,9 +5,9 @@
     position: relative;
     width: 35px;
     height: 35px;
-    position: fixed;
     z-index: 100;
     border-radius: 100px;
+
     &__inner {
         grid-template: 35px 35px/ 35px 35px;
         margin-top: 5px;
@@ -19,12 +19,14 @@
         position: relative;
         display: grid;
     }
+
     &__togglebtn {
         position: absolute;
         top: 0;
         left: auto;
         right: 0;
         transition: all .3s;
+
         &::after {
             content: "";
             display: block;
@@ -39,17 +41,21 @@
             transition: all .3s;
         }
     }
+
+
+
     &__btn {
         display: block;
         width: 35px;
         height: 35px;
     }
+
 }
 
 .featuresBlockActive {
     border-radius: 25px 40px 150px 25px;
     width: 145px;
     height: 90px;
-    position: fixed;
+    position: relative;
 
 }

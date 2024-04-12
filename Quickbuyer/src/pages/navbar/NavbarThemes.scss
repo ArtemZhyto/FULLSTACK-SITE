@@ -1,0 +1,44 @@
+@import "../../shared/utils/colours.scss";
+
+
+#dark {
+    .navbar {
+        &__input {
+            background-color: $white;
+        }
+
+        &__categorys {
+            background: url("../../../public/photos/category-dark.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__productsbtn {
+            background: url("../../../public/photos/goods-dark.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__searchbtn {
+        background: url("../../../public/photos/searchinput-dark.svg") 0 0 / 100% no-repeat;
+        }
+    }
+}
+
+#white {
+    .navbar {
+        &__input {
+            background-color:
+                $dark;
+                color: $white;
+        }
+
+        &__categorys {
+            background: url("../../../public/photos/category-white.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__productsbtn {
+            background: url("../../../public/photos/goods-white.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__searchbtn {
+            background: url("../../../public/photos/searchinput-white.svg") 0 0 / 100% no-repeat;
+        }
+    }
+}
