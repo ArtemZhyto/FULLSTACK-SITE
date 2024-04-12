@@ -10,7 +10,7 @@ import BurgerTarget from "../../widgets/burgerTarget/UI/BurgerTarget"
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<>
-			<Route path="/burger" element={<BurgerTarget />} />
+			{/* <Route path="/burger" element={<BurgerTarget />} /> */}
 			<Route path="/" element={<Navbar />}>
 				<Route index element={<Main />} />
 			</Route>

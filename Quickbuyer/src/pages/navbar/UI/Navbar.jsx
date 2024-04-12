@@ -7,7 +7,10 @@ import "../NavbarThemes.scss"
 import { Outlet, useLocation, useNavigate } from "react-router"
 import FeaturesBlock from "../../../widgets/FeaturesBlock/UI/FeaturesBlock"
 import { GiHamburgerMenu } from "react-icons/gi"
+import { toggleLeftPanel } from "../../../features/goods/Goods"
+import { useDispatch } from "react-redux"
 const Navbar = () => {
+	const dispatch = useDispatch()
 	const location = useLocation()
 	const searchLoaction = queryString.parse(location.search)
 	const navigate = useNavigate()
@@ -18,7 +21,12 @@ const Navbar = () => {
 					<Col xs={0} lg={5}></Col>
 					<Col xs={12} lg={7}>
 						<nav className={styles.navbar}>
-							<GiHamburgerMenu className={styles.navbar__hamburger} />
+							<GiHamburgerMenu
+								className={styles.navbar__hamburger}
+								onClick={() => {
+									dispatch(toggleLeftPanel())
+								}}
+						/>
 							<div className={styles.navbar__btn}>
 								<p className="">Товары</p>
 								<div

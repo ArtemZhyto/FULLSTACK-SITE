@@ -97,3 +97,9 @@
         }
     }
 }
+
+@include media-breakpoint-down(sm) {
+    .shadow {
+        display: none;
+    }
+}

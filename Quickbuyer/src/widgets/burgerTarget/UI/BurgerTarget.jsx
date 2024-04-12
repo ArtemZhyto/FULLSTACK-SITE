@@ -1,12 +1,13 @@
-import { useState } from "react"
 import styles from "../BurgerTarget.module.scss"
 import "../BurgerTargetThemes.scss"
+import { selectIsOpened, toggleLeftPanel } from "../../../features/goods/Goods"
+import { useSelector, useDispatch } from "react-redux"
 
-const BurgerTarget = ({ children }) => {
-	const [isOpened, setIsOpened] = useState(true)
+const BurgerTarget = () => {
+	const dispatch = useDispatch()
+	const isOpened = useSelector(selectIsOpened)
 	return (
 		<>
-			{/* {childrenonClick} */}
 			<div
 				className={
 					isOpened
@@ -62,9 +63,7 @@ const BurgerTarget = ({ children }) => {
 						></div>
 					</div>
 					<button
-						onClick={() => {
-							setIsOpened(!isOpened)
-						}}
+						onClick={() => dispatch(toggleLeftPanel())}
 						className={`burgertarget__larrow ${styles.burgertarget__larrow}`}
 					></button>
 				</div>

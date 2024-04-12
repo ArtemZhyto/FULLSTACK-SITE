@@ -1,4 +1,7 @@
 @import "../../shared/utils/colours.scss";
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
 
 .featuresBlock {
     background-color: transparent;
@@ -7,6 +10,10 @@
     height: 35px;
     z-index: 100;
     border-radius: 100px;
+
+    @include media-breakpoint-down(sm) {
+        display: none;
+    }
 
     &__inner {
         grid-template: 35px 35px/ 35px 35px;
