@@ -5,7 +5,7 @@ import Comfort from "../pages/coomfort/Comfort"
 import GoodsAssortiments from "../pages/goodsAsssortiment/ui/GoodsAssortiments"
 import BestUsers from "../pages/bestusers/UI/BestUsers"
 import Footer from "../pages/footer/UI/Footer"
-import Registration from "../pages/registratiion/UI/Registration"
+import Registration from "../pages/registratiion/UI/Form"
 import BurgerTarget from "../widgets/burgerTarget/UI/BurgerTarget"
 const Main = ({ children }) => {
 	const [isOpened, setIsOpened] = useState(false)

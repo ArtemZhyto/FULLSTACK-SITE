@@ -1,9 +1,9 @@
 import styles from "./Header.module.scss"
 import { Col, Container, Row, Image } from "react-bootstrap"
-
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./darkwhitestyles.scss"
 import YellowBtn from "../../../shared/ui/yellowBtn/YellowBtn"
+import { substring } from "../../../shared/utils/substring"
 const Header = () => {
 	return (
 		<header className={styles.header}>
@@ -20,7 +20,11 @@ const Header = () => {
 							</YellowBtn>
 						</div>
 					</Col>
-					<Col xs={12} lg={6} className={`imgblock ${styles.header__imgblock}`}>
+					<Col
+						xs={12}
+						lg={6}
+						className={substring(styles.header__imgblock, "imgblock")}
+					>
 						<Image
 							className={styles.header__guy}
 							src="/photos/guy.png"

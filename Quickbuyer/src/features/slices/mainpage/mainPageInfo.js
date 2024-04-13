@@ -16,6 +16,8 @@ const fetchProducts = createAsyncThunk("goods/fetchproducts", async () => {
 	}
 })
 
+// const 
+
 const mainpage = createSlice({
 	name: "mainpage",
 	initialState,
