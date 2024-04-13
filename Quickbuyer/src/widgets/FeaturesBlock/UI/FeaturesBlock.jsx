@@ -1,8 +1,11 @@
 import React, { useState } from "react"
 import style from "../featuresblock.module.scss"
 import "../featuresblockThemes.scss"
-import { Link  } from "react-router-dom"
+import { Link } from "react-router-dom"
+import { changeTheme } from "../../../features/slices/mainpage/mainPageInfo"
+import { useDispatch } from "react-redux"
 const FeaturesBlock = () => {
+	const dispatch = useDispatch()
 	const [isOpened, setIsOpened] = useState(false)
 	const toggleOpen = (e) => {
 		e.preventDefault()
@@ -31,10 +34,10 @@ const FeaturesBlock = () => {
 						></Link>
 					</li>
 					<li className={style.featuresBlock__btn}>
-						<Link
-							href=""
+						<button
+							onClick={() => dispatch(changeTheme())}
 							className={`${style.featuresBlock__btn} featuresBlock__theme`}
-						></Link>
+						></button>
 					</li>
 					<li className={style.featuresBlock__btn}>
 						<Link
@@ -57,7 +60,6 @@ const FeaturesBlock = () => {
 					onClick={toggleOpen}
 				></button>
 			</li>
-			
 		</div>
 	)
 }

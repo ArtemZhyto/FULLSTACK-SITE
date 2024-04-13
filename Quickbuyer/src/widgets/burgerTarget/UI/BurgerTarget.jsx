@@ -1,6 +1,6 @@
 import styles from "../BurgerTarget.module.scss"
 import "../BurgerTargetThemes.scss"
-import { selectIsOpened, toggleLeftPanel } from "../../../features/goods/Goods"
+import { selectIsOpened, toggleLeftPanel } from "../../../features/slices/mainpage/mainPageInfo"
 import { useSelector, useDispatch } from "react-redux"
 
 const BurgerTarget = () => {

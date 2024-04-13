@@ -7,8 +7,9 @@ import "../NavbarThemes.scss"
 import { Outlet, useLocation, useNavigate } from "react-router"
 import FeaturesBlock from "../../../widgets/FeaturesBlock/UI/FeaturesBlock"
 import { GiHamburgerMenu } from "react-icons/gi"
-import { toggleLeftPanel } from "../../../features/goods/Goods"
+import { toggleLeftPanel } from "../../../features/slices/mainpage/mainPageInfo"
 import { useDispatch } from "react-redux"
+
 const Navbar = () => {
 	const dispatch = useDispatch()
 	const location = useLocation()
@@ -26,7 +27,7 @@ const Navbar = () => {
 								onClick={() => {
 									dispatch(toggleLeftPanel())
 								}}
-						/>
+							/>
 							<div className={styles.navbar__btn}>
 								<p className="">Товары</p>
 								<div
@@ -43,7 +44,7 @@ const Navbar = () => {
 								<input
 									type="text"
 									placeholder="поиск"
-									value={searchLoaction.q}
+									value={searchLoaction?.q}
 									onChange={(e) => {
 										navigate(`?q=${e.target.value}`)
 									}}
@@ -51,6 +52,7 @@ const Navbar = () => {
 								/>
 								<button
 									type="submit"
+									onClick={() => navigate(`/products?q=${searchLoaction?.q}`)}
 									className={`navbar__searchbtn ${styles.navbar__searchbtn} ${styles.navbar__btnphoto}`}
 								></button>
 							</div>

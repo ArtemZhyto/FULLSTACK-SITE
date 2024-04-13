@@ -1,8 +1,10 @@
-import Goods from "../../features/goods/Goods"
+import currentUser from "../../features/slices/currentUser/currentUser"
+import mainpage from "../../features/slices/mainpage/mainPageInfo"
 import { configureStore } from "@reduxjs/toolkit"
 
 export const store = configureStore({
 	reducer: {
-		goods: Goods,
+		mainpage,
+		currentUser,
 	},
 })

@@ -10,9 +10,9 @@ import { store } from "./app/redux/store"
 import ThemeWrapper from "./shared/ui/themeWrapper/ThemeWrapper"
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
-	<ThemeWrapper>
-		<Provider store={store}>
+	<Provider store={store}>
+		<ThemeWrapper>
 			<RouterProvider router={router} />
-		</Provider>
-	</ThemeWrapper>
+		</ThemeWrapper>
+	</Provider>
 )
