@@ -1,9 +1,16 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { selectCurrentUser } from "../../../features/slices/currentUser/currentUser"
 import TextInput from "../../../shared/textInput/UI/TextInput.jsx"
 const YourProfile = () => {
-	const currentUser = useSelector(selectCurrentUser)
+	// const currentUser = useSelector(selectCurrentUser)
+  const [currentUser, setCurrentUser] = useState({})
+  useEffect(() => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+    console.log(currentUser)
+    if (currentUser) {
+      setCurrentUser(currentUser)
+    }
+  }, [])
 	return (
 		<article className="yourProfile">
 			<div className="yourProfile__globalinfo">

@@ -1,13 +1,11 @@
 import styles from "./Form.module.scss"
 import { useState } from "react"
 import { toast } from "react-toastify"
-import { sendEnter } from "../../features/slices/currentUser/currentUser"
+import { sendEnter } from "../../features/API/sendEnter"
 import "./FormThemes.scss"
 import { substring } from "../../shared/utils/substring"
 import "react-toastify/dist/ReactToastify.css"
-import { useDispatch } from "react-redux"
 const EnterForm = ({ setTypeOfSending, theme }) => {
-	const dispatch = useDispatch()
 	const initalState = {
 		email: "",
 		password: "",
@@ -24,7 +22,7 @@ const EnterForm = ({ setTypeOfSending, theme }) => {
 					})
 					setRegistrationVals(initalState)
 				} else {
-					dispatch(sendEnter(registrationVals))
+					sendEnter(registrationVals)
 					setRegistrationVals(initalState)
 				}
 			}}

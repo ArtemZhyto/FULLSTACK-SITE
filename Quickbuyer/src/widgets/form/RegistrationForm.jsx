@@ -1,25 +1,22 @@
 import styles from "./Form.module.scss"
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
-import {
-	selectCurrentUser,
-	sendEnter,
-	sendRegistration,
-} from "../../features/slices/currentUser/currentUser"
+import { sendRegistration } from "../../features/API/sendRegistration"
 import "./FormThemes.scss"
 import { substring } from "../../shared/utils/substring"
 import "react-toastify/dist/ReactToastify.css"
-import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router"
 const RegistrationForm = ({ setTypeOfSending, theme }) => {
-	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const userId = useSelector(selectCurrentUser).ID
+	const currentUser = JSON.parse(localStorage.getItem("currentUser"))
 	useEffect(() => {
-		if (userId) {
-			navigate(`/user/${userId}`)
+		if (currentUser) {
+			const userId = currentUser.ID
+			if (userId) {
+				navigate(`/user/${userId}`)
+			}
 		}
-	}, [userId])
+	}, [currentUser])
 	const initalState = {
 		mail: "",
 		password: "",
@@ -40,7 +37,7 @@ const RegistrationForm = ({ setTypeOfSending, theme }) => {
 					toast.error("Пароли не совпадают 😒 ", { theme })
 					setRegistrationVals(initalState)
 				} else {
-					dispatch(sendRegistration(registrationVals))
+					sendRegistration(registrationVals)
 					setRegistrationVals(initalState)
 				}
 			}}
