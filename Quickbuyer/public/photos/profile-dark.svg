@@ -1,5 +1,5 @@
-`https://localhost:34673/registration/${password}/${mail}`<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect x="0.419922" y="0.365356" width="35" height="35" fill="url(#pattern0_727_1007)"/>
+<svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="35" height="35" fill="url(#pattern0_727_1007)"/>
 <defs>
 <pattern id="pattern0_727_1007" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_727_1007" transform="scale(0.000380807)"/>
