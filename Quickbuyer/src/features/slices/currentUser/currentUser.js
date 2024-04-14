@@ -1,30 +1,36 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 import { toast } from "react-toastify"
-export const sendEnter = createAsyncThunk("sendEnter", async (inputVal) => {
-	const { mail, password } = inputVal
-	try {
-		const resp = await axios.get(
-			`https://localhost:34673/enter/${password}/${mail}`
-		)
-		return resp.data
-	} catch (error) {
-		console.log(error)
-		if (error.response.data === "Помилка. Користувач не знайден") {
-            toast.error("Пользователь не найден ^_____^")
+export const sendEnter = createAsyncThunk(
+	"currentUser/sendEnter",
+	async (inputVal, thunkApi) => {
+		const { mail, password } = inputVal
+		try {
+			const resp = await axios.get(
+				`https://localhost:34673/enter/${password}/${mail}`
+			)
+			return resp.data
+		} catch (error) {
+			console.log(error)
+			if (error.response.data === "Помилка. Користувач не знайден") {
+				toast.error("Пользователь не найден ^_____^")
+			}
+			throw error
 		}
-		throw error
 	}
-})
+)
 export const sendRegistration = createAsyncThunk(
-	"sendRegistration",
+	"currentUser/sendRegistration",
 	async (inputVal) => {
 		const { mail, password } = inputVal
 		try {
-			const res = await axios.post(
+			await axios.post(
 				`https://localhost:34673/registration/${password}/${mail}`
 			)
-			return inputVal
+			const resp = await axios.get(
+				`https://localhost:34673/enter/${password}/${mail}`
+			)
+			return resp.data
 		} catch (error) {
 			console.log(error)
 			throw error
@@ -36,7 +42,7 @@ const initialState = {
 	mail: "",
 	password: "",
 	regist_data: 2024,
-	id: undefined,
+	ID: undefined,
 	sold: 0,
 	contactMail: "no",
 	phone: "no",
@@ -66,5 +72,5 @@ const currentUser = createSlice({
 })
 
 export const { addCurrentUser } = currentUser.actions
-
+export const selectCurrentUser = (state) => state.currentUser
 export default currentUser.reducer

@@ -1,13 +1,27 @@
 import styles from "./Form.module.scss"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
-import { sendRegistration } from "../../features/slices/currentUser/currentUser"
+import {
+	selectCurrentUser,
+	sendEnter,
+	sendRegistration,
+} from "../../features/slices/currentUser/currentUser"
 import "./FormThemes.scss"
 import { substring } from "../../shared/utils/substring"
 import "react-toastify/dist/ReactToastify.css"
 import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router"
+import { useSelector } from "react-redux"
 const RegistrationForm = ({ setTypeOfSending, theme }) => {
-    const dispatch = useDispatch()
+	const dispatch = useDispatch()
+	const navigate = useNavigate()
+	const userId = useSelector(selectCurrentUser).ID
+	console.log(userId)
+	useEffect(() => {
+		if (userId) {
+			navigate(`/user/${userId}`)
+		}
+	}, [userId])
 	const initalState = {
 		mail: "",
 		password: "",
