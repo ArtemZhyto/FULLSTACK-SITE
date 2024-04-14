@@ -1,0 +1,22 @@
+#dark {
+    .yourProfile {
+        &__redactBtn {
+            background: url("../../../public/photos/dark-theme/edit.svg") 0 0 / 100% no-repeat;
+        }
+    }
+}
+#white {
+    .yourProfile {
+        &__redactBtn {
+            background: url("../../../public/photos/white-theme/edit.svg") 0 0 / 100% no-repeat;
+        }
+    }
+}
+
+.yourProfile {
+    &__redactBtn {
+        width: 25px;
+        height: 25px;
+    }
+
+}
