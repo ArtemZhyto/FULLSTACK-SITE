@@ -5,18 +5,7 @@ import { sendRegistration } from "../../features/API/sendRegistration"
 import "./FormThemes.scss"
 import { substring } from "../../shared/utils/substring"
 import "react-toastify/dist/ReactToastify.css"
-import { useNavigate } from "react-router"
 const RegistrationForm = ({ setTypeOfSending, theme }) => {
-	const navigate = useNavigate()
-	const currentUser = JSON.parse(localStorage.getItem("currentUser"))
-	useEffect(() => {
-		if (currentUser) {
-			const userId = currentUser.ID
-			if (userId) {
-				navigate(`/user/${userId}`)
-			}
-		}
-	}, [currentUser])
 	const initalState = {
 		mail: "",
 		password: "",

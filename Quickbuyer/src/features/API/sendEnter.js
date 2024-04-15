@@ -8,11 +8,12 @@ export const sendEnter = async (inputVal) => {
 			`https://localhost:34673/enter/${password}/${mail}`
 		)
 		localStorage.setItem("currentUser", JSON.stringify(resp.data))
+		window.dispatchEvent(new Event("addCurUser"))
 	} catch (error) {
 		console.log(error)
 		if (error.response.data === "Помилка. Користувач не знайден") {
 			toast.error("Пользователь не найден ^_____^")
 		}
-		throw error
+		console.log(error)
 	}
 }

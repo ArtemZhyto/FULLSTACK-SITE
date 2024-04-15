@@ -9,10 +9,25 @@ import EnterForm from "../../../widgets/form/EnterForm"
 import RegistrationInstruction from "../../../widgets/instruction/RegistrationInstruction"
 import EnterInstruction from "../../../widgets/instruction/EnterInstruction"
 import RegistrationForm from "../../../widgets/form/RegistrationForm"
+import { useNavigate } from "react-router"
+import { useEffect } from "react"
 const Registration = () => {
 	const [typeOfSending, setTypeOfSending] = useState("registration")
 	const theme = useSelector(chooseTheme) === "white" ? "light" : "dark"
 	const checking = typeOfSending === "registration"
+	const navigate = useNavigate()
+	useEffect(() => {
+		const handleNewCurUser = () => {	
+			const localStorageUser = JSON.parse(localStorage.getItem("currentUser"))
+			if (localStorageUser) {
+				if (localStorageUser.ID) {
+					navigate(`/user/${localStorageUser.ID}`)
+				}
+			}
+		}
+		window.addEventListener("addCurUser", handleNewCurUser)
+		return () => window.removeEventListener("addCurUser", handleNewCurUser)
+	}, [])
 	return (
 		<article className="registration">
 			<ToastContainer theme={theme}></ToastContainer>

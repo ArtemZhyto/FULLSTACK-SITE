@@ -7,16 +7,16 @@ import { substring } from "../../shared/utils/substring"
 import "react-toastify/dist/ReactToastify.css"
 const EnterForm = ({ setTypeOfSending, theme }) => {
 	const initalState = {
-		email: "",
+		mail: "",
 		password: "",
 	}
 	const [registrationVals, setRegistrationVals] = useState(initalState)
-	const { email, password } = registrationVals
+	const { mail, password } = registrationVals
 	return (
 		<form
 			onSubmit={(e) => {
 				e.preventDefault()
-				if (!password || !email) {
+				if (!password || !mail) {
 					toast.info("Заполните все поля перед отправкой 🙂", {
 						theme,
 					})
@@ -37,11 +37,11 @@ const EnterForm = ({ setTypeOfSending, theme }) => {
 						styles.registration__input
 					)}
 					placeholder="Например, example@gmail.com"
-					value={registrationVals.email}
+					value={registrationVals.mail}
 					onChange={(e) =>
 						setRegistrationVals({
 							...registrationVals,
-							email: e.target.value,
+							mail: e.target.value,
 						})
 					}
 				/>
