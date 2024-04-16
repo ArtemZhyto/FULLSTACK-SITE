@@ -18,5 +18,11 @@
         width: 25px;
         height: 25px;
     }
+    &__label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 
 }

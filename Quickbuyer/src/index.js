@@ -11,8 +11,6 @@ import ThemeWrapper from "./shared/ui/themeWrapper/ThemeWrapper"
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
 	<Provider store={store}>
-		<ThemeWrapper>
-			<RouterProvider router={router} />
-		</ThemeWrapper>
+		<RouterProvider router={router} />
 	</Provider>
 )

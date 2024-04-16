@@ -17,7 +17,7 @@ const Registration = () => {
 	const checking = typeOfSending === "registration"
 	const navigate = useNavigate()
 	useEffect(() => {
-		const handleNewCurUser = () => {	
+		const handleNewCurUser = () => {
 			const localStorageUser = JSON.parse(localStorage.getItem("currentUser"))
 			if (localStorageUser) {
 				if (localStorageUser.ID) {

@@ -1,5 +1,5 @@
 import styles from "./Form.module.scss"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { toast } from "react-toastify"
 import { sendRegistration } from "../../features/API/sendRegistration"
 import "./FormThemes.scss"

@@ -7,6 +7,7 @@ export const sendEnter = async (inputVal) => {
 		const resp = await axios.get(
 			`https://localhost:34673/enter/${password}/${mail}`
 		)
+		console.log(resp)
 		localStorage.setItem("currentUser", JSON.stringify(resp.data))
 		window.dispatchEvent(new Event("addCurUser"))
 	} catch (error) {

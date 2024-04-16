@@ -22,7 +22,6 @@ const Main = ({ children }) => {
 			<GoodsAssortiments />
 			<BestUsers />
 			<Registration />
-			<Footer />
 		</>
 	)
 }

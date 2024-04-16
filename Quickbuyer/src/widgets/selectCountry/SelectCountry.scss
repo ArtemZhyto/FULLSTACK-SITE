@@ -1,0 +1,19 @@
+@import "../../shared/utils/colours.scss";
+    
+#dark {
+    .yourProfile {
+        &__select {
+            background-color: $dark;
+            color: $white;
+        }
+    }
+}
+
+#white {
+    .yourProfile {
+        &__select {
+            background-color: $white;
+            color: $dark;
+        }
+    }
+}

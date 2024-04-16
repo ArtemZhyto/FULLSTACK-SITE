@@ -62,7 +62,6 @@ const Navbar = () => {
 					</Col>
 				</Row>
 			</Container>
-			<Outlet />
 		</>
 	)
 }
