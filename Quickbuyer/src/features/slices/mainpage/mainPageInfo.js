@@ -7,16 +7,18 @@ const initialState = {
 	themeColour: "white",
 }
 
-const fetchProducts = createAsyncThunk("goods/fetchproducts", async () => {
-	try {
-		const res = await axios.get("https://localhost:34673/products")
-		return res.data
-	} catch (error) {
-		console.error(error)
+export const fetchProducts = createAsyncThunk(
+	"goods/fetchproducts",
+	async (_, thunkApi) => {
+		try {
+			const res = await axios.get("https://localhost:34673/products")
+			return res.data
+		} catch (error) {
+			console.log("rejected")
+			thunkApi.rejectWithValue(error)
+		}
 	}
-})
-
-// const 
+)
 
 const mainpage = createSlice({
 	name: "mainpage",
@@ -42,5 +44,5 @@ const mainpage = createSlice({
 export const { addGood, toggleLeftPanel, changeTheme } = mainpage.actions
 export const chooseTheme = (state) => state.mainpage.themeColour
 export const selectIsOpened = (state) => state.mainpage.isOpened
-export { fetchProducts }
+export const selectGoods = (state) => state.mainpage.goods
 export default mainpage.reducer

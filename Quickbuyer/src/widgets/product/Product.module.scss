@@ -1,0 +1,78 @@
+@import "../../shared/utils/mixins.scss";
+@import "../../shared/utils/colours.scss";
+@import "../../shared/utils/breakpoints.scss";
+
+.products {
+    &__product:hover .products__additionalInfo {
+        height: auto;
+        transform: scale(1);
+    }
+
+    &__product {
+        transition: all .3s;
+        word-wrap: break-word;
+        display: inline-flex;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        font-size: 17px;
+        border-radius: 15px;
+        padding: 15px;
+        max-width: 225px;
+    }
+
+    &__productName {
+        margin: 10px 0;
+    }
+
+    &__additionalInfo {
+        margin-bottom: 10px;
+        transform: scale(0);
+        transition: all .3s;
+        height: 0;
+
+        :nth-child(3) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__line {
+        width: 90%;
+        height: .5px;
+        margin: 0 auto;
+        border-radius: 15px;
+    }
+
+
+    &__btns {
+        display: flex;
+        align-items: start;
+    }
+
+    &__addToCart {
+        @include yellowButton;
+    }
+
+    &__showProduct {
+        @include yellowButton;
+    }
+
+    &__buyBtn {
+        @include yellowButton;
+    }
+
+    &__image {
+        width: 110px;
+        height: 110px;
+    }
+
+    &__imageWrapper {
+        display: flex;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+}

@@ -1,0 +1,44 @@
+@import "../../shared/utils/mixins.scss";
+@import "../../shared/utils/colours.scss";
+
+#dark {
+    .products {
+        color  : $dark;
+        &__addToCart {
+            background-color: $dark;
+            color: $white;
+        }
+
+        &__imageWrapper {
+            background-color: $dark;
+        }
+
+        &__product {
+            background-color: $white;
+        }
+        &__line {
+            background-color: $dark;
+        }
+    }
+}
+
+#white {
+    .products {
+        color : $white;     
+        &__addToCart {
+            background-color: $white;
+            color: $dark;
+        }
+
+        &__imageWrapper {
+            background-color: $white;
+        }
+
+        &__product {
+            background-color: $dark;
+        }
+        &__line {
+            background-color: $white;
+        }
+    }
+}
