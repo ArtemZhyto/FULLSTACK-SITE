@@ -1,5 +1,5 @@
 class Product {
-    constructor(name, code, ID, price, seller, country, type, date, category, img) {
+    constructor(name, code, ID, price, seller, country, type, date, category, image) {
         this.name = name
         this.code = code
         this.ID = ID
@@ -9,7 +9,7 @@ class Product {
         this.type = type
         this.date = date
         this.category = category
-        this.img = img
+        this.image = image
     }
 }
  
