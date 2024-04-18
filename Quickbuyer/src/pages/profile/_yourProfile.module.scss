@@ -1,0 +1,67 @@
+.yourProfile {
+    &__yelbut {
+        @include yellowButton;
+        margin: 100px auto 0;
+        width: auto;
+        position: absolute;
+        top: auto;
+        bottom: 75px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &__line {
+        width: 90%;
+        margin: 0 auto;
+        height: 2px;
+    }
+
+    &__changePhoto {
+        display: block;
+        width: 45px;
+        height: 45px;
+        position: absolute;
+        top: auto;
+        bottom: 25%;
+        left: auto;
+        right: 10px;
+    }
+
+    &__checkbox:checked~.yourProfile__customCheckbox {
+        .yourProfile__checkMark {
+            display: block;
+        }
+    }
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__checkMark {
+        display: none;
+    }
+
+    &__name {
+        max-width: 50%;
+    }
+
+    &__exit {
+        @include yellowButton;
+    }
+
+    &__input {
+        background-color: $dark;
+        color: $white;
+        border: 1px solid $white;
+        border-radius: 5px;
+    }
+
+    &__customCheckbox {
+        font-size: 20px;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

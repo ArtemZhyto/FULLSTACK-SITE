@@ -1,0 +1,14 @@
+.otherProfile {
+    &__discribePhoto {
+        width: 30px;
+        height: 30px;
+        margin-right: 20px;
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+}

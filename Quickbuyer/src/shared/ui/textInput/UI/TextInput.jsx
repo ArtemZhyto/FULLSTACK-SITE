@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "../textInput.scss"
-const TextInput = ({ customInput, text, label }) => {
+const TextInput = ({ customInput, text, label, logo }) => {
 	const [isChanged, setIsChanged] = useState(false)
 	const toggleChange = () => {
 		setIsChanged(!isChanged)
@@ -9,6 +9,7 @@ const TextInput = ({ customInput, text, label }) => {
 		<>
 			{isChanged ? (
 				<div className="yourProfile__textInput">
+					{logo}
 					<label className="yourProfile__label">
 						{label}
 						<p className="yourProfile__label"></p>
@@ -22,6 +23,7 @@ const TextInput = ({ customInput, text, label }) => {
 				</div>
 			) : (
 				<label className="yourProfile__label">
+					{logo}
 					{label}
 					<p className="yourProfile__text">{text}</p>
 					<button

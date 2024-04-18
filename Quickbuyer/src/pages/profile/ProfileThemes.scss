@@ -2,12 +2,15 @@
 @import "../../shared/utils/mixins.scss";
 
 #dark {
-    .yourProfile {
+
+    .yourProfile,
+    .otherProfile {
         color: $dark;
 
-        &__changePhoto{
+        &__changePhoto {
             background: url("../../../public/photos/dark-theme/edit.svg") 0 0 / 100% no-repeat;
         }
+
         &__globalinfo {
             background-color: $white;
             color: $dark;
@@ -33,19 +36,53 @@
         &__line {
             background: $dark;
         }
-
+        
         &__defaultPhoto {
             background: url("../../../public/photos/profile-dark.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__eye {
+            background: url("../../../public/photos/dark-theme/password-eye.svg") 0 0 / 100% no-repeat;
         }
     }
 }
 
 #white {
-    .yourProfile {
+
+    .yourProfile,
+    .otherProfile {
         color: $white;
-        &__changePhoto{
+
+        &__telegram {
+            background: url("../../../public/photos/white-theme/telegram.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__instagram {
+            background: url("../../../public/photos/white-theme/instagram.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__region {
+            background: url("../../../public/photos/white-theme/region.svg") 0 0 / 100% no-repeat;
+
+        }
+
+        &__phone {
+            background: url("../../../public/photos/white-theme/phoneProfile.png") 0 0 / 100% no-repeat;
+        }
+
+        &__emailPhoto {
+            background: url("../../../public/photos/white-theme/emailPhoto.svg") 0 0 / 100% no-repeat;
+
+        }
+
+        &__changePhoto {
             background: url("../../../public/photos/white-theme/edit.svg") 0 0 / 100% no-repeat;
         }
+
+        &__eye {
+            background: url("../../../public/photos/white-theme/password-eye.svg") 0 0 / 100% no-repeat;
+        }
+
         &__globalinfo {
             background-color: $dark;
         }

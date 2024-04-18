@@ -1,14 +1,15 @@
 #dark {
     .yourProfile {
         &__redactBtn {
-            background: url("../../../public/photos/dark-theme/edit.svg") 0 0 / 100% no-repeat;
+            background: url("../../../../public/photos/dark-theme/edit.svg") 0 0 / 100% no-repeat;
         }
     }
 }
+
 #white {
     .yourProfile {
         &__redactBtn {
-            background: url("../../../public/photos/white-theme/edit.svg") 0 0 / 100% no-repeat;
+            background: url("../../../../public/photos/white-theme/edit.svg") 0 0 / 100% no-repeat;
         }
     }
 }
@@ -18,12 +19,14 @@
         width: 25px;
         height: 25px;
     }
+
     &__label {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
     }
+
     &__textInput {
         display: flex;
         align-items: center;
