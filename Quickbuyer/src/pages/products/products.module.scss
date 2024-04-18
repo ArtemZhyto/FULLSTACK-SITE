@@ -1,0 +1,17 @@
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+@import "../../shared/utils/_breakpoints.scss";
+
+.products {
+    &__row {
+        align-items: start;
+        justify-content: space-between;
+    }
+}
+
+@include media-breakpoint-down(msm) {
+    .products__row {
+        justify-content: center;
+    }
+}

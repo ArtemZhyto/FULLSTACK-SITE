@@ -1,0 +1,68 @@
+@import "../../shared/utils/colours.scss";
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
+.featuresBlock {
+    background-color: transparent;
+    position: relative;
+    width: 35px;
+    height: 35px;
+    z-index: 100;
+    border-radius: 100px;
+
+    @include media-breakpoint-down(sm) {
+        display: none;
+    }
+
+    &__inner {
+        grid-template: 35px 35px/ 35px 35px;
+        margin-top: 5px;
+        gap: 7px;
+        top: 0;
+        left: 15px;
+        right: auto;
+        padding: 0;
+        position: relative;
+        display: grid;
+    }
+
+    &__togglebtn {
+        position: absolute;
+        top: 0;
+        left: auto;
+        right: 0;
+        transition: all .3s;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 18px;
+            height: 3px;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 15px;
+            left: 50%;
+            background-color: $dark;
+            transition: all .3s;
+        }
+    }
+
+
+
+    &__btn {
+        display: block;
+        width: 35px;
+        height: 35px;
+    }
+
+}
+
+.featuresBlockActive {
+    border-radius: 25px 40px 150px 25px;
+    width: 145px;
+    height: 90px;
+    position: relative;
+
+}

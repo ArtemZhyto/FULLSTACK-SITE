@@ -1,9 +1,0 @@
-@import "../../mixins";
-@import "../../colors";
-
-
-#dark {
-    .header__image {
-        @include box-shadow-dark
-    }
-}

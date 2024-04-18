@@ -1,0 +1,37 @@
+@import "../../shared/utils/mixins.scss";
+@import "../../shared/utils/colours.scss";
+
+#dark {
+    .registration {
+        &__form {
+            background-color: $dark;
+            color: $white;
+        }
+
+        &__regblock {
+            background-color: $white;
+            color: $black ;
+        }
+    }
+
+}
+
+#white {
+    .registration {
+        &__form {
+            background-color: $white;
+            color: $dark;
+        }
+
+        &__regblock {
+            background-color: $dark;
+            color: $white ;
+        }
+
+        &__input {
+            background-color: $dark;
+            color: $white;
+        }
+    }
+
+}

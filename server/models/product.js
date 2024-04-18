@@ -12,5 +12,5 @@ class Product {
         this.image = image
     }
 }
- 
+
 module.exports = Product

@@ -1,0 +1,15 @@
+@import "../../shared/utils/colours.scss";
+
+.registration {
+    &__title {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    &__regblock {
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        padding: 50px;
+    }
+}

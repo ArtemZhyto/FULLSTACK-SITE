@@ -1,0 +1,77 @@
+@import "../../shared/utils/colours.scss";
+@import "../../shared/utils/mixins.scss";
+
+#dark {
+    .yourProfile {
+        color: $dark;
+
+        &__changePhoto{
+            background: url("../../../public/photos/dark-theme/edit.svg") 0 0 / 100% no-repeat;
+        }
+        &__globalinfo {
+            background-color: $white;
+            color: $dark;
+        }
+
+
+        &__additionalinfo {
+            background-color: $white;
+        }
+
+        &__input {
+            background-color: $dark;
+            color: $white;
+            border: 1px solid $white ;
+            border-radius: 5px;
+        }
+
+        &__customCheckbox {
+            background-color: $white;
+            border: 1px solid $dark;
+        }
+
+        &__line {
+            background: $dark;
+        }
+
+        &__defaultPhoto {
+            background: url("../../../public/photos/profile-dark.svg") 0 0/ 100% no-repeat;
+        }
+    }
+}
+
+#white {
+    .yourProfile {
+        color: $white;
+        &__changePhoto{
+            background: url("../../../public/photos/white-theme/edit.svg") 0 0 / 100% no-repeat;
+        }
+        &__globalinfo {
+            background-color: $dark;
+        }
+
+        &__additionalinfo {
+            background-color: $dark;
+        }
+
+        &__input {
+            background-color: $white;
+            color: $dark;
+            border: 1px solid $dark;
+            border-radius: 5px;
+        }
+
+        &__customCheckbox {
+            background-color: $dark;
+            border: 1px solid $white;
+        }
+
+        &__line {
+            background: $white;
+        }
+
+        &__defaultPhoto {
+            background: url("../../../public/photos/profile-white.svg") 0 0/ 100% no-repeat;
+        }
+    }
+}
