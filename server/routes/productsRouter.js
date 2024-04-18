@@ -13,7 +13,7 @@ const {
     postProductCreateHandler
 } = require('../controllers/productHandlers/productCreateHandler')
 
-router.post(`/create/:name/:price/:seller/:country/:type/:date/:category`, postProductCreateHandler)
+router.post(`/create/:name/:price/:seller/:country/:type/:date/:category/:image`, postProductCreateHandler)
 router.get('/:productID', getProductIDHandler)
 router.get('/', getProductsRootHandler)
 router.use((req, res) => {

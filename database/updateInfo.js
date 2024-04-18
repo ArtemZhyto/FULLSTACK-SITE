@@ -18,7 +18,7 @@ async function loadUpdate(dataToUpdate) {
         const oldNameUserData = await collection2.findOne({ ID: dataToUpdate[0] })
         const oldName = oldNameUserData.name
 
-        const coll2Res = await collection2.updateMany( { ID: dataToUpdate[0] }, { $set: { name: dataToUpdate[1], mail: dataToUpdate[2], password: dataToUpdate[3], sold: dataToUpdate[4], contactMail: dataToUpdate[5], phone: dataToUpdate[6], region: dataToUpdate[7], allowNotifications: dataToUpdate[8], instagram: dataToUpdate[9], telegram: dataToUpdate[10]} } )
+        const coll2Res = await collection2.updateMany( { ID: dataToUpdate[0] }, { $set: { name: dataToUpdate[1], mail: dataToUpdate[2], password: dataToUpdate[3], sold: dataToUpdate[4], contactMail: dataToUpdate[5], phone: dataToUpdate[6], region: dataToUpdate[7], allowNotifications: dataToUpdate[8], instagram: dataToUpdate[9], telegram: dataToUpdate[10], image: dataToUpdate[11]} } )
         console.log('Дані користувача успішно оновлені')
 
         const coll1Res = await collection1.updateMany( { seller: oldName }, { $set: { seller: dataToUpdate[1]} } )
