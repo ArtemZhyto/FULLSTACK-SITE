@@ -8,23 +8,24 @@ const TextInput = ({ customInput, text, label }) => {
 	return (
 		<>
 			{isChanged ? (
-				<label className="yourProfile__label">
-					{label}
-					<p className="yourProfile__label"></p>
-					{customInput}
+				<div className="yourProfile__textInput">
+					<label className="yourProfile__label">
+						{label}
+						<p className="yourProfile__label"></p>
+						{customInput}
+					</label>
 					<button
-					type="button"
+						type="button"
 						className="yourProfile__redactBtn"
 						onClick={toggleChange}
 					></button>
-				</label>
+				</div>
 			) : (
 				<label className="yourProfile__label">
-					{console.log("changedtofalse")}
 					{label}
 					<p className="yourProfile__text">{text}</p>
 					<button
-					type="button"
+						type="button"
 						className="yourProfile__redactBtn"
 						onClick={toggleChange}
 					></button>

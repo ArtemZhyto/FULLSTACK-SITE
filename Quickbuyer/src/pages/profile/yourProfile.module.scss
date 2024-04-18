@@ -5,11 +5,17 @@
 @import 'node_modules/bootstrap/scss/mixins';
 
 .yourProfile {
+    position: relative;
     font-size: 17px;
 
     &__title {
         font-size: 64px;
         font-weight: 100;
+    }
+    &__photo {
+        display: block;
+        max-width: 250px;
+        max-height: 250px;
     }
 
     &__soldProducts {
@@ -47,6 +53,11 @@
         @include yellowButton;
         margin: 100px auto 0;
         width: auto;
+        position: absolute;
+        top: auto;
+        bottom: 75px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     &__customCheckbox {
@@ -72,7 +83,6 @@
         align-self: start;
         position: relative;
         top: -60px;
-        position: relative;
     }
     &__defaultPhoto {
         margin-bottom: 20px;

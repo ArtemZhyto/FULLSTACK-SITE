@@ -18,13 +18,15 @@ const Registration = () => {
 	const navigate = useNavigate()
 	useEffect(() => {
 		const handleNewCurUser = () => {
-			const localStorageUser = JSON.parse(localStorage.getItem("currentUser"))
-			if (localStorageUser) {
+			let localStorageUser = localStorage.getItem("currentUser")
+			if (localStorageUser !== "undefined" && localStorageUser) {
+				localStorageUser = JSON.parse(localStorageUser)
 				if (localStorageUser.ID) {
 					navigate(`/user/${localStorageUser.ID}`)
 				}
 			}
 		}
+		handleNewCurUser()
 		window.addEventListener("addCurUser", handleNewCurUser)
 		return () => window.removeEventListener("addCurUser", handleNewCurUser)
 	}, [])

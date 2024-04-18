@@ -8,6 +8,7 @@ import { substring } from "../../../shared/utils/substring.js"
 import "../yourProfileThemes.scss"
 import SelectCountry from "../../../widgets/selectCountry/UI/SelectCountry.jsx"
 import { countries } from "../../../entities/data/countries.js"
+import { sendUpdate } from "../../../features/API/sendUpdate.js"
 const YourProfile = () => {
 	const [currentUser, setCurrentUser] = useState({})
 	useEffect(() => {
@@ -16,6 +17,8 @@ const YourProfile = () => {
 			setCurrentUser(currentUser)
 		}
 	}, [])
+
+
 	const checkIsNo = (val) => {
 		if (val === "no") {
 			return "Не указан"
@@ -49,7 +52,24 @@ const YourProfile = () => {
 												styles.yourProfile__changePhoto
 											)}
 										>
-											<input type="file" className="d-none"></input>
+											<input
+												type="file"
+												className="d-none"
+												onChange={(e) => {
+													const typeOfFile = /image.*/i
+													const file = e.target.files[0]
+													if (file.type.match(typeOfFile)) {
+														const reader = new FileReader()
+														reader.onload = () => {
+															setCurrentUser({
+																...currentUser,
+																img: reader.result,
+															})
+														}
+														reader.readAsDataURL(file)
+													}
+												}}
+											></input>
 										</label>
 									</label>
 									<TextInput
@@ -71,7 +91,57 @@ const YourProfile = () => {
 										{currentUser.name}
 									</TextInput>
 								</>
-							) : null}
+							) : (
+								<label>
+									<img
+										className={styles.yourProfile__photo}
+										src={currentUser.img}
+									></img>
+									<label
+										className={substring(
+											"yourProfile__changePhoto",
+											styles.yourProfile__changePhoto
+										)}
+									>
+										<input
+											type="file"
+											className="d-none"
+											onChange={(e) => {
+												const typeOfFile = /image.*/i
+												const file = e.target.files[0]
+												if (file.type.match(typeOfFile)) {
+													const reader = new FileReader()
+													reader.onload =() => {
+														setCurrentUser({
+															...currentUser,
+															img: reader.result,
+														})
+													} 
+													reader.readAsDataURL(file)
+												}
+											}}
+										></input>
+									</label>
+									<TextInput
+										customInput={
+											<input
+												type="text"
+												value={currentUser.name}
+												onChange={(e) => {
+													setCurrentUser({
+														...currentUser,
+														name: e.target.value,
+													})
+												}}
+												className="yourProfile__input"
+											/>
+										}
+										text={currentUser.name}
+									>
+										{currentUser.name}
+									</TextInput>
+								</label>
+							)}
 						</div>
 						<div className="yourProfile__yearsSoldProducts">
 							<p className={styles.yourProfile__years}>
@@ -94,6 +164,11 @@ const YourProfile = () => {
 								styles.yourProfile__additionalinfo,
 								"yourProfile__additionalinfo"
 							)}
+							onSubmit={(e) => {
+								e.preventDefault()
+								sendUpdate(currentUser)
+								console.log(currentUser)
+							}}
 						>
 							<TextInput
 								customInput={
@@ -143,6 +218,12 @@ const YourProfile = () => {
 								customInput={
 									<SelectCountry
 										defaultValue={checkIsNo(currentUser.region)}
+										onChange={(e) =>
+											setCurrentUser({
+												...currentUser,
+												region: e.target.value,
+											})
+										}
 										countries={countries}
 									></SelectCountry>
 								}
@@ -161,6 +242,13 @@ const YourProfile = () => {
 								<input
 									type="checkbox"
 									className={styles.yourProfile__checkbox}
+									onClick={(e) => {
+										setCurrentUser({
+											...currentUser,
+											allowNotifications: !currentUser.allowNotifications,
+										})
+									}}
+									checked={currentUser.allowNotifications}
 								/>
 								<div
 									className={substring(
@@ -183,7 +271,10 @@ const YourProfile = () => {
 										type="email"
 										value={checkIsNo(currentUser.instagram)}
 										onChange={(e) => {
-											setCurrentUser({ ...currentUser, mail: e.target.value })
+											setCurrentUser({
+												...currentUser,
+												instagram: e.target.value,
+											})
 										}}
 										className="yourProfile__input"
 									/>
@@ -197,7 +288,10 @@ const YourProfile = () => {
 										type="email"
 										value={checkIsNo(currentUser.telegram)}
 										onChange={(e) => {
-											setCurrentUser({ ...currentUser, mail: e.target.value })
+											setCurrentUser({
+												...currentUser,
+												telegram: e.target.value,
+											})
 										}}
 										className="yourProfile__input"
 									/>
@@ -205,11 +299,11 @@ const YourProfile = () => {
 								text={checkIsNo(currentUser.telegram)}
 								label="Телеграм :"
 							></TextInput>
+							<button type="submit" className={styles.yourProfile__yelbut}>
+								Сохранить изменения
+							</button>
 						</form>
 					</Col>
-					<button type="submit" className={styles.yourProfile__yelbut}>
-						Сохранить изменения
-					</button>
 				</Row>
 			</Container>
 		</article>
