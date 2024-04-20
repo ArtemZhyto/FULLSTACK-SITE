@@ -1,0 +1,69 @@
+@import "../../shared/utils/mixins.scss";
+@import "../../shared/utils/colours.scss";
+
+.filters {
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    padding: 0;
+    max-width: 330px;
+    margin: 0 20px;
+
+    input[type=radio] {
+        display: none;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    &__radioBtn {
+        width: 100px;
+        height: 30px;
+        border: 1px solid #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    &__cost {
+        justify-content: space-between !important;
+        position: relative;
+        input,
+        select {
+            width: 100px;
+            height: 30px;
+            color: currentColor;
+            background-color: transparent;
+            text-align: center;
+            cursor: pointer;
+            color: currentColor;
+
+        }
+    }
+
+    input[type=radio]:checked~&__radioBtn {
+        color: $black;
+        background-color: $yellow;
+        font-weight: 800;
+    }
+
+    &__sort {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 280px;
+    }
+
+    &__countries {
+        width: 100px;
+        height: 30px;
+        border: 1px solid #fff;
+        cursor: pointer;
+        background-color: transparent;
+    }
+}

@@ -64,5 +64,7 @@
     width: 145px;
     height: 90px;
     position: relative;
-
+    @include media-breakpoint-down(sm) {
+        display: none;
+    }
 }

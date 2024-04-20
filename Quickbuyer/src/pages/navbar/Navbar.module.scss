@@ -37,6 +37,7 @@
     &__btn {
         display: flex;
         align-items: center;
+        cursor : pointer;
     }
 
     &__searchbtn {
@@ -70,6 +71,6 @@
 
 .navbarWrapper {
     position: fixed;
-    width: 100%;
+    width: 100%;   
     z-index: 100;
 }

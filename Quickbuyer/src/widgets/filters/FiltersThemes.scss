@@ -1,0 +1,73 @@
+@import "../../shared/utils/mixins.scss";
+@import "../../shared/utils/colours.scss";
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
+#dark {
+    .filters {
+        color: $white;
+
+        &__cost {
+
+            input,
+            select {
+                border: 1px solid $white;
+            }
+        }
+
+        &__sort {
+
+            label {
+                border: 1px solid $white;
+            }
+        }
+
+        &__line {
+            width: 16px;
+            height: 2px;
+            background-color: $white;
+            position: absolute;
+            left: 48%;
+            top: 70%;
+        }
+    }
+}
+
+#white {
+    .filters {
+        color: $dark;
+
+        &__line {
+            width: 16px;
+            height: 2px;
+            background-color: $dark;
+            position: absolute;
+            left: 48%;
+            top: 70%;
+        }
+
+        &__cost {
+
+            input,
+            select {
+                border: 1px solid $dark;
+            }
+        }
+
+        &__sort {
+
+            label {
+                border: 1px solid $dark;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .filters {
+        &__line {
+            display: none;
+        }
+    }
+}

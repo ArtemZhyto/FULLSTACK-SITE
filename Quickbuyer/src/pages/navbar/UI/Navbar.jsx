@@ -7,7 +7,10 @@ import "../NavbarThemes.scss"
 import { Outlet, useLocation, useNavigate } from "react-router"
 import FeaturesBlock from "../../../widgets/FeaturesBlock/UI/FeaturesBlock"
 import { GiHamburgerMenu } from "react-icons/gi"
-import { toggleBurger } from "../../../features/slices/mainpage/mainPageInfo"
+import {
+	toggleBurger,
+	toggleFilters,
+} from "../../../features/slices/mainpage/mainPageInfo"
 import { useDispatch } from "react-redux"
 
 const Navbar = () => {
@@ -34,7 +37,12 @@ const Navbar = () => {
 									className={`navbar__productsbtn ${styles.navbar__btnphoto}`}
 								></div>
 							</div>
-							<div className={styles.navbar__btn}>
+							<div
+								className={styles.navbar__btn}
+								onClick={() => {
+									dispatch(toggleFilters())
+								}}
+							>
 								<p className="">Категории</p>
 								<div
 									className={`navbar__categorys ${styles.navbar__btnphoto}`}

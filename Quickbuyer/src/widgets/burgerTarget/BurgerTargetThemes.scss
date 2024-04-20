@@ -1,4 +1,7 @@
 @import "../../shared/utils/colours.scss";
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
 
 #dark {
     .burgertarget {
@@ -71,8 +74,11 @@
         &__usericon {
             background: url("../../../public/photos/profile-dark.svg") 0 0/ 100% no-repeat;
         }
+
         &__larrow {
             background: url("../../../public/photos/white-theme/rarrow.svg") 0 0/ 100% no-repeat;
         }
     }
 }
+
+// Left panel configuration >>

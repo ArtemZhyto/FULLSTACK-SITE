@@ -61,6 +61,8 @@ a:hover {
 
 ul li {
 	list-style: none;
+	text-decoration: none;
+	list-style-type: none;
 }
 
 img {
