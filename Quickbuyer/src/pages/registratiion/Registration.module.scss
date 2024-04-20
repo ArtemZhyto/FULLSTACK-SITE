@@ -1,9 +1,16 @@
 @import "../../shared/utils/colours.scss";
+@import "../../shared/utils/mixins.scss";
 
-.registration {
+.registration,
+.enter {
     &__title {
         text-align: center;
         margin-bottom: 25px;
+    }
+
+    &__userLink {
+        @include yellowButton;
+        color: currentColor;
     }
 
     &__regblock {

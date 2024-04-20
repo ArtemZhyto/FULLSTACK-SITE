@@ -1,24 +1,30 @@
 import { CgChevronDown } from "react-icons/cg"
 import React, { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { ToastContainer } from "react-toastify"
 import TextInput from "../../../shared/ui/textInput/UI/TextInput.jsx"
 import { Col, Container, Row } from "react-bootstrap"
 import styles from "../globalProfile.module.scss"
 import { substring } from "../../../shared/utils/substring.js"
 import "../ProfileThemes.scss"
-import SelectCountry from "../../../widgets/selectCountry/UI/SelectCountry.jsx"
+import SelectCountry from "../../selectCountry/UI/SelectCountry.jsx"
 import { countries } from "../../../entities/data/countries.js"
-import { sendUpdate } from "../../../features/API/sendUpdate.js"
+import {
+	exitFromUser,
+	sendUpdate,
+} from "../../../app/redux/slices/currentUser.js"
 import { chooseTheme } from "../../../features/slices/mainpage/mainPageInfo.js"
-import { getUser } from "../../../features/API/getUser.js"
 import { addPhoto } from "../../../features/classic/profile/addPhoto.js"
-const YourProfile = ({ currentUser, setCurrentUser }) => {
+import { addCurrentUser } from "../../../app/redux/slices/currentUser.js"
+import { useNavigate } from "react-router"
+const YourProfile = ({ currentUser }) => {
 	const theme = useSelector(chooseTheme) === "white" ? "light" : "dark"
 	const [show, setShow] = useState(false)
 	const toggleShow = () => {
 		setShow(!show)
 	}
+	const navigate = useNavigate()
+	const dispatch = useDispatch()
 	const checkIsNo = (val) => (val === "no" ? "Не указан" : val)
 	return (
 		<>
@@ -57,10 +63,11 @@ const YourProfile = ({ currentUser, setCurrentUser }) => {
 														if (file.type.match(typeOfFile)) {
 															const reader = new FileReader()
 															reader.onload = () => {
-																setCurrentUser({
-																	...currentUser,
-																	img: reader.result,
-																})
+																dispatch(
+																	addCurrentUser({
+																		img: reader.result,
+																	})
+																)
 															}
 															reader.readAsDataURL(file)
 														}
@@ -74,10 +81,11 @@ const YourProfile = ({ currentUser, setCurrentUser }) => {
 													type="text"
 													value={currentUser.name}
 													onChange={(e) => {
-														setCurrentUser({
-															...currentUser,
-															name: e.target.value,
-														})
+														dispatch(
+															addCurrentUser({
+																name: e.target.value,
+															})
+														)
 													}}
 													className="yourProfile__input"
 												/>
@@ -102,11 +110,20 @@ const YourProfile = ({ currentUser, setCurrentUser }) => {
 											<input
 												type="file"
 												className="d-none"
-												onChange={() => {
-													addPhoto(
-														(setCurrentUser = setCurrentUser),
-														(currentUser = currentUser)
-													)
+												onChange={(e) => {
+													const typeOfFile = /image.*/i
+													const file = e.target.files[0]
+													if (file.type.match(typeOfFile)) {
+														const reader = new FileReader()
+														reader.onload = () => {
+															dispatch(
+																addCurrentUser({
+																	img: reader.result,
+																})
+															)
+														}
+														reader.readAsDataURL(file)
+													}
 												}}
 											></input>
 										</label>
@@ -116,10 +133,11 @@ const YourProfile = ({ currentUser, setCurrentUser }) => {
 													type="text"
 													value={currentUser.name}
 													onChange={(e) => {
-														setCurrentUser({
-															...currentUser,
-															name: e.target.value,
-														})
+														dispatch(
+															addCurrentUser({
+																name: e.target.value,
+															})
+														)
 													}}
 													className="yourProfile__input"
 												/>
@@ -141,7 +159,15 @@ const YourProfile = ({ currentUser, setCurrentUser }) => {
 										{currentUser.sold}
 									</span>
 								</p>
-								<button type="button" className={styles.yourProfile__exit}>
+								<button
+									type="button"
+									className={styles.yourProfile__exit}
+									onClick={async () => {
+										dispatch(exitFromUser())
+										localStorage.clear()
+										navigate("/registration")
+									}}
+								>
 									Выйти
 								</button>
 							</div>
@@ -154,7 +180,7 @@ const YourProfile = ({ currentUser, setCurrentUser }) => {
 								)}
 								onSubmit={(e) => {
 									e.preventDefault()
-									sendUpdate(currentUser)
+									dispatch(sendUpdate(currentUser))
 								}}
 							>
 								<TextInput
@@ -163,7 +189,7 @@ const YourProfile = ({ currentUser, setCurrentUser }) => {
 											type="email"
 											value={currentUser.mail}
 											onChange={(e) => {
-												setCurrentUser({ ...currentUser, mail: e.target.value })
+												dispatch(addCurrentUser({ mail: e.target.value }))
 											}}
 											className="yourProfile__input"
 										/>
@@ -187,10 +213,11 @@ const YourProfile = ({ currentUser, setCurrentUser }) => {
 											type={show ? "text" : "password"}
 											value={currentUser.password}
 											onChange={(e) => {
-												setCurrentUser({
-													...currentUser,
-													password: e.target.value,
-												})
+												dispatch(
+													addCurrentUser({
+														password: e.target.value,
+													})
+												)
 											}}
 											className="yourProfile__input"
 										/>
@@ -203,10 +230,11 @@ const YourProfile = ({ currentUser, setCurrentUser }) => {
 										<input
 											value={checkIsNo(currentUser.phone)}
 											onChange={(e) => {
-												setCurrentUser({
-													...currentUser,
-													phone: e.target.value,
-												})
+												dispatch(
+													addCurrentUser({
+														phone: e.target.value,
+													})
+												)
 											}}
 											className="yourProfile__input"
 										/>
@@ -219,10 +247,11 @@ const YourProfile = ({ currentUser, setCurrentUser }) => {
 										<SelectCountry
 											defaultValue={checkIsNo(currentUser.region)}
 											onChange={(e) =>
-												setCurrentUser({
-													...currentUser,
-													region: e.target.value,
-												})
+												dispatch(
+													addCurrentUser({
+														region: e.target.value,
+													})
+												)
 											}
 											countries={countries}
 										></SelectCountry>
@@ -243,10 +272,11 @@ const YourProfile = ({ currentUser, setCurrentUser }) => {
 										type="checkbox"
 										className={styles.yourProfile__checkbox}
 										onClick={(e) => {
-											setCurrentUser({
-												...currentUser,
-												allowNotifications: !currentUser.allowNotifications,
-											})
+											dispatch(
+												addCurrentUser({
+													allowNotifications: !currentUser.allowNotifications,
+												})
+											)
 										}}
 										checked={currentUser.allowNotifications}
 									/>
@@ -277,13 +307,14 @@ const YourProfile = ({ currentUser, setCurrentUser }) => {
 									customInput={
 										<>
 											<input
-												type="email"
+												type="text"
 												value={checkIsNo(currentUser.instagram)}
 												onChange={(e) => {
-													setCurrentUser({
-														...currentUser,
-														instagram: e.target.value,
-													})
+													dispatch(
+														addCurrentUser({
+															instagram: e.target.value,
+														})
+													)
 												}}
 												className="yourProfile__input"
 											/>
@@ -303,13 +334,14 @@ const YourProfile = ({ currentUser, setCurrentUser }) => {
 									}
 									customInput={
 										<input
-											type="email"
+											type="text"
 											value={checkIsNo(currentUser.telegram)}
 											onChange={(e) => {
-												setCurrentUser({
-													...currentUser,
-													telegram: e.target.value,
-												})
+												dispatch(
+													addCurrentUser({
+														telegram: e.target.value,
+													})
+												)
 											}}
 											className="yourProfile__input"
 										/>

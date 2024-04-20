@@ -1,11 +1,13 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import style from "../featuresblock.module.scss"
 import "../featuresblockThemes.scss"
 import { Link } from "react-router-dom"
 import { changeTheme } from "../../../features/slices/mainpage/mainPageInfo"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { selectCurrentUser } from "../../../app/redux/slices/currentUser"
 const FeaturesBlock = () => {
 	const dispatch = useDispatch()
+	const currentUserId = useSelector(selectCurrentUser).ID
 	const [isOpened, setIsOpened] = useState(false)
 	const toggleOpen = (e) => {
 		e.preventDefault()
@@ -29,7 +31,7 @@ const FeaturesBlock = () => {
 					</li>
 					<li className={style.featuresBlock__btn}>
 						<Link
-							href=""
+							to={`/user/${currentUserId}`}
 							className={`${style.featuresBlock__btn} featuresBlock__profile`}
 						></Link>
 					</li>

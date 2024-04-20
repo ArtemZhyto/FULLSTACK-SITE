@@ -4,7 +4,8 @@
 @import 'node_modules/bootstrap/scss/variables';
 @import 'node_modules/bootstrap/scss/mixins';
 
-.registration {
+.registration,
+.enter {
     &__label {
         p {
             margin-top: 10px;
@@ -27,6 +28,10 @@
         align-items: center;
         justify-content: space-around;
         padding: 20px;
+    }
+
+    &__userLink {
+        @include yellowButton
     }
 
     &__registrate {

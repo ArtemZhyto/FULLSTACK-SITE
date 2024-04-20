@@ -1,7 +1,7 @@
 import { Container, Col, Row } from "react-bootstrap"
 import { useState } from "react"
 import styles from "../Registration.module.scss"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { ToastContainer } from "react-toastify"
 import { chooseTheme } from "../../../features/slices/mainpage/mainPageInfo"
 import { substring } from "../../../shared/utils/substring"
@@ -9,21 +9,24 @@ import EnterForm from "../../../widgets/form/EnterForm"
 import RegistrationInstruction from "../../../widgets/instruction/RegistrationInstruction"
 import EnterInstruction from "../../../widgets/instruction/EnterInstruction"
 import RegistrationForm from "../../../widgets/form/RegistrationForm"
-import { useNavigate } from "react-router"
 import { useEffect } from "react"
+import {
+	addCurrentUser,
+	selectCurrentUser,
+} from "../../../app/redux/slices/currentUser"
+import { Link } from "react-router-dom"
 const Registration = () => {
 	const [typeOfSending, setTypeOfSending] = useState("registration")
 	const theme = useSelector(chooseTheme) === "white" ? "light" : "dark"
 	const checking = typeOfSending === "registration"
-	const navigate = useNavigate()
+	const currentUser = useSelector(selectCurrentUser)
+	const dispatch = useDispatch()
 	useEffect(() => {
 		const handleNewCurUser = () => {
 			let localStorageUser = localStorage.getItem("currentUser")
 			if (localStorageUser !== "undefined" && localStorageUser) {
 				localStorageUser = JSON.parse(localStorageUser)
-				if (localStorageUser.ID) {
-					navigate(`/user/${localStorageUser.ID}`)
-				}
+				dispatch(addCurrentUser(localStorageUser))
 			}
 		}
 		handleNewCurUser()
@@ -55,7 +58,9 @@ const Registration = () => {
 							"registration__regblock"
 						)}
 					>
-						{checking ? (
+						{currentUser.ID ? (
+							<Link className={styles.registration__userLink} to={`/user/${currentUser.ID}`}>Войти в профиль</Link>
+						) : checking ? (
 							<>
 								<RegistrationInstruction />
 								<RegistrationForm

@@ -19,7 +19,7 @@ const Products = () => {
 			<Container>
 				<Row className={substring(styles.products__row, "g-5")}>
 					{goods
-						? goods.map((good) => <Product name={good.name} img={good.img} seller={good.seller} price={good.price}/>)
+						? goods.map((good) => <Product name={good.name} img={good.image} seller={good.seller} price={good.price}/>)
 						: null}
 				</Row>
 			</Container>

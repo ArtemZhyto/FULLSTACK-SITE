@@ -1,11 +1,13 @@
 import styles from "./Form.module.scss"
 import { useState } from "react"
 import { toast } from "react-toastify"
-import { sendRegistration } from "../../features/API/sendRegistration"
+import { sendRegistration } from "../../app/redux/slices/currentUser"
 import "./FormThemes.scss"
 import { substring } from "../../shared/utils/substring"
 import "react-toastify/dist/ReactToastify.css"
+import { useDispatch } from "react-redux"
 const RegistrationForm = ({ setTypeOfSending, theme }) => {
+	const dispatch = useDispatch()
 	const initalState = {
 		mail: "",
 		password: "",
@@ -26,7 +28,7 @@ const RegistrationForm = ({ setTypeOfSending, theme }) => {
 					toast.error("Пароли не совпадают 😒 ", { theme })
 					setRegistrationVals(initalState)
 				} else {
-					sendRegistration(registrationVals)
+					dispatch(sendRegistration(registrationVals))
 					setRegistrationVals(initalState)
 				}
 			}}

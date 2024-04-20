@@ -7,6 +7,7 @@ import Main from "../Main"
 import Profile from "../../pages/profile/UI/Profle"
 import ThemeWrapper from "../../shared/ui/themeWrapper/ThemeWrapper"
 import Products from "../../pages/products/UI/Products"
+import Form from "../../pages/registratiion/UI/Form"
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
 				<Route path="/products" element={<Products />}></Route>
 				<Route index element={<Main />} />
 				<Route path="/user/:id" element={<Profile />}></Route>
+				<Route path="/registration" element={<Form />}></Route>
 			</Route>
 		</>
 	)

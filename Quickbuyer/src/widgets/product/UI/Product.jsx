@@ -17,8 +17,12 @@ const Product = ({ name, img, seller, price }) => {
 			</div>
 			<p className={styles.products__productName}>{name}</p>
 			<div className={styles.products__additionalInfo}>
-				<div className={substring(styles.products__line, "products__line")}></div>
-				<p className="products__sellerName">Продавец : <span className="text-primary">{seller}</span></p>
+				<div
+					className={substring(styles.products__line, "products__line")}
+				></div>
+				<p className="products__sellerName">
+					Продавец : <span className="text-primary">{seller}</span>
+				</p>
 				<p className="products__price">Цена : {price}</p>
 				<button className={styles.products__showProduct}>
 					Посмотреть товар
