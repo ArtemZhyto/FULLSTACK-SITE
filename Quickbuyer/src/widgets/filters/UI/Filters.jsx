@@ -11,7 +11,7 @@ const Filters = () => {
 	const isFiltersOpened = useSelector(selectIsFiltersOpened)
 	return (
 		<LeftPanelWrapper isOpened={isFiltersOpened} togglePanel={toggleFilters}>
-			<ul className={substring(styles.filters, "filters")}>
+			<aside className={substring(styles.filters, "filters")}>
 				<li
 					className={substring(
 						styles.filters__cost,
@@ -107,7 +107,7 @@ const Filters = () => {
 						</label>
 					</li>
 				</ul>
-			</ul>
+			</aside>
 		</LeftPanelWrapper>
 	)
 }
