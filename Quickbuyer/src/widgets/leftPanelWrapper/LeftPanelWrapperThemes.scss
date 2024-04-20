@@ -1,0 +1,23 @@
+@import "../../shared/utils/colours.scss";
+
+#dark {
+    .leftPanel {
+        background-color: $dark;
+        border-right: $white 5px solid;
+
+        &__larrow {
+            background: url("../../../public/photos/dark-theme/rarrow.svg") 0 0/ 100% no-repeat;
+        }
+    }
+}
+
+#white {
+    .leftPanel {
+        background-color: $white;
+        border-right: $dark 5px solid;
+
+        &__larrow {
+            background: url("../../../public/photos/white-theme/rarrow.svg") 0 0/ 100% no-repeat;
+        }
+    }
+}

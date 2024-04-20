@@ -14,7 +14,6 @@ import {
 	sendUpdate,
 } from "../../../app/redux/slices/currentUser.js"
 import { chooseTheme } from "../../../features/slices/mainpage/mainPageInfo.js"
-import { addPhoto } from "../../../features/classic/profile/addPhoto.js"
 import { addCurrentUser } from "../../../app/redux/slices/currentUser.js"
 import { useNavigate } from "react-router"
 const YourProfile = ({ currentUser }) => {

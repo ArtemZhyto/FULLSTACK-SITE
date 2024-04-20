@@ -3,7 +3,9 @@ import axios from "axios"
 const initialState = {
 	goods: [],
 	isLoading: false,
-	isOpened: false,
+	isBurgerOpened: false,
+	isFiltersOpened: false,
+	isCategorysOpened: false,
 	themeColour: "white",
 }
 
@@ -27,8 +29,29 @@ const mainpage = createSlice({
 		addGood: (state, action) => {
 			state.push(action.payload)
 		},
-		toggleLeftPanel: (state) => {
-			state.isOpened = !state.isOpened
+		toggleBurger: (state) => {
+			return {
+				...state,
+				isBurgerOpened: !state.isBurgerOpened,
+				isFiltersOpened: false,
+				isCategorysOpened: false,
+			}
+		},
+		toggleFilters: (state) => {
+			return {
+				...state,
+				isBurgerOpened: false,
+				isFiltersOpened: !state.isFiltersOpened,
+				isCategorysOpened: false,
+			}
+		},
+		toggleCategorys: (state) => {
+			return {
+				...state,
+				isBurgerOpened: false,
+				isFiltersOpened: false,
+				isCategorysOpened: !state.isFiltersOpened,
+			}
 		},
 		changeTheme: (state) => {
 			state.themeColour = state.themeColour === "white" ? "dark" : "white"
@@ -41,8 +64,17 @@ const mainpage = createSlice({
 	},
 })
 
-export const { addGood, toggleLeftPanel, changeTheme } = mainpage.actions
+export const {
+	addGood,
+	changeTheme,
+	toggleBurger,
+	toggleCategorys,
+	toggleFilters,
+} = mainpage.actions
 export const chooseTheme = (state) => state.mainpage.themeColour
-export const selectIsOpened = (state) => state.mainpage.isOpened
+export const selectIsBurgerOpened = (state) => state.mainpage.isBurgerOpened
+export const selectIsFiltersOpened = (state) => state.mainpage.isFiltersOpened
+export const selectIsCategorysOpened = (state) =>
+	state.mainpage.isCategorysOpened
 export const selectGoods = (state) => state.mainpage.goods
 export default mainpage.reducer

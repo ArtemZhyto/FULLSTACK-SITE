@@ -8,6 +8,7 @@ import Profile from "../../pages/profile/UI/Profle"
 import ThemeWrapper from "../../shared/ui/themeWrapper/ThemeWrapper"
 import Products from "../../pages/products/UI/Products"
 import Form from "../../pages/registratiion/UI/Form"
+import LeftPanelWrapper from "../../widgets/leftPanelWrapper/UI/LeftPanelWrapper"
 
 const router = createBrowserRouter(
 	createRoutesFromElements(

@@ -8,14 +8,9 @@ import Footer from "../pages/footer/UI/Footer"
 import Registration from "../pages/registratiion/UI/Form"
 import BurgerTarget from "../widgets/burgerTarget/UI/BurgerTarget"
 const Main = ({ children }) => {
-	const [isOpened, setIsOpened] = useState(false)
 	return (
 		<>
 			{children}
-			<BurgerTarget
-				isOpened={isOpened}
-				setIsOpened={setIsOpened}
-			></BurgerTarget>
 			<Header />
 			<About />
 			<Comfort />

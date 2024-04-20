@@ -1,3 +1,3 @@
-export const substring = (objectVal, className) => {
-	return `${objectVal} ${className}`
+export const substring = (objectVal, className, className2) => {
+	return `${objectVal} ${className} ${className2}`
 }

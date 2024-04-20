@@ -1,0 +1,26 @@
+.leftPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    padding: 50px 0;
+    transition: all .3s;
+    transform: translateX(-200%);
+    z-index: 100;
+
+    &__larrow {
+        top: 30px;
+        left: auto;
+        right: 20px;
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        transform: rotate(180deg);
+    }
+}
+
+.leftPanelOpened {
+    transform: translate(0);
+}

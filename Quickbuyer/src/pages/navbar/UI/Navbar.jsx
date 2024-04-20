@@ -7,7 +7,7 @@ import "../NavbarThemes.scss"
 import { Outlet, useLocation, useNavigate } from "react-router"
 import FeaturesBlock from "../../../widgets/FeaturesBlock/UI/FeaturesBlock"
 import { GiHamburgerMenu } from "react-icons/gi"
-import { toggleLeftPanel } from "../../../features/slices/mainpage/mainPageInfo"
+import { toggleBurger } from "../../../features/slices/mainpage/mainPageInfo"
 import { useDispatch } from "react-redux"
 
 const Navbar = () => {
@@ -25,7 +25,7 @@ const Navbar = () => {
 							<GiHamburgerMenu
 								className={styles.navbar__hamburger}
 								onClick={() => {
-									dispatch(toggleLeftPanel())
+									dispatch(toggleBurger())
 								}}
 							/>
 							<div className={styles.navbar__btn}>
