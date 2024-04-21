@@ -1,0 +1,108 @@
+@import "../../../shared/utils/colours.scss";
+
+.AccordionItem {
+    border-radius: 15px 20px 20px 15px;
+    width: 151px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    transition: all .3s;
+    transform: rotate(0);
+    justify-content: space-between;
+    align-items: center;
+
+    &__arrow {
+        width: 23px;
+        height: 23px;
+    }
+
+    &__additionalItem,
+    &__subAdditionalItem {
+        margin-top: 10px;
+        border-radius: 15px 20px 20px 15px;
+        width: 151px;
+        height: 35px;
+        align-items: center;
+        transition: all .3s;
+        transform: rotate(0);
+        justify-content: space-between;
+        align-items: center;
+        display: none;
+    }
+
+    &__arrowActive {
+        transform: rotate(90deg);
+    }
+
+    &__subadditonalList {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    &__additionalItemActive {
+        .AccordionItem__arrow {
+            transform: rotate(90deg);
+        }
+    }
+
+    &__additionalItemActive+&__subadditonalList {
+        .AccordionItem__subAdditionalItem {
+            display: flex;
+        }
+    }
+}
+
+.AccordionItemActive {
+    .AccordionItem__arrow {
+        transform: rotate(90deg);
+    }
+}
+
+.AccordionItemActive+.AccordionItem__additionalItemList {
+    display: flex;
+    flex-direction: column;
+
+    .AccordionItem__additionalItem {
+        display: flex;
+    }
+}
+
+
+#white {
+    .AccordionItem {
+        width: 160px;
+        height: 35px;
+        background-color: $dark;
+        color: $white;
+
+        &__additionalItem,
+        &__subAdditionalItem {
+            background-color: $dark;
+            color: $white;
+        }
+
+        &__arrow {
+            background: url("../../../../public/photos/white-theme/rarrow.svg") 0 0/ 100% no-repeat;
+        }
+    }
+}
+
+#dark {
+    .AccordionItem {
+        width: 160px;
+        height: 35px;
+        background-color: $white;
+        color: $dark;
+
+        &__additionalItem,
+        &__subAdditionalItem {
+            background-color: $white;
+            color: $dark;
+        }
+
+        &__arrow {
+            background: url("../../../../public/photos/dark-theme/rarrow.svg") 0 0/ 100% no-repeat;
+        }
+    }
+}

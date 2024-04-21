@@ -10,6 +10,7 @@ import Products from "../../pages/products/UI/Products"
 import Form from "../../pages/registratiion/UI/Form"
 import LeftPanelWrapper from "../../widgets/leftPanelWrapper/UI/LeftPanelWrapper"
 import Filters from "../../widgets/filters/UI/Filters"
+import Categorys from "../../widgets/categorys/UI/Categorys"
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
 				<Route index element={<Main />} />
 				<Route path="/user/:id" element={<Profile />}></Route>
 				<Route path="/registration" element={<Form />}></Route>
+				<Route path="/categorys" element={<Categorys />}></Route>
 			</Route>
 		</>
 	)

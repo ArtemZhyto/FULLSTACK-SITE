@@ -19,10 +19,9 @@ const LeftPanelWrapper = ({
 							"leftPanel",
 							styles.leftPanel,
 							additionalStyles
-					  )
+					)
 			}
 		>
-			{console.log({  additionalStyles })}
 			{children}
 			<button
 				onClick={() => dispatch(togglePanel())}

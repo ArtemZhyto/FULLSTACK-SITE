@@ -16,7 +16,11 @@
         }
 
         &__searchbtn {
-        background: url("../../../public/photos/searchinput-dark.svg") 0 0 / 100% no-repeat;
+            background: url("../../../public/photos/searchinput-dark.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__filters {
+            background: url("../../../public/photos/dark-theme/filters.svg") 0 0 / 100% no-repeat;
         }
     }
 }
@@ -26,7 +30,7 @@
         &__input {
             background-color:
                 $dark;
-                color: $white;
+            color: $white;
         }
 
         &__categorys {
@@ -39,6 +43,9 @@
 
         &__searchbtn {
             background: url("../../../public/photos/searchinput-white.svg") 0 0 / 100% no-repeat;
+        }
+        &__filters {
+            background: url("../../../public/photos/white-theme/filters.svg") 0 0 / 100% no-repeat;
         }
     }
 }

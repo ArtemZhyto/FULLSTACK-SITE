@@ -7,6 +7,7 @@ const initialState = {
 	type: "Отличное",
 	date: "Все",
 	sort: "Цена ↓",
+	category: null,
 }
 
 const filterSlice = createSlice({

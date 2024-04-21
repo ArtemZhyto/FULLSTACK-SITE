@@ -63,7 +63,7 @@ const mainpage = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder.addCase(fetchProducts.fulfilled, (state, action) => {
-		state.goods = action.payload
+			state.goods = action.payload
 		})
 	},
 })

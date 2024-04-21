@@ -4,14 +4,14 @@ import { Outlet } from "react-router"
 import Navbar from "../../../pages/navbar/UI/Navbar"
 import Footer from "../../../pages/footer/UI/Footer"
 import BurgerTarget from "../../../widgets/burgerTarget/UI/BurgerTarget"
-import Filters from "../../../widgets/filters/UI/Filters"
+import Categorys from "../../../widgets/categorys/UI/Categorys"
 const ThemeWrapper = ({ children }) => {
 	const theme = useSelector(chooseTheme)
 	return (
 		<div id={theme}>
 			<Navbar />
 			<BurgerTarget />
-			<Filters />
+			<Categorys ></Categorys>
 			{<Outlet />}
 			<Footer />
 		</div>

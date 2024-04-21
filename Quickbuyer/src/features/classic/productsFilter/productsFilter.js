@@ -49,4 +49,7 @@ export const productsFilter = (products, qstring, filters) => {
 				return true
 			}
 		})
+		.filter((good) =>
+			filters.category ? filters.category === good.category : true
+		)
 }

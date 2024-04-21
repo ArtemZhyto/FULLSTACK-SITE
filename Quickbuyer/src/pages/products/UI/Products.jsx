@@ -14,6 +14,7 @@ import { useLocation, useParams } from "react-router"
 import queryString from "query-string"
 import { chooseFilters } from "../../../app/redux/slices/FilterSlice"
 import { productsFilter } from "../../../features/classic/productsFilter/productsFilter"
+import Filters from "../../../widgets/filters/UI/Filters"
 const Products = () => {
 	const dispatch = useDispatch()
 	const goods = useSelector(selectGoods)
@@ -29,23 +30,26 @@ const Products = () => {
 		dispatch(fetchProducts())
 	}, [])
 	return (
-		<article className="products">
-			<Container>
-				<Row className={substring(styles.products__row, "g-5")}>
-					{goods
-						? productsFilter(goods, qstring, filters).map((good) => (
-								<Product
-									key={good.ID}
-									name={good.name}
-									img={good.image}
-									seller={good.seller}
-									price={good.price}
-								/>
-						  ))
-						: null}
-				</Row>
-			</Container>
-		</article>
+		<>
+			<Filters />
+			<article className="products">
+				<Container>
+					<Row className={substring(styles.products__row, "g-5")}>
+						{goods
+							? productsFilter(goods, qstring, filters).map((good) => (
+									<Product
+										key={good.ID}
+										name={good.name}
+										img={good.image}
+										seller={good.seller}
+										price={good.price}
+									/>
+							))
+							: null}
+					</Row>
+				</Container>
+			</article>
+		</>
 	)
 }
 

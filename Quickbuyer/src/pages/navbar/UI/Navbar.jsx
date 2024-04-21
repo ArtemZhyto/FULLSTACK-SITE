@@ -10,6 +10,7 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import {
 	changeSearch,
 	toggleBurger,
+	toggleCategorys,
 	toggleFilters,
 } from "../../../features/slices/mainpage/mainPageInfo"
 import { useDispatch } from "react-redux"
@@ -33,16 +34,31 @@ const Navbar = () => {
 									dispatch(toggleBurger())
 								}}
 							/>
-							<Link to="/products" className={styles.navbar__btn}>
-								<p className="">Товары</p>
+							{location.pathname === "/products" ? (
 								<div
-									className={`navbar__productsbtn ${styles.navbar__btnphoto}`}
-								></div>
-							</Link>
+									onClick={() => {
+										dispatch(toggleFilters())
+									}}
+									className={styles.navbar__btn}
+								>
+									<p className="">Фильтры</p>
+									<div
+										className={`navbar__filters ${styles.navbar__btnphoto}`}
+									></div>
+								</div>
+							) : (
+								<Link to="/products" className={styles.navbar__btn}>
+									<p className="">Товары</p>
+									<div
+										className={`navbar__productsbtn ${styles.navbar__btnphoto}`}
+									></div>
+								</Link>
+							)}
+
 							<div
 								className={styles.navbar__btn}
 								onClick={() => {
-									dispatch(toggleFilters())
+									dispatch(toggleCategorys())
 								}}
 							>
 								<p className="">Категории</p>
