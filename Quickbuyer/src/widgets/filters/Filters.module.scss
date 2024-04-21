@@ -32,6 +32,7 @@
     &__cost {
         justify-content: space-between !important;
         position: relative;
+
         input,
         select {
             width: 100px;
@@ -57,6 +58,11 @@
         align-items: center;
         flex-wrap: wrap;
         max-width: 280px;
+
+        li {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
     }
 
     &__countries {

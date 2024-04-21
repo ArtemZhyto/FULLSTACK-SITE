@@ -10,8 +10,9 @@
     }
 }
 
-@include media-breakpoint-down(msm) {
+@include media-breakpoint-down(sm) {
     .products__row {
         justify-content: center;
+
     }
 }

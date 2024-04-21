@@ -8,10 +8,12 @@ import { Outlet, useLocation, useNavigate } from "react-router"
 import FeaturesBlock from "../../../widgets/FeaturesBlock/UI/FeaturesBlock"
 import { GiHamburgerMenu } from "react-icons/gi"
 import {
+	changeSearch,
 	toggleBurger,
 	toggleFilters,
 } from "../../../features/slices/mainpage/mainPageInfo"
 import { useDispatch } from "react-redux"
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
 	const dispatch = useDispatch()
@@ -31,12 +33,12 @@ const Navbar = () => {
 									dispatch(toggleBurger())
 								}}
 							/>
-							<div className={styles.navbar__btn}>
+							<Link to="/products" className={styles.navbar__btn}>
 								<p className="">Товары</p>
 								<div
 									className={`navbar__productsbtn ${styles.navbar__btnphoto}`}
 								></div>
-							</div>
+							</Link>
 							<div
 								className={styles.navbar__btn}
 								onClick={() => {
@@ -55,6 +57,7 @@ const Navbar = () => {
 									value={searchLoaction?.q}
 									onChange={(e) => {
 										navigate(`?q=${e.target.value}`)
+										dispatch(changeSearch(e.target.value))
 									}}
 									className={` navbar__input ${styles.navbar__input}`}
 								/>

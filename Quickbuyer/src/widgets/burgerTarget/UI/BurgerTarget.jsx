@@ -4,6 +4,7 @@ import {
 	changeTheme,
 	selectIsBurgerOpened,
 	toggleBurger,
+	toggleFilters,
 } from "../../../features/slices/mainpage/mainPageInfo"
 import { useDispatch, useSelector } from "react-redux"
 import LeftPanelWrapper from "../../leftPanelWrapper/UI/LeftPanelWrapper"
@@ -12,7 +13,11 @@ const BurgerTarget = () => {
 	const isBurgerOpened = useSelector(selectIsBurgerOpened)
 	const dispatch = useDispatch()
 	return (
-		<LeftPanelWrapper isOpened={isBurgerOpened} togglePanel={toggleBurger} additionalStyles={styles.burgertarget__leftPanel}>
+		<LeftPanelWrapper
+			isOpened={isBurgerOpened}
+			togglePanel={toggleBurger}
+			additionalStyles={styles.burgertarget__leftPanel}
+		>
 			<div className={styles.burgertarget__info}>
 				<div
 					className={`burgertarget__usericon ${styles.burgertarget__usericon}`}
@@ -30,7 +35,9 @@ const BurgerTarget = () => {
 						className={`burgertarget__products ${styles.burgertarget__productsbtn}`}
 					></div>
 				</Link>
-				<li className={styles.burgertarget__btn}>
+				<li onClick={(e) => {
+					dispatch(toggleFilters())
+				}} className={styles.burgertarget__btn}>
 					<p className={styles.burgertarget__title}>Категории</p>
 					<div
 						className={`burgertarget__categorys ${styles.burgertarget__productsbtn}`}

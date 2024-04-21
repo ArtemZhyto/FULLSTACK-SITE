@@ -7,6 +7,7 @@ const initialState = {
 	isFiltersOpened: false,
 	isCategorysOpened: false,
 	themeColour: "white",
+	search: "",
 }
 
 export const fetchProducts = createAsyncThunk(
@@ -26,6 +27,9 @@ const mainpage = createSlice({
 	name: "mainpage",
 	initialState,
 	reducers: {
+		changeSearch: (state, action) => {
+			state.search = action.payload
+		},
 		addGood: (state, action) => {
 			state.push(action.payload)
 		},
@@ -50,7 +54,7 @@ const mainpage = createSlice({
 				...state,
 				isBurgerOpened: false,
 				isFiltersOpened: false,
-				isCategorysOpened: !state.isFiltersOpened,
+				isCategorysOpened: !state.isCategorysOpened,
 			}
 		},
 		changeTheme: (state) => {
@@ -59,7 +63,7 @@ const mainpage = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder.addCase(fetchProducts.fulfilled, (state, action) => {
-			state.goods = action.payload
+		state.goods = action.payload
 		})
 	},
 })
@@ -70,6 +74,7 @@ export const {
 	toggleBurger,
 	toggleCategorys,
 	toggleFilters,
+	changeSearch,
 } = mainpage.actions
 export const chooseTheme = (state) => state.mainpage.themeColour
 export const selectIsBurgerOpened = (state) => state.mainpage.isBurgerOpened
@@ -77,4 +82,5 @@ export const selectIsFiltersOpened = (state) => state.mainpage.isFiltersOpened
 export const selectIsCategorysOpened = (state) =>
 	state.mainpage.isCategorysOpened
 export const selectGoods = (state) => state.mainpage.goods
+export const selectSearch = (state) => state.mainpage.search
 export default mainpage.reducer

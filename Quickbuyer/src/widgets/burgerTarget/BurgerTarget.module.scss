@@ -5,7 +5,6 @@
 .burgertarget {
 
 
-
     &__info {
         display: flex;
         font-size: 18px;
@@ -21,7 +20,7 @@
         }
     }
 
-    .leftPanel {
+    &__leftPanel {
         width: 100vw;
         display: none;
 
