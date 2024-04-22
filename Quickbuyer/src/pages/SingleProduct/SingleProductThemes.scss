@@ -9,6 +9,11 @@
             color: $white;
         }
 
+        &__image {
+            border-radius: 15px;
+            border: 10px $white solid;
+        }
+
         &__Wrapper {
             background-color: $dark;
         }
@@ -28,6 +33,7 @@
                 padding: 5px 15px;
             }
         }
+
         &__Name {
             background-color: $dark;
         }
@@ -40,6 +46,11 @@
         &__characteristicValue {
             border: 1px solid $dark;
         }
+
+        &__additionalPhotosDefault {
+            border: 3px solid $white;
+            color: $white;
+        }
     }
 }
 
@@ -50,6 +61,11 @@
         &__characteristic {
             background-color: $dark;
             color: $white;
+        }
+
+        &__image {
+            border-radius: 15px;
+            border: 10px $dark solid;
         }
 
         &__imageWithName {
@@ -75,6 +91,11 @@
         &__Name {
             background-color: $white;
             color: $dark;
+        }
+
+        &__additionalPhotosDefault {
+            border: 3px solid $dark;
+            color: $white;
         }
     }
 }

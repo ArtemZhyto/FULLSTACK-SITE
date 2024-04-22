@@ -29,32 +29,61 @@ const SingleProduct = () => {
 						)}
 					>
 						<div className={styles.singleProduct__imgblock}>
-							<div
-								className={substring(
-									styles.singleProduct__imageWithName,
-									"singleProduct__imageWithName"
+							<div className={styles.singleProduct__imageWithName}>
+								{currentProduct?.additionalPhotos ? (
+									currentProduct.additionalPhotos.map((additionalImg) => (
+										<img src={additionalImg} alt="additionalPhoto" />
+									))
+								) : (
+									<div className={styles.singleProduct__additonalPhotosList}>
+										<button
+											type="button"
+											className={substring(
+												styles.singleProduct__additionalPhotosDefault,
+												"singleProduct__additionalPhotosDefault"
+											)}
+										>
+											Нету
+										</button>
+										<button
+											type="button"
+											className={substring(
+												styles.singleProduct__additionalPhotosDefault,
+												"singleProduct__additionalPhotosDefault"
+											)}
+										>
+											Нету
+										</button>
+										<button
+											type="button"
+											className={substring(
+												styles.singleProduct__additionalPhotosDefault,
+												"singleProduct__additionalPhotosDefault"
+											)}
+										>
+											Нету
+										</button>
+									</div>
 								)}
-							>
-								<img
-									className={substring(
-										styles.singleProduct__image,
-										"singleProduct__image"
-									)}
-									src={currentProduct.image}
-									alt=""
-								/>
-								<p
-									className={substring(
-										styles.singleProduct__Name,
-										"singleProduct__Name"
-									)}
-								>
-									{currentProduct.name}
-								</p>
+								<div className="position-relative">
+									<img
+										className={substring(
+											styles.singleProduct__image,
+											"singleProduct__image"
+										)}
+										src={currentProduct.image}
+										alt=""
+									/>
+									<p
+										className={substring(
+											styles.singleProduct__Name,
+											"singleProduct__Name"
+										)}
+									>
+										{currentProduct.name}
+									</p>
+								</div>
 							</div>
-							<div className="singleProduct__additionalPhotos"></div>
-							<div className="singleProduct__additionalPhotos"></div>
-							<div className="singleProduct__additionalPhotos"></div>
 						</div>
 
 						<div

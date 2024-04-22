@@ -26,9 +26,12 @@ const Product = ({ name, img, seller, price, id }) => {
 					Продавец : <span className="text-primary">{seller}</span>
 				</p>
 				<p className="products__price">Цена : {price}</p>
-				<button onClick={() => {
-					navigate(`product?id=${id}`)
-				}} className={styles.products__showProduct}>
+				<button
+					onClick={() => {
+						navigate(`product?id=${id}`)
+					}}
+					className={styles.products__showProduct}
+				>
 					Посмотреть товар
 				</button>
 			</div>
