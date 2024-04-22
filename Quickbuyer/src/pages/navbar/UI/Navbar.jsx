@@ -70,7 +70,7 @@ const Navbar = () => {
 								<input
 									type="text"
 									placeholder="поиск"
-									value={searchLoaction?.q}
+									value={searchLoaction.q}
 									onChange={(e) => {
 										navigate(`?q=${e.target.value}`)
 										dispatch(changeSearch(e.target.value))

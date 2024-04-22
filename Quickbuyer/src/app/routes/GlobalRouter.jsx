@@ -8,9 +8,8 @@ import Profile from "../../pages/profile/UI/Profle"
 import ThemeWrapper from "../../shared/ui/themeWrapper/ThemeWrapper"
 import Products from "../../pages/products/UI/Products"
 import Form from "../../pages/registratiion/UI/Form"
-import LeftPanelWrapper from "../../widgets/leftPanelWrapper/UI/LeftPanelWrapper"
-import Filters from "../../widgets/filters/UI/Filters"
 import Categorys from "../../widgets/categorys/UI/Categorys"
+import SingleProduct from "../../pages/SingleProduct/SingleProduct"
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -21,6 +20,7 @@ const router = createBrowserRouter(
 				<Route path="/user/:id" element={<Profile />}></Route>
 				<Route path="/registration" element={<Form />}></Route>
 				<Route path="/categorys" element={<Categorys />}></Route>
+				<Route path="/products/product" element={<SingleProduct />}></Route>
 			</Route>
 		</>
 	)

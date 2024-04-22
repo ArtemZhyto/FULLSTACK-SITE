@@ -43,8 +43,9 @@ const Products = () => {
 										img={good.image}
 										seller={good.seller}
 										price={good.price}
+										id={good.ID}
 									/>
-							))
+							  ))
 							: null}
 					</Row>
 				</Container>

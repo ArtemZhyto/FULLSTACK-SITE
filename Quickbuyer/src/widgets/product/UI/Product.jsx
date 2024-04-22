@@ -3,8 +3,10 @@ import { Image } from "react-bootstrap"
 import { substring } from "../../../shared/utils/substring"
 import styles from "../Product.module.scss"
 import "../Product.scss"
+import { useNavigate } from "react-router"
 
-const Product = ({ name, img, seller, price }) => {
+const Product = ({ name, img, seller, price, id }) => {
+	const navigate = useNavigate()
 	return (
 		<div className={substring("products__product", styles.products__product)}>
 			<div
@@ -24,7 +26,9 @@ const Product = ({ name, img, seller, price }) => {
 					Продавец : <span className="text-primary">{seller}</span>
 				</p>
 				<p className="products__price">Цена : {price}</p>
-				<button className={styles.products__showProduct}>
+				<button onClick={() => {
+					navigate(`product?id=${id}`)
+				}} className={styles.products__showProduct}>
 					Посмотреть товар
 				</button>
 			</div>

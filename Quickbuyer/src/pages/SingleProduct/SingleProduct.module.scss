@@ -1,0 +1,90 @@
+@import "../../shared/utils/mixins.scss";
+
+.singleProduct {
+
+    &__Wrapper {
+        font-size: 17px;
+        display: flex;
+        padding: 40px 0;
+        justify-content: space-around;
+        border-radius: 25px;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__characteristic {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 25px;
+        width: 155px;
+        height: 397px;
+        padding: 10px;
+    }
+
+    &__characteristicValue {
+        width: 100px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-left: 20px;
+    }
+
+
+
+    &__characteristicTitle {
+        font-weight: 700;
+        font-size: 17px;
+    }
+
+    &__image {
+        border-radius: 8px;
+        max-width: 355px;
+        max-height: 355px;
+        width: 100%;
+        height: 100%;
+
+        position: relative;
+    }
+
+    &__description {
+        max-width: 230px;
+    }
+
+    &__actionBtn {
+        @include yellowButton
+    }
+
+    &__Name {
+        position: absolute;
+        top: 85%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        text-align: center;
+        border-radius: 25px;
+    }
+
+    &__imgblock {
+        max-height: 375px;
+        height: 100%;
+    }
+
+    &__imageWithName {
+        position: relative;
+        max-width: 375px;
+        max-height: 375px;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+    }
+
+    &__price {
+        margin-top: 25px;
+        margin-bottom: 20px;
+        font-size: 19px !important;
+    }
+}
