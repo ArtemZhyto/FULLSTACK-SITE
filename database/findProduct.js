@@ -13,7 +13,7 @@ async function findProductID(productID) {
         const db = client.db(dbName)
         const collection = db.collection(collectionName)
 
-        const result = await collection.findOne({ ID: productID }, { projection: { name: 0, code: 0, ID: 0, price: 0, seller: 0, country: 0, type: 0, date: 0, sorting: 0, category: 0} })
+        const result = await collection.findOne({ ID: productID }, { projection: { name: 0, code: 0, ID: 0, price: 0, seller: 0, country: 0, type: 0, date: 0, category: 0, desript: 0, images: 0} })
 
         console.log('Дані успішно опрацьовані')
         client.close()

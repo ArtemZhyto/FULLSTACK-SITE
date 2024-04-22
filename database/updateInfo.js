@@ -31,6 +31,7 @@ async function loadUpdate(dataToUpdate) {
         return res
     } catch (err) {
         console.log('Помилка при оновлені даних')
+        console.log(err)
         return false
     }
 }
