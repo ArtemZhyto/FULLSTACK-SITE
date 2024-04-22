@@ -44,6 +44,7 @@ export const sendEnter = createAsyncThunk(
 		}
 	}
 )
+
 export const sendUpdate = createAsyncThunk(
 	"currentUser/sendUpdate",
 	async (_, thunkApi) => {

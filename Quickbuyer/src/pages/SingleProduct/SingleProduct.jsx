@@ -7,6 +7,8 @@ import styles from "./SingleProduct.module.scss"
 import { Col, Container, Row } from "react-bootstrap"
 import { substring } from "../../shared/utils/substring"
 import "./SingleProductThemes.scss"
+import "photoswipe/dist/photoswipe.css"
+import { Gallery, Item } from "react-photoswipe-gallery"
 const SingleProduct = () => {
 	const [currentProduct, setCurrentProduct] = useState({})
 	const currentProductId = queryString.parse(useLocation().search).id
@@ -30,10 +32,26 @@ const SingleProduct = () => {
 					>
 						<div className={styles.singleProduct__imgblock}>
 							<div className={styles.singleProduct__imageWithName}>
-								{currentProduct?.additionalPhotos ? (
-									currentProduct.additionalPhotos.map((additionalImg) => (
-										<img src={additionalImg} alt="additionalPhoto" />
-									))
+								{currentProduct?.additionalImage ? (
+									<Gallery>
+										{currentProduct.additionalImage.map((additionalImg) => (
+											<Item
+												width="1024"
+												height="768"
+												original={additionalImg}
+												thumbnail={additionalImg}
+											>
+												{({ ref, open }) => (
+													<img
+														ref={ref}
+														onClick={open}
+														src={additionalImg}
+														alt="additionalPhoto"
+													/>
+												)}
+											</Item>
+										))}
+									</Gallery>
 								) : (
 									<div className={styles.singleProduct__additonalPhotosList}>
 										<button
@@ -66,14 +84,27 @@ const SingleProduct = () => {
 									</div>
 								)}
 								<div className="position-relative">
-									<img
-										className={substring(
-											styles.singleProduct__image,
-											"singleProduct__image"
-										)}
-										src={currentProduct.image}
-										alt=""
-									/>
+									<Gallery>
+										<Item
+											width="1024"
+											height="768"
+											original={currentProduct.image}
+											thumbnail={currentProduct.image}
+										>
+											{({ ref, open }) => (
+												<img
+													ref={ref}
+													onClick={open}
+													className={substring(
+														styles.singleProduct__image,
+														"singleProduct__image"
+													)}
+													src={currentProduct.image}
+													alt=""
+												/>
+											)}
+										</Item>
+									</Gallery>
 									<p
 										className={substring(
 											styles.singleProduct__Name,
@@ -212,3 +243,7 @@ const SingleProduct = () => {
 }
 
 export default SingleProduct
+
+
+
+//todo - Закончить со стилями к добополнительным фото ^^

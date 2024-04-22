@@ -15,6 +15,7 @@ export const fetchProducts = createAsyncThunk(
 	async (_, thunkApi) => {
 		try {
 			const res = await axios.get("https://localhost:34673/products")
+			console.log(res.data)
 			return res.data
 		} catch (error) {
 			console.log("rejected")
