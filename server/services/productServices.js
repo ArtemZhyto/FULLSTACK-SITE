@@ -1,8 +1,9 @@
 const Product = require('../models/product')
 
 class ProductService {
-    createProduct(name, code, ID, price, seller, country, type, date, category, image) {
-        const product = new Product(name, code, ID, price, seller, country, type, date, category, image)
+    createProduct(name, code, ID, price, seller, country, type, date, category, desript, images = []) {
+        const productImages = images.concat([])
+        const product = new Product(name, code, ID, price, seller, country, type, date, category, desript, productImages)
         return product
     }
 }
