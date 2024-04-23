@@ -10,11 +10,12 @@ import Products from "../../pages/products/UI/Products"
 import Form from "../../pages/registratiion/UI/Form"
 import Categorys from "../../widgets/categorys/UI/Categorys"
 import SingleProduct from "../../pages/SingleProduct/SingleProduct"
+import ErrorPage from "../../pages/errorPage/ErrorPage"
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<>
-			<Route path="/" element={<ThemeWrapper />}>
+			<Route path="/" element={<ThemeWrapper />} errorElement={<ErrorPage />}>
 				<Route path="/products" element={<Products />}></Route>
 				<Route index element={<Main />} />
 				<Route path="/user/:id" element={<Profile />}></Route>
