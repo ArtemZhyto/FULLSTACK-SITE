@@ -39,7 +39,7 @@ const YourProfile = ({ currentUser }) => {
 							])}
 						>
 							<div className={styles.yourProfile__imageWithName}>
-								{currentUser?.img === "no" || !currentUser?.img ? (
+								{currentUser?.image === "no" || !currentUser?.image ? (
 									<>
 										<label
 											className={substring(
@@ -64,7 +64,7 @@ const YourProfile = ({ currentUser }) => {
 															reader.onload = () => {
 																dispatch(
 																	addCurrentUser({
-																		img: reader.result,
+																		image: reader.result,
 																	})
 																)
 															}
@@ -98,7 +98,7 @@ const YourProfile = ({ currentUser }) => {
 									<label>
 										<img
 											className={styles.yourProfile__photo}
-											src={currentUser.img}
+											src={currentUser.image}
 										></img>
 										<label
 											className={substring(
@@ -117,7 +117,7 @@ const YourProfile = ({ currentUser }) => {
 														reader.onload = () => {
 															dispatch(
 																addCurrentUser({
-																	img: reader.result,
+																	image: reader.result,
 																})
 															)
 														}

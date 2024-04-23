@@ -1,9 +1,9 @@
-import React from "react"
 import { Image } from "react-bootstrap"
 import { substring } from "../../../shared/utils/substring"
 import styles from "../Product.module.scss"
 import "../Product.scss"
 import { useNavigate } from "react-router"
+import { Link } from "react-router-dom"
 
 const Product = ({ name, img, seller, price, id }) => {
 	const navigate = useNavigate()
@@ -23,7 +23,7 @@ const Product = ({ name, img, seller, price, id }) => {
 					className={substring(styles.products__line, "products__line")}
 				></div>
 				<p className="products__sellerName">
-					Продавец : <span className="text-primary">{seller}</span>
+					Продавец : <Link to={`/user/${seller}`} className="text-primary">{seller}</Link>
 				</p>
 				<p className="products__price">Цена : {price}</p>
 				<button

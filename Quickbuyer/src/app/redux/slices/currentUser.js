@@ -61,17 +61,32 @@ export const sendUpdate = createAsyncThunk(
 			allowNotifications,
 			instagram,
 			telegram,
-			img,
+			image,
 		} = curUser
 		try {
+			console.log({
+				ID,
+				name,
+				mail,
+				password,
+				sold,
+				contactMail,
+				phone,
+				region,
+				allowNotifications,
+				instagram,
+				telegram,
+				image,
+			})
 			await axios.post(
 				`https://localhost:34673/profile/update/${ID}/${name}/${mail}/${password}/${sold}/${contactMail}/${phone}/${region}/${allowNotifications}/${instagram}/${telegram}`,
-				{ image: img }
+				{ image }
 			)
 			// localStorage.setItem("currentUser", JSON.stringify(curUser))
 			// window.dispatchEvent(new Event("addCurUser"))
 			// toast.success("Профиль успешно изменен ;)")
 		} catch (error) {
+			console.log({ error })
 			thunkApi.rejectWithValue(error)
 			console.log(error)
 		}
