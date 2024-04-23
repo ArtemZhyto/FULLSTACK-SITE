@@ -47,7 +47,8 @@
             border: 1px solid $dark;
         }
 
-        &__additionalPhotosDefault {
+        &__additionalPhotosDefault,
+        &__additionalPhotos {
             border: 3px solid $white;
             color: $white;
         }
@@ -93,7 +94,8 @@
             color: $dark;
         }
 
-        &__additionalPhotosDefault {
+        &__additionalPhotosDefault,
+        &__additionalPhotos {
             border: 3px solid $dark;
             color: $white;
         }

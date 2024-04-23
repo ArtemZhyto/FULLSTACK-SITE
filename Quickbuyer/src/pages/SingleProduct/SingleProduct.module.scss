@@ -26,7 +26,8 @@
         }
     }
 
-    &__additionalPhotosDefault {
+    &__additionalPhotosDefault , 
+    &__additionalPhotos{
         display: flex;
         align-items: center;
         justify-content: center;

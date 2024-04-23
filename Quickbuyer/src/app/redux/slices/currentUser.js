@@ -49,27 +49,28 @@ export const sendUpdate = createAsyncThunk(
 	"currentUser/sendUpdate",
 	async (_, thunkApi) => {
 		const curUser = thunkApi.getState().currentUser
-		// const {
-		// 	ID,
-		// 	name,
-		// 	mail,
-		// 	password,
-		// 	sold,
-		// 	contactMail,
-		// 	phone,
-		// 	region,
-		// 	allowNotifications,
-		// 	instagram,
-		// 	telegram,
-		// 	img,
-		// } = curUser
+		const {
+			ID,
+			name,
+			mail,
+			password,
+			sold,
+			contactMail,
+			phone,
+			region,
+			allowNotifications,
+			instagram,
+			telegram,
+			img,
+		} = curUser
 		try {
-			// await axios.post(
-			// 	`https://localhost:34673/profile/update/${ID}/${name}/${mail}/${password}/${sold}/${contactMail}/${phone}/${region}/${allowNotifications}/${instagram}/${telegram}/${img}`
-			// )
-			localStorage.setItem("currentUser", JSON.stringify(curUser))
-			window.dispatchEvent(new Event("addCurUser"))
-			toast.success("Профиль успешно изменен ;)")
+			await axios.post(
+				`https://localhost:34673/profile/update/${ID}/${name}/${mail}/${password}/${sold}/${contactMail}/${phone}/${region}/${allowNotifications}/${instagram}/${telegram}`,
+				{ image: img }
+			)
+			// localStorage.setItem("currentUser", JSON.stringify(curUser))
+			// window.dispatchEvent(new Event("addCurUser"))
+			// toast.success("Профиль успешно изменен ;)")
 		} catch (error) {
 			thunkApi.rejectWithValue(error)
 			console.log(error)

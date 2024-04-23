@@ -33,25 +33,31 @@ const SingleProduct = () => {
 						<div className={styles.singleProduct__imgblock}>
 							<div className={styles.singleProduct__imageWithName}>
 								{currentProduct?.additionalImage ? (
-									<Gallery>
-										{currentProduct.additionalImage.map((additionalImg) => (
-											<Item
-												width="1024"
-												height="768"
-												original={additionalImg}
-												thumbnail={additionalImg}
-											>
-												{({ ref, open }) => (
-													<img
-														ref={ref}
-														onClick={open}
-														src={additionalImg}
-														alt="additionalPhoto"
-													/>
-												)}
-											</Item>
-										))}
-									</Gallery>
+									<div className={styles.singleProduct__additonalPhotosList}>
+										<Gallery>
+											{currentProduct.additionalImage.map((additionalImg) => (
+												<Item
+													width="1024"
+													height="768"
+													original={additionalImg}
+													thumbnail={additionalImg}
+												>
+													{({ ref, open }) => (
+														<img
+															className={substring(
+																styles.singleProduct__additionalPhotos,
+																"singleProduct__additionalPhotos"
+															)}
+															ref={ref}
+															onClick={open}
+															src={additionalImg}
+															alt="additionalPhoto"
+														/>
+													)}
+												</Item>
+											))}
+										</Gallery>
+									</div>
 								) : (
 									<div className={styles.singleProduct__additonalPhotosList}>
 										<button
@@ -243,7 +249,5 @@ const SingleProduct = () => {
 }
 
 export default SingleProduct
-
-
 
 //todo - Закончить со стилями к добополнительным фото ^^
