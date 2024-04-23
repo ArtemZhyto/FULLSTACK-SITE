@@ -8,7 +8,7 @@ const updateInfo = async (req, res) => {
 			res.status(404).send(`Помилка. Користувач не знайден`) //@ Користувача з переданим ID не існує
 			return
 		} else {
-			const { image } = req.body
+			console.log(`Нету ошибки 1`)
 			const data = [
 				req.params.ID,
 				req.params.name,
@@ -21,9 +21,10 @@ const updateInfo = async (req, res) => {
 				req.params.allowNotifications,
 				req.params.instagram,
 				req.params.telegram,
-				image,
+				req.body.image
 			]
 			const result = await loadUpdate(data)
+			console.log(`Нету ошибки 3`)
 			res.status(200).send(result) //@ Зміни до профіля були зроблені
 			return
 		}
