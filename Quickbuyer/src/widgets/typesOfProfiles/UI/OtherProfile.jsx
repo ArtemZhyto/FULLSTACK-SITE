@@ -36,7 +36,7 @@ const OtherProfile = () => {
 							])}
 						>
 							<div className={styles.otherProfile__imageWithName}>
-								{currentSeller?.img === "no" || !currentSeller?.img ? (
+								{currentSeller?.image === "no" || !currentSeller?.image ? (
 									<>
 										<label
 											className={substring(
@@ -50,7 +50,7 @@ const OtherProfile = () => {
 									<div>
 										<img
 											className={styles.otherProfile__photo}
-											src={currentSeller.img}
+											src={currentSeller.image}
 										></img>
 										<p>{currentSeller.name}</p>
 									</div>
