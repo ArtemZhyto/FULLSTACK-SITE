@@ -4,7 +4,22 @@ import { useSelector } from "react-redux"
 import { chooseTheme } from "../../../features/slices/mainpage/mainPageInfo"
 import { ToastContainer } from "react-toastify"
 import styles from "../globalProfile.module.scss"
-const OtherProfile = ({ currentUser, setCurrentUser }) => {
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useLocation } from "react-router"
+const OtherProfile = () => {
+	const location = useLocation().pathname
+	const sellerName = location.split(/\//)[2]
+	const [currentSeller, setCurrentSeller] = useState({})
+	useEffect(() => {
+		const getSeller = async () => {
+			const res = await axios.get(`https://localhost:34673/user/${sellerName}`)
+			setCurrentSeller(res.data)
+		}
+		if (currentSeller) {
+			getSeller(currentSeller)
+		}
+	}, [])
 	const theme = useSelector(chooseTheme) === "white" ? "light" : "dark"
 	const checkIsNo = (val) => (val === "no" ? "Не указан" : val)
 	return (
@@ -21,7 +36,7 @@ const OtherProfile = ({ currentUser, setCurrentUser }) => {
 							])}
 						>
 							<div className={styles.otherProfile__imageWithName}>
-								{currentUser?.img === "no" || !currentUser?.img ? (
+								{currentSeller?.img === "no" || !currentSeller?.img ? (
 									<>
 										<label
 											className={substring(
@@ -29,26 +44,26 @@ const OtherProfile = ({ currentUser, setCurrentUser }) => {
 												"otherProfile__defaultPhoto"
 											)}
 										></label>
-										<p>{currentUser.name}</p>
+										<p>{currentSeller.name}</p>
 									</>
 								) : (
 									<div>
 										<img
 											className={styles.otherProfile__photo}
-											src={currentUser.img}
+											src={currentSeller.img}
 										></img>
-										<p>{currentUser.name}</p>
+										<p>{currentSeller.name}</p>
 									</div>
 								)}
 							</div>
 							<div className="otherProfile__yearsSoldProducts">
 								<p className={styles.otherProfile__years}>
-									Лет на нашем сайте {currentUser.regist_data - 2023}
+									Лет на нашем сайте {currentSeller.regist_data - 2020}
 								</p>
 								<p className={styles.otherProfile__soldProducts}>
 									Продано товаров :
 									<span className={styles.otherProfile__title}>
-										{currentUser.sold}
+										{currentSeller.sold}
 									</span>
 								</p>
 							</div>
@@ -67,7 +82,7 @@ const OtherProfile = ({ currentUser, setCurrentUser }) => {
 											"otherProfile__emailPhoto"
 										)}
 									></div>
-									Почта:{currentUser.mail}
+									Почта:{currentSeller.contactMail}
 								</li>
 								<li className={styles.otherProfile__info}>
 									<div
@@ -76,7 +91,7 @@ const OtherProfile = ({ currentUser, setCurrentUser }) => {
 											"otherProfile__phone"
 										)}
 									></div>
-									Номер телефона: {checkIsNo(currentUser.phone)}
+									Номер телефона: {checkIsNo(currentSeller.phone)}
 								</li>
 								<li className={styles.otherProfile__info}>
 									<div
@@ -85,7 +100,7 @@ const OtherProfile = ({ currentUser, setCurrentUser }) => {
 											"otherProfile__region"
 										)}
 									></div>
-									Регион: {checkIsNo(currentUser.region)}
+									Регион: {checkIsNo(currentSeller.region)}
 								</li>
 								<li className={styles.otherProfile__info}>
 									<div
@@ -94,7 +109,7 @@ const OtherProfile = ({ currentUser, setCurrentUser }) => {
 											"otherProfile__instagram"
 										)}
 									></div>
-									Instagram: {checkIsNo(currentUser.instagram)}
+									Instagram: {checkIsNo(currentSeller.instagram)}
 								</li>
 								<li className={styles.otherProfile__info}>
 									<div
@@ -103,7 +118,7 @@ const OtherProfile = ({ currentUser, setCurrentUser }) => {
 											"otherProfile__telegram"
 										)}
 									></div>
-									Telegram: {checkIsNo(currentUser.telegram)}
+									Telegram: {checkIsNo(currentSeller.telegram)}
 								</li>
 							</ul>
 						</Col>

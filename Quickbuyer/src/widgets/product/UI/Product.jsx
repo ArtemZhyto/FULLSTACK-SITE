@@ -23,7 +23,10 @@ const Product = ({ name, img, seller, price, id }) => {
 					className={substring(styles.products__line, "products__line")}
 				></div>
 				<p className="products__sellerName">
-					Продавец : <Link to={`/user/${seller}`} className="text-primary">{seller}</Link>
+					Продавец :{" "}
+					<Link to={`/user/${seller}`} className="text-primary">
+						{seller}
+					</Link>
 				</p>
 				<p className="products__price">Цена : {price}</p>
 				<button

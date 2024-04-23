@@ -12,12 +12,6 @@ import axios from "axios"
 const Profle = () => {
 	const currentUser = useSelector(selectCurrentUser)
 	const dispatch = useDispatch()
-	const getSeller = async () => {
-		const res = await axios.get(
-			`https://localhost:34673/user/${currentUser.name}`
-		)
-		return res
-	}
 	useEffect(() => {
 		const handleNewCurUser = () => {
 			let localStorageUser = localStorage.getItem("currentUser")
@@ -36,7 +30,7 @@ const Profle = () => {
 			return <YourProfile currentUser={currentUser} />
 		}
 		if (currentUser.ID !== urlId) {
-			return <OtherProfile currentUser={getSeller} />
+			return <OtherProfile  />
 		}
 	}
 }
