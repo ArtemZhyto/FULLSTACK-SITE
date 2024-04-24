@@ -10,7 +10,7 @@ async function loadData(dataToInsert, userName) {
         const client = await MongoClient.connect(url)
         console.log()
         console.log('Успішне підключення до MongoDB')
-
+        
         const db = client.db(dbName)
         const collection1 = db.collection(collectionName1)
         const collection2 = db.collection(collectionName2)
