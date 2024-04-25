@@ -43,7 +43,7 @@ const FeaturesBlock = () => {
 					</li>
 					<li className={style.featuresBlock__btn}>
 						<Link
-							href=""
+							to="/products/createProduct"
 							className={`${style.featuresBlock__btn} featuresBlock__addproduct`}
 						></Link>
 					</li>

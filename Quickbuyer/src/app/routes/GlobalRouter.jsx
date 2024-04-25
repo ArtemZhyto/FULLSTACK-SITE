@@ -11,6 +11,7 @@ import Form from "../../pages/registratiion/UI/Form"
 import Categorys from "../../widgets/categorys/UI/Categorys"
 import SingleProduct from "../../pages/SingleProduct/SingleProduct"
 import ErrorPage from "../../pages/errorPage/ErrorPage"
+import CreateProduct from "../../pages/createProduct/UI/CreateProduct"
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
 				<Route path="/registration" element={<Form />}></Route>
 				<Route path="/categorys" element={<Categorys />}></Route>
 				<Route path="/products/product" element={<SingleProduct />}></Route>
+				<Route path="/products/createProduct" element={<CreateProduct />} />
 			</Route>
 		</>
 	)

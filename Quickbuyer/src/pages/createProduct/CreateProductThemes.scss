@@ -1,0 +1,32 @@
+@import "../../shared/utils/colours.scss";
+
+#dark {
+    .createProduct {
+        &__form {
+            background-color: $white;
+        }
+
+        &__defaultAdditionalPhoto {
+            color: $white;
+
+            background-color: #56568b;
+            border: 5px solid $dark;
+        }
+    }
+}
+
+#white {
+    .createProduct {
+        &__form {
+            background-color: $dark;
+        }
+
+
+
+        &__defaultAdditionalPhoto {
+            background-color: #303079;
+            color: $white;
+            border: 5px solid $white;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+.createProduct {
+    &__form {
+        display: flex;
+        border-radius: 25px;
+        max-width: 1075px;
+        max-height: 450px;
+    }
+
+    &__additionalImages {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    &__imageBlock {
+        display: flex;
+    }
+
+    &__defaultAdditionalPhoto {
+        display: flex;
+        border: 0;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        width: 50px;
+        height: 50px;
+    }
+}

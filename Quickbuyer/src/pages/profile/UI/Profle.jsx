@@ -8,7 +8,7 @@ import {
 	addCurrentUser,
 	selectCurrentUser,
 } from "../../../app/redux/slices/currentUser"
-import axios from "axios"
+
 const Profle = () => {
 	const currentUser = useSelector(selectCurrentUser)
 	const dispatch = useDispatch()
@@ -24,13 +24,16 @@ const Profle = () => {
 		window.addEventListener("addCurUser", handleNewCurUser)
 		return () => window.removeEventListener("addCurUser", handleNewCurUser)
 	}, [])
+
 	const urlId = useParams().id
 	if (currentUser) {
-		if (currentUser.ID === urlId) {
-			return <YourProfile currentUser={currentUser} />
-		}
-		if (currentUser.ID !== urlId) {
-			return <OtherProfile  />
+		if (currentUser.ID) {
+			if (currentUser.ID === urlId) {
+				return <YourProfile currentUser={currentUser} />
+			}
+			if (currentUser.ID !== urlId) {
+				return <OtherProfile />
+			}	
 		}
 	}
 }

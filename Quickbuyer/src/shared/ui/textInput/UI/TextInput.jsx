@@ -1,10 +1,11 @@
-import React, { useState } from "react"
+import React, { memo, useState } from "react"
 import "../textInput.scss"
-const TextInput = ({ customInput, text, label, logo }) => {
+const TextInput = memo(({ customInput, text, label, logo }) => {
 	const [isChanged, setIsChanged] = useState(false)
 	const toggleChange = () => {
 		setIsChanged(!isChanged)
 	}
+	console.log("RERENDERED")
 	return (
 		<>
 			{isChanged ? (
@@ -35,6 +36,6 @@ const TextInput = ({ customInput, text, label, logo }) => {
 			)}
 		</>
 	)
-}
+})
 
 export default TextInput
