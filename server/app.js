@@ -1,4 +1,3 @@
-const multer = require("multer")
 const fs = require("fs")
 const express = require("express")
 const https = require("https")
@@ -9,6 +8,7 @@ const package = fs.readFileSync("./package.json", "utf-8")
 const packageObj = JSON.parse(package)
 
 const app = express()
+app.use(express.urlencoded({extended: false}))
 
 let cors = require("cors")
 app.use(cors())
