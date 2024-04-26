@@ -37,4 +37,3 @@ project-root/          # Корневая папка проекта
 |-- LICENSE           # Лицензия проекта
 
 
-Тест гит для Visual Studio Code
