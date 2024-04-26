@@ -12,9 +12,11 @@ import RegistrationForm from "../../../widgets/form/RegistrationForm"
 import { useEffect } from "react"
 import {
 	addCurrentUser,
+	exitFromUser,
 	selectCurrentUser,
 } from "../../../app/redux/slices/currentUser"
 import { Link } from "react-router-dom"
+import axios from "axios"
 const Registration = () => {
 	const [typeOfSending, setTypeOfSending] = useState("registration")
 	const theme = useSelector(chooseTheme) === "white" ? "light" : "dark"
@@ -22,11 +24,20 @@ const Registration = () => {
 	const currentUser = useSelector(selectCurrentUser)
 	const dispatch = useDispatch()
 	useEffect(() => {
-		const handleNewCurUser = () => {
+		const handleNewCurUser = async () => {
 			let localStorageUser = localStorage.getItem("currentUser")
 			if (localStorageUser !== "undefined" && localStorageUser) {
 				localStorageUser = JSON.parse(localStorageUser)
-				dispatch(addCurrentUser(localStorageUser))
+				try {
+					const res = await axios.get(
+						`https://localhost:34673/enter/${localStorageUser.password}/${localStorageUser.mail}`
+					)
+					localStorage.setItem("currentUser", JSON.stringify(res.data))
+					dispatch(addCurrentUser(res.data))
+				} catch (error) {
+					localStorage.clear()
+					dispatch(exitFromUser())
+				}
 			}
 		}
 		handleNewCurUser()
@@ -59,7 +70,12 @@ const Registration = () => {
 						)}
 					>
 						{currentUser.ID ? (
-							<Link className={styles.registration__userLink} to={`/user/${currentUser.ID}`}>Войти в профиль</Link>
+							<Link
+								className={styles.registration__userLink}
+								to={`/user/${currentUser.ID}`}
+							>
+								Войти в профиль
+							</Link>
 						) : checking ? (
 							<>
 								<RegistrationInstruction />

@@ -8,8 +8,8 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router"
 const OtherProfile = () => {
-	const location = useLocation().pathname
-	const sellerName = location.split(/\//)[2]
+	const location = useLocation()
+	const sellerName = decodeURI(location.pathname.split(/\//)[2].toString())
 	const [currentSeller, setCurrentSeller] = useState({})
 	useEffect(() => {
 		const getSeller = async () => {

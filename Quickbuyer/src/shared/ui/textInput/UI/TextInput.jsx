@@ -5,7 +5,6 @@ const TextInput = memo(({ customInput, text, label, logo }) => {
 	const toggleChange = () => {
 		setIsChanged(!isChanged)
 	}
-	console.log("RERENDERED")
 	return (
 		<>
 			{isChanged ? (

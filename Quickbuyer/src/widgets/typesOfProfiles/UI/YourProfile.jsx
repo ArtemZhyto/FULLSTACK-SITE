@@ -227,6 +227,7 @@ const YourProfile = ({ currentUser }) => {
 								<TextInput
 									customInput={
 										<input
+										type="phone"
 											value={checkIsNo(currentUser.phone)}
 											onChange={(e) => {
 												dispatch(
@@ -268,6 +269,7 @@ const YourProfile = ({ currentUser }) => {
 								<label className={"yourProfile__label"}>
 									Получать уведовмления и новости
 									<input
+									readOnly
 										type="checkbox"
 										className={styles.yourProfile__checkbox}
 										onClick={(e) => {
