@@ -34,6 +34,7 @@ export const sendEnter = createAsyncThunk(
 			)
 			localStorage.setItem("currentUser", JSON.stringify(resp.data))
 			window.dispatchEvent(new Event("addCurUser"))
+			console.log("DONE")
 			return resp.data
 		} catch (error) {
 			console.log(error)
@@ -64,27 +65,19 @@ export const sendUpdate = createAsyncThunk(
 			image,
 		} = curUser
 		try {
-			console.log({
-				ID,
-				name,
-				mail,
-				password,
-				sold,
-				contactMail,
-				phone,
-				region,
-				allowNotifications,
-				instagram,
-				telegram,
-				image,
-			})
+			const headers = {
+				"Content-Type": "application/x-www-form-urlencoded",
+			}
+			console.log("ERRISNT HERE")
 			await axios.post(
 				`https://localhost:34673/profile/update/${ID}/${name}/${mail}/${password}/${sold}/${contactMail}/${phone}/${region}/${allowNotifications}/${instagram}/${telegram}`,
-				{ image }
+				{ image: image },
+				{ headers: headers }
 			)
-			// localStorage.setItem("currentUser", JSON.stringify(curUser))
-			// window.dispatchEvent(new Event("addCurUser"))
-			// toast.success("Профиль успешно изменен ;)")
+			console.log("ERRISNT HERE")
+			localStorage.setItem("currentUser", JSON.stringify(curUser))
+			window.dispatchEvent(new Event("addCurUser"))
+			toast.success("Профиль успешно изменен ;)")
 		} catch (error) {
 			console.log({ error })
 			thunkApi.rejectWithValue(error)
