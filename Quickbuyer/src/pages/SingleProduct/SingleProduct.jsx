@@ -19,7 +19,8 @@ const SingleProduct = () => {
 			console.log(error)
 		}
 	}, [currentProductId])
-	return currentProduct ? (
+	console.log(currentProduct)
+	return currentProduct.ID ? (
 		<main>
 			<Container>
 				<Row className={"singleProduct"}>
@@ -32,30 +33,32 @@ const SingleProduct = () => {
 					>
 						<div className={styles.singleProduct__imgblock}>
 							<div className={styles.singleProduct__imageWithName}>
-								{currentProduct?.additionalImage ? (
+								{currentProduct?.images ? (
 									<div className={styles.singleProduct__additonalPhotosList}>
 										<Gallery>
-											{currentProduct.additionalImage.map((additionalImg) => (
-												<Item
-													width="1024"
-													height="768"
-													original={additionalImg}
-													thumbnail={additionalImg}
-												>
-													{({ ref, open }) => (
-														<img
-															className={substring(
-																styles.singleProduct__additionalPhotos,
-																"singleProduct__additionalPhotos"
-															)}
-															ref={ref}
-															onClick={open}
-															src={additionalImg}
-															alt="additionalPhoto"
-														/>
-													)}
-												</Item>
-											))}
+											{currentProduct.images.map((additionalImg, index) =>
+												index ? (
+													<Item
+														width="1024"
+														height="768"
+														original={additionalImg}
+														thumbnail={additionalImg}
+													>
+														{({ ref, open }) => (
+															<img
+																className={substring(
+																	styles.singleProduct__additionalPhotos,
+																	"singleProduct__additionalPhotos"
+																)}
+																ref={ref}
+																onClick={open}
+																src={additionalImg}
+																alt="additionalPhoto"
+															/>
+														)}
+													</Item>
+												) : null
+											)}
 										</Gallery>
 									</div>
 								) : (
@@ -94,8 +97,8 @@ const SingleProduct = () => {
 										<Item
 											width="1024"
 											height="768"
-											original={currentProduct.image}
-											thumbnail={currentProduct.image}
+											original={currentProduct.images[0]}
+											thumbnail={currentProduct.images[0]}
 										>
 											{({ ref, open }) => (
 												<img
@@ -105,7 +108,7 @@ const SingleProduct = () => {
 														styles.singleProduct__image,
 														"singleProduct__image"
 													)}
-													src={currentProduct.image}
+													src={currentProduct.images[0]}
 													alt=""
 												/>
 											)}
