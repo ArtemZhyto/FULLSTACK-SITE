@@ -1,0 +1,28 @@
+@import "../../shared/utils/mixins.scss";
+
+.mainInfo {
+    position: fixed;
+    top: 160px; 
+    right: 45px;
+    left: auto;
+    border-radius: 25px;
+    max-width: 200px;
+    width: 100%;
+    max-height: 269px;
+    height: 100%;
+    padding: 20px;
+
+    &__yelbut {
+        @include yellowButton
+    }
+
+    &__info {
+        width: 100px;
+        height: 33px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+
+    }
+}

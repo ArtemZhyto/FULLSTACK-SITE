@@ -11,22 +11,36 @@ import { useDropzone } from "react-dropzone"
 import axios from "axios"
 import { useNavigate } from "react-router"
 import { ToastContainer, toast } from "react-toastify"
+import currentUser from "../../../app/redux/slices/currentUser"
 const CreateProduct = () => {
-	const onDrop = useCallback((acceptedFiles) => {
-		const type = /image.*/
-		if (acceptedFiles[0].type.match(type)) {
-			const reader = new FileReader()
-			reader.onload = () => {
-				setCreatedProduct({
-					...createdProduct,
-					images: createdProduct.images[0]
-						? [reader.result, ...createdProduct.images]
-						: [reader.result],
-				})
+	const [createdProduct, setCreatedProduct] = useState({
+		name: "",
+		price: 0,
+		seller: "",
+		country: "Австралия",
+		type: "Новое",
+		category: "Электроника",
+		images: [],
+		desript: "",
+	})
+	const onDrop = useCallback(
+		(acceptedFiles) => {
+			const type = /image.*/
+			if (acceptedFiles[0].type.match(type)) {
+				const reader = new FileReader()
+				reader.onload = () => {
+					setCreatedProduct({
+						...createdProduct,
+						images: createdProduct.images[0]
+							? [reader.result, ...createdProduct.images]
+							: [reader.result],
+					})
+				}
+				reader.readAsDataURL(acceptedFiles[0])
 			}
-			reader.readAsDataURL(acceptedFiles[0])
-		}
-	}, [])
+		},
+		[createdProduct]
+	)
 	const navigate = useNavigate()
 	const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 	useEffect(() => {
@@ -38,16 +52,6 @@ const CreateProduct = () => {
 			navigate("/registration")
 		}
 	}, [])
-	const [createdProduct, setCreatedProduct] = useState({
-		name: "",
-		price: 0,
-		seller: "",
-		country: "Австралия",
-		type: "Новое",
-		category: "Электроника",
-		images: [],
-		description: "",
-	})
 	const getCurrentTime = useCallback(() => {
 		const date = new Date()
 		return date.getFullYear()
@@ -67,16 +71,14 @@ const CreateProduct = () => {
 										createdProduct.name
 									}/${createdProduct.price}/${createdProduct.seller}/${
 										createdProduct.country
-									}/${
-										createdProduct.type
-									}/${getCurrentTime()}/${createdProduct.category.toString()}/${
-										createdProduct.description
-									}`,
+									}/${createdProduct.type}/${getCurrentTime()}/${
+										createdProduct.category
+									}/${createdProduct.desript}`,
 									{
-										images: createdProduct.images ? createdProduct.images : [],
+										images: createdProduct.images,
 									}
 								)
-								console.log(createdProduct)
+								console.log({ createdProduct })
 								if (
 									!createdProduct.name ||
 									!createdProduct.price ||
@@ -84,7 +86,7 @@ const CreateProduct = () => {
 									!createdProduct.type ||
 									!createdProduct.category ||
 									!createdProduct.images[0] ||
-									!createdProduct.description 
+									!createdProduct.desript
 								) {
 									toast.info("Убедитесь , что все поля заполнены 😁")
 								} else {
@@ -95,7 +97,7 @@ const CreateProduct = () => {
 											createdProduct.country
 										}/${createdProduct.type}/${getCurrentTime()}/${
 											createdProduct.category
-										}/${createdProduct.description}`,
+										}/${JSON.stringify(createdProduct.desript)}`,
 										{
 											images: createdProduct.images,
 										},
@@ -118,11 +120,6 @@ const CreateProduct = () => {
 										<AdditionalImage
 											createdProduct={createdProduct}
 											setCreatedProduct={setCreatedProduct}
-											index={0}
-										></AdditionalImage>
-										<AdditionalImage
-											createdProduct={createdProduct}
-											setCreatedProduct={setCreatedProduct}
 											index={1}
 										></AdditionalImage>
 										<AdditionalImage
@@ -139,6 +136,11 @@ const CreateProduct = () => {
 											createdProduct={createdProduct}
 											setCreatedProduct={setCreatedProduct}
 											index={4}
+										></AdditionalImage>
+										<AdditionalImage
+											createdProduct={createdProduct}
+											setCreatedProduct={setCreatedProduct}
+											index={5}
 										></AdditionalImage>
 									</div>
 									{createdProduct.images.length ? (
@@ -336,7 +338,7 @@ const CreateProduct = () => {
 									onChange={(e) => {
 										setCreatedProduct({
 											...createdProduct,
-											description: e.target.value,
+											desript: e.target.value,
 										})
 									}}
 								></textarea>

@@ -15,6 +15,7 @@ const RegistrationForm = ({ setTypeOfSending, theme }) => {
 	}
 	const [registrationVals, setRegistrationVals] = useState(initalState)
 	const { mail, password, submitPassword } = registrationVals
+	
 	return (
 		<form
 			onSubmit={(e) => {
@@ -29,7 +30,8 @@ const RegistrationForm = ({ setTypeOfSending, theme }) => {
 					setRegistrationVals(initalState)
 				} else {
 					dispatch(sendRegistration(registrationVals))
-					setRegistrationVals(initalState)
+					// setRegistrationVals(initalState)
+					localStorage.setItem("currentUser", initalState)
 				}
 			}}
 			className={substring(styles.registration__form, "registration__form")}

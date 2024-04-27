@@ -19,7 +19,6 @@ const SingleProduct = () => {
 			console.log(error)
 		}
 	}, [currentProductId])
-	console.log(currentProduct)
 	return currentProduct.ID ? (
 		<main>
 			<Container>
@@ -124,11 +123,11 @@ const SingleProduct = () => {
 									</p>
 								</div>
 							</div>
-						</div>
+						</div>	
 
 						<div
 							className={substring(
-								styles.singleProduct__description,
+								styles.singleProduct__desript,
 								"mt-4 mt-sm-0"
 							)}
 						>
@@ -142,11 +141,7 @@ const SingleProduct = () => {
 								Код {currentProduct.code}
 							</div>
 							<p className="sinleProduct__textDescription">
-								Тут будет находиться описание товара, которое поможет
-								пользователям определить, можно или нужно ли покупать данный
-								товар. Так же слево находится описание о товаре: продавец, тип,
-								страна и дата опубликации о продажи данного товаран на нашем
-								сайте
+								{currentProduct.desript}
 							</p>
 							<div
 								className={substring(

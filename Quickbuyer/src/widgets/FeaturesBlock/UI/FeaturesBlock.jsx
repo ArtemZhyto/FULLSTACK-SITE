@@ -25,7 +25,7 @@ const FeaturesBlock = () => {
 				<ul className={` featuresBlockInner ${style.featuresBlock__inner}`}>
 					<li className={style.featuresBlock__btn}>
 						<Link
-							href=""
+							to="/cart"
 							className={`${style.featuresBlock__btn} featuresBlock__cart`}
 						></Link>
 					</li>

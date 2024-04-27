@@ -6,19 +6,18 @@ import styles from "./AdditionalImage.module.scss"
 const AdditionalImage = ({ createdProduct, setCreatedProduct, index }) => {
 	return (
 		<label className="createProduct__additionalImage">
-			{createdProduct?.additionalImages &&
-			createdProduct?.additionalImages[index] ? (
+			{createdProduct?.images && createdProduct?.images[index] ? (
 				<Item
 					width="1024"
 					height="768"
-					original={createdProduct.additionalImages[index]}
-					thumbnail={createdProduct.additionalImages[index]}
+					original={createdProduct.images[index]}
+					thumbnail={createdProduct.images[index]}
 				>
 					{({ ref, open }) => (
 						<img
 							ref={ref}
 							onClick={open}
-							src={createdProduct.additionalImages[index]}
+							src={createdProduct.images[index]}
 							alt=""
 							className={substring(
 								"createProduct__additionalImagePreview",
@@ -44,13 +43,11 @@ const AdditionalImage = ({ createdProduct, setCreatedProduct, index }) => {
 							const type = /image.*/
 							if (file.type.match(type)) {
 								const reader = new FileReader()
+								console.log(createdProduct.images)
 								reader.onload = () => {
 									setCreatedProduct({
 										...createdProduct,
-										additionalImages: [
-											...createdProduct.additionalImages,
-											reader.result,
-										],
+										images: [...createdProduct.images, reader.result],
 									})
 								}
 								reader.readAsDataURL(file)

@@ -12,13 +12,14 @@ const AccordionItem = ({ title, value }) => {
 		if (location !== "/products") {
 			navigate("/products")
 		}
-        
+
 		dispatch(changeFilter({ category: e.target.innerText }))
 	}
 	const [isActive, setIsActive] = useState(false)
 	return (
 		<>
 			<div
+				onClick={onCategoryClickHandler}
 				className={
 					isActive.isFirstActive
 						? "AccordionItem AccordionItemActive"

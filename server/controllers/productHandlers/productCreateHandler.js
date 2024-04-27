@@ -25,8 +25,9 @@ const postProductCreateHandler = async (req, res) => {
 
             try {
                 if (checkIDRes && checkCodeRes) {
-                    const imagesArray = JSON.parse(req.body.images)
-
+                    console.log(req.body.images)
+                    // const imagesArray = JSON.parse(req.body.images)
+                    
                     const product = await productServices.createProduct(
                         req.params.name,
                         checkCode,
@@ -38,7 +39,7 @@ const postProductCreateHandler = async (req, res) => {
                         finaleDate,
                         req.params.category,
                         req.params.desript,
-                        imagesArray
+                        req.body.images
                     )
 
                     console.log(req.body.images)
@@ -58,6 +59,7 @@ const postProductCreateHandler = async (req, res) => {
                     attempts--
                 }   
             } catch (err) {
+                console.log(err)
                 console.log('Помилка при створенні товару')
                 res.status(504).send(false) //@ Продукт не було створено
                 return

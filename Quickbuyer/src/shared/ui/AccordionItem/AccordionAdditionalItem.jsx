@@ -13,7 +13,7 @@ const AccordionAdditionalItem = ({ additionalCategory, onCategoryClick }) => {
 						? "AccordionItem__additionalItem AccordionItem__additionalItemActive"
 						: "AccordionItem__additionalItem"
 				}
-				onClick={!typeOfCategory ? onCategoryClick : null}
+				onClick={onCategoryClick}
 			>
 				{typeOfCategory ? additionalCategory.title : additionalCategory}
 				{typeOfCategory ? (

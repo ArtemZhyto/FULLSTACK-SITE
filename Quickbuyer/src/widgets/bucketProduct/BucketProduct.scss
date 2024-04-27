@@ -1,0 +1,61 @@
+@import "../../shared/utils/colours.scss";
+
+.bucketProduct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 35px;
+    width: 225px;
+    height: 211px;
+
+    &__image {
+        max-width: 110px;
+        max-height: 130px;
+    }
+
+    &__imageWrapper {
+        border-radius: 15px;
+        width: 150px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+#white {
+    .bucketProduct {
+        background-color: $dark;
+        color: $white;
+
+        &__imageWrapper {
+            background-color: $white;
+        }
+
+        &__removeBtn {
+            display: block;
+            width: 25px;
+            height: 25px;
+            background: url("../../../public/photos/trashcan-white.svg") 0 0/ 100% no-repeat;
+        }
+    }
+}
+
+#dark {
+    .bucketProduct {
+        background-color: $white;
+        color: $dark;
+
+        &__imageWrapper {
+            background-color: $dark;
+        }
+
+        &__removeBtn {
+            display: block;
+            width: 25px;
+            height: 25px;
+            background: url("../../../public/photos/trashcan-dark.svg") 0 0/ 100% no-repeat;
+        }
+    }
+}

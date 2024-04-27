@@ -1,0 +1,30 @@
+@import "../../shared/utils/colours.scss";
+
+#white {
+    .mainInfo {
+        color: $white;
+        background-color: $dark;
+
+        &__yelbut--remove {
+            background-color: $white;
+        }
+        &__info {
+            border: 1px solid $white;
+        }
+    }
+}
+
+#dark {
+    .mainInfo {
+        color: $dark;
+
+        background-color: $white;
+
+        &__yelbut--remove {
+            background-color: $dark;
+        }
+        &__info {
+            border: 1px solid $dark;
+        }
+    }
+}
