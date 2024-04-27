@@ -6,27 +6,73 @@
             background-color: $white;
         }
 
-        &__defaultAdditionalPhoto {
+        &__filters {
             color: $white;
+            background-color: $dark;
+        }
 
-            background-color: #56568b;
-            border: 5px solid $dark;
+        &__mainPhoto {
+            color: $dark;
+            background-color: $white;
+            border: 10px solid $dark;
+        }
+
+        &__input,
+        &__selection {
+            border: 1px solid $white;
+            color: $white;
+            background-color: $dark;
+        }
+
+        &__description {
+            border: 1px solid $white;
+            background-color: $white;
+            color: $dark;
+        }
+
+        .downloadBtn {
+            width: 25px;
+            height: 40px;
+            background: url("../../../public/photos/download-dark.svg") 0 0 / 100% no-repeat;
         }
     }
 }
 
 #white {
     .createProduct {
+        &__mainPhoto {
+            color: $white;
+            background-color: $dark;
+
+            border: 10px solid $white;
+        }
+
         &__form {
             background-color: $dark;
         }
 
+        &__filters {
+            color: $dark;
+            background-color: $white;
+        }
 
+        &__input,
+        &__selection {
+            border: 1px solid $dark;
+            color: $dark;
+            background-color: $white;
+        }
 
-        &__defaultAdditionalPhoto {
-            background-color: #303079;
+        .downloadBtn {
+            width: 25px;
+            height: 40px;
+            background: url("../../../public/photos/donwload-white.svg") 0 0 / 100% no-repeat;
+        }
+
+        &__description {
+            border: 1px solid $white;
+            background-color: $dark;
             color: $white;
-            border: 5px solid $white;
         }
     }
 }

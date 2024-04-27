@@ -1,23 +1,26 @@
-const express = require('express')
+const express = require("express")
 const router = express.Router()
 
 const {
-    getProductsRootHandler
-} = require('../controllers/productHandlers/productsRootHandler')
+	getProductsRootHandler,
+} = require("../controllers/productHandlers/productsRootHandler")
 
 const {
-    getProductIDHandler
-} = require('../controllers/productHandlers/productIDHandler')
+	getProductIDHandler,
+} = require("../controllers/productHandlers/productIDHandler")
 
 const {
-    postProductCreateHandler
-} = require('../controllers/productHandlers/productCreateHandler')
+	postProductCreateHandler,
+} = require("../controllers/productHandlers/productCreateHandler")
 
-router.post(`/create/:name/:price/:seller/:country/:type/:date/:category/:desript`, postProductCreateHandler)
-router.get('/:productID', getProductIDHandler)
-router.get('/', getProductsRootHandler)
+router.post(
+	`/create/:name/:price/:seller/:country/:type/:date/:category/:desript`,
+	postProductCreateHandler
+)
+router.get("/:productID", getProductIDHandler)
+router.get("/", getProductsRootHandler)
 router.use((req, res) => {
-    res.status(404).send(`Помилка. Маршрут не знайдено`) //@ Такого шляху не існує
+	res.status(404).send(`Помилка. Маршрут не знайдено`) //@ Такого шляху не існує
 })
 
 module.exports = router

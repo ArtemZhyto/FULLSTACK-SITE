@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import { Gallery, Item } from "react-photoswipe-gallery"
 import { countries } from "../../../entities/data/countries"
 import { categories } from "../../../entities/data/categorysList"
@@ -6,18 +6,107 @@ import { Col, Container, Row } from "react-bootstrap"
 import styles from "../CreateProduct.module.scss"
 import { substring } from "../../../shared/utils/substring"
 import "../CreateProductThemes.scss"
+import AdditionalImage from "../../../widgets/additionalImage/AdditionalImage"
+import { useDropzone } from "react-dropzone"
+import axios from "axios"
+import { useNavigate } from "react-router"
+import { ToastContainer, toast } from "react-toastify"
 const CreateProduct = () => {
 	const onDrop = useCallback((acceptedFiles) => {
-		console.log(acceptedFiles)
-		// acceptedFiles.forEach)
+		const type = /image.*/
+		if (acceptedFiles[0].type.match(type)) {
+			const reader = new FileReader()
+			reader.onload = () => {
+				setCreatedProduct({
+					...createdProduct,
+					images: createdProduct.images[0]
+						? [reader.result, ...createdProduct.images]
+						: [reader.result],
+				})
+			}
+			reader.readAsDataURL(acceptedFiles[0])
+		}
 	}, [])
-	const [createdProduct, setCreatedProduct] = useState({})
+	const navigate = useNavigate()
+	const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+	useEffect(() => {
+		let currentUser = localStorage.getItem("currentUser")
+		if (currentUser !== undefined && currentUser) {
+			currentUser = JSON.parse(currentUser)
+			setCreatedProduct({ ...createdProduct, seller: currentUser.name })
+		} else {
+			navigate("/registration")
+		}
+	}, [])
+	const [createdProduct, setCreatedProduct] = useState({
+		name: "",
+		price: 0,
+		seller: "",
+		country: "Австралия",
+		type: "Новое",
+		category: "Электроника",
+		images: [],
+		description: "",
+	})
+	const getCurrentTime = useCallback(() => {
+		const date = new Date()
+		return date.getFullYear()
+	}, [])
 	return (
+		// https://localhost:34673/products/create/Тест/1488/Я/Украина/Новый/Недавно/Електрика
 		<Container>
+			<ToastContainer></ToastContainer>
 			<Row>
 				<Col xs={12}>
-					<main className="createProduct">
+					<main className={substring(styles.createProduct, "createProduct")}>
 						<form
+							onSubmit={async (e) => {
+								e.preventDefault()
+								console.log(
+									`https://localhost:34673/products/create/${
+										createdProduct.name
+									}/${createdProduct.price}/${createdProduct.seller}/${
+										createdProduct.country
+									}/${
+										createdProduct.type
+									}/${getCurrentTime()}/${createdProduct.category.toString()}/${
+										createdProduct.description
+									}`,
+									{
+										images: createdProduct.images ? createdProduct.images : [],
+									}
+								)
+								console.log(createdProduct)
+								if (
+									!createdProduct.name ||
+									!createdProduct.price ||
+									!createdProduct.country ||
+									!createdProduct.type ||
+									!createdProduct.category ||
+									!createdProduct.images[0] ||
+									!createdProduct.description 
+								) {
+									toast.info("Убедитесь , что все поля заполнены 😁")
+								} else {
+									await axios.post(
+										`https://localhost:34673/products/create/${
+											createdProduct.name
+										}/${createdProduct.price}/${createdProduct.seller}/${
+											createdProduct.country
+										}/${createdProduct.type}/${getCurrentTime()}/${
+											createdProduct.category
+										}/${createdProduct.description}`,
+										{
+											images: createdProduct.images,
+										},
+										{
+											headers: {
+												"Content-Type": "application/x-www-form-urlencoded",
+											},
+										}
+									)
+								}
+							}}
 							className={substring(
 								styles.createProduct__form,
 								"createProduct__form"
@@ -26,332 +115,235 @@ const CreateProduct = () => {
 							<div className={styles.createProduct__imageBlock}>
 								<Gallery>
 									<div className={styles.createProduct__additionalImages}>
-										<Item width="1024" height="768">
-											{({ ref, open }) => (
-												<label
-													className="createProduct__additionalImage"
-													onClick={(e) => {
-														const file = e.target.files[0]
-														const type = /image.*/
-														if (file.match(type)) {
-															const reader = new FileReader()
-															reader.onload = () => {
-																console.log(reader.result)
-																setCreatedProduct({
-																	...createdProduct,
-																	additionalImage: [
-																		...createdProduct.additionalImage,
-																		reader.result,
-																	],
-																})
-															}
-															reader.readAsDataURL()
-														}
-													}}
-												>
-													{createdProduct.additionalImage ? (
-														<img
-															ref={ref}
-															onClick={open}
-															src={createdProduct.image}
-															alt=""
-															className={
-																"createProducts__additionalImagePreview"
-															}
-														/>
-													) : (
-														<div
-															className={substring(
-																styles.createProduct__defaultAdditionalPhoto,
-																"createProducts__additionalImagePreview",
-																"createProduct__defaultAdditionalPhoto"
-															)}
-														>
-															Нету
-														</div>
-													)}
-													<input type="file" className="d-none" />
-												</label>
-											)}
-										</Item>
-										<Item width="1024" height="768">
-											{({ ref, open }) => (
-												<label
-													className="createProduct__additionalImage"
-													onClick={(e) => {
-														const file = e.target.files[0]
-														const type = /image.*/
-														if (file.match(type)) {
-															const reader = new FileReader()
-															reader.onload = () => {
-																console.log(reader.result)
-																setCreatedProduct({
-																	...createdProduct,
-																	additionalImage: [
-																		...createdProduct.additionalImage,
-																		reader.result,
-																	],
-																})
-															}
-															reader.readAsDataURL()
-														}
-													}}
-												>
-													{createdProduct.additionalImage ? (
-														<img
-															ref={ref}
-															onClick={open}
-															src={createdProduct.image}
-															alt=""
-															className={
-																"createProducts__additionalImagePreview"
-															}
-														/>
-													) : (
-														<div
-															className={substring(
-																styles.createProduct__defaultAdditionalPhoto,
-																"createProducts__additionalImagePreview",
-																"createProduct__defaultAdditionalPhoto"
-															)}
-														>
-															Нету
-														</div>
-													)}
-													<input type="file" className="d-none" />
-												</label>
-											)}
-										</Item>
-										<Item width="1024" height="768">
-											{({ ref, open }) => (
-												<label
-													className="createProduct__additionalImage"
-													onClick={(e) => {
-														const file = e.target.files[0]
-														const type = /image.*/
-														if (file.match(type)) {
-															const reader = new FileReader()
-															reader.onload = () => {
-																console.log(reader.result)
-																setCreatedProduct({
-																	...createdProduct,
-																	additionalImage: [
-																		...createdProduct.additionalImage,
-																		reader.result,
-																	],
-																})
-															}
-															reader.readAsDataURL()
-														}
-													}}
-												>
-													{createdProduct.additionalImage ? (
-														<img
-															ref={ref}
-															onClick={open}
-															src={createdProduct.image}
-															alt=""
-															className={
-																"createProducts__additionalImagePreview"
-															}
-														/>
-													) : (
-														<div
-															className={substring(
-																styles.createProduct__defaultAdditionalPhoto,
-																"createProducts__additionalImagePreview",
-																"createProduct__defaultAdditionalPhoto"
-															)}
-														>
-															Нету
-														</div>
-													)}
-													<input type="file" className="d-none" />
-												</label>
-											)}
-										</Item>
-										<Item width="1024" height="768">
-											{({ ref, open }) => (
-												<label
-													className="createProduct__additionalImage"
-													onClick={(e) => {
-														const file = e.target.files[0]
-														const type = /image.*/
-														if (file.match(type)) {
-															const reader = new FileReader()
-															reader.onload = () => {
-																console.log(reader.result)
-																setCreatedProduct({
-																	...createdProduct,
-																	additionalImage: [
-																		...createdProduct.additionalImage,
-																		reader.result,
-																	],
-																})
-															}
-															reader.readAsDataURL()
-														}
-													}}
-												>
-													{createdProduct.additionalImage ? (
-														<img
-															ref={ref}
-															onClick={open}
-															src={createdProduct.image}
-															alt=""
-															className={
-																"createProducts__additionalImagePreview"
-															}
-														/>
-													) : (
-														<div
-															className={substring(
-																styles.createProduct__defaultAdditionalPhoto,
-																"createProducts__additionalImagePreview",
-																"createProduct__defaultAdditionalPhoto"
-															)}
-														>
-															Нету
-														</div>
-													)}
-													<input type="file" className="d-none" />
-												</label>
-											)}
-										</Item>
-										<Item width="1024" height="768">
-											{({ ref, open }) => (
-												<label
-													className="createProduct__additionalImage"
-													onClick={(e) => {
-														const file = e.target.files[0]
-														const type = /image.*/
-														if (file.match(type)) {
-															const reader = new FileReader()
-															reader.onload = () => {
-																console.log(reader.result)
-																setCreatedProduct({
-																	...createdProduct,
-																	additionalImage: [
-																		...createdProduct.additionalImage,
-																		reader.result,
-																	],
-																})
-															}
-															reader.readAsDataURL()
-														}
-													}}
-												>
-													{createdProduct.additionalImage ? (
-														<img
-															ref={ref}
-															onClick={open}
-															src={createdProduct.image}
-															alt=""
-															className={
-																"createProducts__additionalImagePreview"
-															}
-														/>
-													) : (
-														<div
-															className={substring(
-																styles.createProduct__defaultAdditionalPhoto,
-																"createProducts__additionalImagePreview",
-																"createProduct__defaultAdditionalPhoto"
-															)}
-														>
-															Нету
-														</div>
-													)}
-													<input type="file" className="d-none" />
-												</label>
-											)}
-										</Item>
+										<AdditionalImage
+											createdProduct={createdProduct}
+											setCreatedProduct={setCreatedProduct}
+											index={0}
+										></AdditionalImage>
+										<AdditionalImage
+											createdProduct={createdProduct}
+											setCreatedProduct={setCreatedProduct}
+											index={1}
+										></AdditionalImage>
+										<AdditionalImage
+											createdProduct={createdProduct}
+											setCreatedProduct={setCreatedProduct}
+											index={2}
+										></AdditionalImage>
+										<AdditionalImage
+											createdProduct={createdProduct}
+											setCreatedProduct={setCreatedProduct}
+											index={3}
+										></AdditionalImage>
+										<AdditionalImage
+											createdProduct={createdProduct}
+											setCreatedProduct={setCreatedProduct}
+											index={4}
+										></AdditionalImage>
 									</div>
-									<Item
-										width="1024"
-										height="768"
-										/* 		original={}
-                						thumbnail={} */
-									>
-										{({ ref, open }) => (
-											<label className="createProduct__mainImage">
-												<img
-													ref={ref}
-													onClick={open}
-													alt=""
-													className={
-														createdProduct.image
-															? "createProducts__mainImagePreview"
-															: "createProducts__mainImagePreview createProducts__defaultPhoto"
-													}
-												/>
-												<input type="file" className="d-none" />
-											</label>
-										)}
-									</Item>
+									{createdProduct.images.length ? (
+										<img
+											src={createdProduct.images[0]}
+											className={substring(
+												"createProduct__mainPhoto",
+												styles.createProduct__mainPhoto
+											)}
+											alt=""
+										/>
+									) : (
+										<div
+											{...getRootProps()}
+											className={substring(
+												"createProduct__mainPhoto",
+												styles.createProduct__mainPhoto
+											)}
+										>
+											<input {...getInputProps()} type="file" />
+											{isDragActive ? (
+												<div className="d-flex align-items-center justify-content-center">
+													<p
+														className="d-none d-sm-block"
+														style={{ fontSize: 36 }}
+													>
+														Ваше фото :
+													</p>
+													<div className="downloadBtn"></div>
+												</div>
+											) : (
+												<div className="d-flex align-items-center justify-content-center">
+													<p
+														className="d-none d-sm-flex"
+														style={{ fontSize: 36 }}
+													>
+														Загрузить фото
+													</p>
+													<div className="downloadBtn"></div>
+												</div>
+											)}
+										</div>
+									)}
 								</Gallery>
 							</div>
-							<ul className="createProduct__filters">
+							<ul
+								className={substring(
+									"createProduct__filters",
+									styles.createProduct__filters
+								)}
+							>
 								<li className="createProduct__filter">
-									Цена :
-									<input type="number" className="createProduct__input" />
+									<p className="mb-2"> Цена :</p>
+
+									<input
+										required
+										type="number"
+										className={substring(
+											"createProduct__input",
+											styles.createProduct__input
+										)}
+										onChange={(e) => {
+											setCreatedProduct({
+												...createdProduct,
+												price: e.target.value,
+											})
+										}}
+									/>
 								</li>
 								<li className="createProduct__filter">
-									<select className="createProduct__selection">
-										Тип :
+									<p className="mb-2"> Тип :</p>
+
+									<select
+										required
+										className={substring(
+											"createProduct__selection",
+											styles.createProduct__selection
+										)}
+										onChange={(e) => {
+											setCreatedProduct({
+												...createdProduct,
+												type: e.target.value,
+											})
+										}}
+									>
 										<option
 											type="number"
 											value="Новое"
-											className="createProduct__input"
+											className={substring(
+												"createProduct__input",
+												styles.createProduct__input
+											)}
 										>
 											Новое
 										</option>
 										<option
 											type="number"
 											value="Отличное"
-											className="createProduct__input"
+											className={substring(
+												"createProduct__input",
+												styles.createProduct__input
+											)}
 										>
 											Отличное
 										</option>
 										<option
 											type="number"
 											value="Б/У"
-											className="createProduct__input"
+											className={substring(
+												"createProduct__input",
+												styles.createProduct__input
+											)}
 										>
 											Б/У
 										</option>
 									</select>
 								</li>
 								<li className="createProduct__filter">
-									<select name="" id="" className="createProduct__selection">
-										<option value="Все">Все</option>
+									<p className="mb-2">Страна :</p>
+									<select
+										name=""
+										id=""
+										className={substring(
+											"createProduct__selection",
+											styles.createProduct__selection
+										)}
+										required
+										onChange={(e) => {
+											setCreatedProduct({
+												...createdProduct,
+												country: e.target.value,
+											})
+										}}
+									>
 										{countries.map((country) => (
-											<option value={country}>{country}</option>
+											<option key={country} value={country}>
+												{country}
+											</option>
 										))}
 									</select>
 								</li>
 								<li className="createProduct__filter">
-									Название
-									<input type="text" className="createProduct__input" />
+									<p className="mb-2">Название :</p>
+
+									<input
+										required
+										type="text"
+										className={substring(
+											"createProduct__input",
+											styles.createProduct__input
+										)}
+										onChange={(e) => {
+											setCreatedProduct({
+												...createdProduct,
+												name: e.target.value,
+											})
+										}}
+									/>
 								</li>
 								<li className="createProduct__filter">
-									<select className="createProduct__selection">
-										Категория
+									<p className="mb-2"> Категория :</p>
+
+									<select
+										className={substring(
+											"createProduct__selection",
+											styles.createProduct__selection
+										)}
+										onChange={(e) => {
+											setCreatedProduct({
+												...createdProduct,
+												category: e.target.value,
+											})
+										}}
+									>
 										{categories.map((category) => (
-											<option value={category.title}>{category.title}</option>
+											<option key={category.title} value={category.title}>
+												{category.title}
+											</option>
 										))}
 									</select>
 								</li>
 							</ul>
-							<div className="createProduct__description">
+							<div className="d-flex align-items-start justify-content-center flex-column">
 								<textarea
+									className={substring(
+										"createProduct__description",
+										styles.createProduct__description,
+										"mb-2"
+									)}
 									name=""
 									id=""
 									cols="33"
 									rows="10"
 									placeholder="Добавьте описание"
+									onChange={(e) => {
+										setCreatedProduct({
+											...createdProduct,
+											description: e.target.value,
+										})
+									}}
 								></textarea>
-								<button type="submit" className="createProduct__createBtn">
+								<button
+									type="submit"
+									className={styles.createProduct__createBtn}
+								>
 									Создать
 								</button>
 							</div>

@@ -40,7 +40,7 @@ const Products = () => {
 									<Product
 										key={good.ID}
 										name={good.name}
-										img={good.image}
+										img={good.images[0]}
 										seller={good.seller}
 										price={good.price}
 										id={good.ID}

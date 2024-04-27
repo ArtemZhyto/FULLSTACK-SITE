@@ -8,7 +8,7 @@ const package = fs.readFileSync("./package.json", "utf-8")
 const packageObj = JSON.parse(package)
 
 const app = express()
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false, limit: "5gb" }))
 
 let cors = require("cors")
 app.use(cors())
