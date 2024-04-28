@@ -99,7 +99,7 @@ const CreateProduct = () => {
 											createdProduct.category
 										}/${JSON.stringify(createdProduct.desript)}`,
 										{
-											images: createdProduct.images,
+											images: JSON.stringify(createdProduct.images),
 										},
 										{
 											headers: {

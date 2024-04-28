@@ -26,7 +26,7 @@ const postProductCreateHandler = async (req, res) => {
             try {
                 if (checkIDRes && checkCodeRes) {
                     console.log(req.body.images)
-                    // const imagesArray = JSON.parse(req.body.images)
+                    const imagesArray = JSON.parse(req.body.images)
                     
                     const product = await productServices.createProduct(
                         req.params.name,
@@ -39,7 +39,7 @@ const postProductCreateHandler = async (req, res) => {
                         finaleDate,
                         req.params.category,
                         req.params.desript,
-                        req.body.images
+                        imagesArray
                     )
 
                     console.log(req.body.images)
