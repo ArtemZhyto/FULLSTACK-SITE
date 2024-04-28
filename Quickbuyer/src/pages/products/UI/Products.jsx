@@ -15,6 +15,11 @@ import queryString from "query-string"
 import { chooseFilters } from "../../../app/redux/slices/FilterSlice"
 import { productsFilter } from "../../../features/classic/productsFilter/productsFilter"
 import Filters from "../../../widgets/filters/UI/Filters"
+import {
+	addCurrentUser,
+	exitFromUser,
+} from "../../../app/redux/slices/currentUser"
+import axios from "axios"
 const Products = () => {
 	const dispatch = useDispatch()
 	const goods = useSelector(selectGoods)
@@ -25,6 +30,26 @@ const Products = () => {
 		if (location.search) {
 			dispatch(changeSearch(queryString.parse(location.search).q))
 		}
+		const handleNewCurUser = async () => {
+			let localStorageUser = localStorage.getItem("currentUser")
+			if (localStorageUser !== "undefined" && localStorageUser) {
+				localStorageUser = JSON.parse(localStorageUser)
+				try {
+					const res = await axios.get(
+						`https://localhost:34673/enter/${localStorageUser.password}/${localStorageUser.mail}`
+					)
+					localStorage.setItem("currentUser", JSON.stringify(res.data))
+					dispatch(addCurrentUser(res.data))
+				} catch (error) {
+					localStorage.clear()
+					console.log("cleared")
+					dispatch(exitFromUser())
+				}
+			}
+		}
+		handleNewCurUser()
+		window.addEventListener("addCurUser", handleNewCurUser)
+		return () => window.removeEventListener("addCurUser", handleNewCurUser)
 	}, [location])
 	useEffect(() => {
 		dispatch(fetchProducts())

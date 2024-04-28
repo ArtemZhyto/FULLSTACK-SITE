@@ -121,6 +121,9 @@ const currentUser = createSlice({
 		builder.addCase(sendEnter.fulfilled, (state, action) => {
 			return action.payload
 		})
+		// builder.addCase(addToCart.fulfilled, (state, action) => {
+		// 	return action.payload
+		// })
 	},
 })
 

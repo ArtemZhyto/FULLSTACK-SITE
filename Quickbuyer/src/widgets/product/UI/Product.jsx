@@ -4,8 +4,15 @@ import styles from "../Product.module.scss"
 import "../Product.scss"
 import { useNavigate } from "react-router"
 import { Link } from "react-router-dom"
+import {
+	addToCart,
+	selectCurrentUser,
+} from "../../../app/redux/slices/currentUser"
+import { useSelector } from "react-redux"
+import axios from "axios"
 
 const Product = ({ name, img, seller, price, id }) => {
+	const currentUser = useSelector(selectCurrentUser)
 	const navigate = useNavigate()
 	return (
 		<div className={substring("products__product", styles.products__product)}>
@@ -44,6 +51,29 @@ const Product = ({ name, img, seller, price, id }) => {
 						"products__addToCart",
 						styles.products__addToCart
 					)}
+					onClick={async () => {
+						console.log(
+							`https://localhost:34674/basket/${currentUser.ID}/add/${id}`
+						)
+						try {
+							console.log({ user: currentUser.ID, id })
+							await axios.post(
+								`https://localhost:34673/basket/${currentUser.ID}/add/${id}`
+							)
+
+							console.log("DONE")
+						} catch (error) {
+							console.log(error)
+							console.log(
+								`https://localhost:34673/basket/${currentUser.ID}/add/${id}`
+							)
+						}
+						// console.log/
+						// const resp = await axios.get(
+						// 	`https://localhost:34673/enter/${profile.password}/${profile.mail}`
+						// )
+						// return resp
+					}}
 				>
 					В корзину
 				</button>

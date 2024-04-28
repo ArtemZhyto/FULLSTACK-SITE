@@ -36,6 +36,7 @@ const Registration = () => {
 					dispatch(addCurrentUser(res.data))
 				} catch (error) {
 					localStorage.clear()
+					console.log("cleared!!")
 					dispatch(exitFromUser())
 				}
 			}

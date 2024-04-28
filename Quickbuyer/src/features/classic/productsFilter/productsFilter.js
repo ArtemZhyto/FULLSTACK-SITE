@@ -18,6 +18,7 @@ export const productsFilter = (products, qstring, filters) => {
 	}
 
 	return sortedProducts
+
 		.filter(
 			(good) =>
 				good.name.toLowerCase().includes(qstring.toLowerCase()) &&
@@ -110,9 +111,8 @@ export const productsFilter = (products, qstring, filters) => {
 						good.category === "Аксессуары" ||
 						good.category === "Женская одежда"
 					)
-
 				default:
-					return good.category === filters.category
+					return filters.category ? good.category === filters.category : true
 			}
 		})
 }

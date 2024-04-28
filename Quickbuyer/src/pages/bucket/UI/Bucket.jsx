@@ -1,5 +1,5 @@
 import axios from "axios"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {
 	addCurrentUser,
@@ -14,20 +14,27 @@ import "../BucketThemes.scss"
 
 const Bucket = () => {
 	const dispatch = useDispatch()
-	const curUserBucket = useSelector(selectCurrentUser).products
+	const curUserBucketIds = useSelector(selectCurrentUser).products
+	const [curUserBucket, setCurUserBucket] = useState([])
+	const curUser = useSelector(selectCurrentUser)
+	let localStorageUser = localStorage.getItem("currentUser")
 	useEffect(() => {
 		const handleNewCurUser = async () => {
-			let localStorageUser = localStorage.getItem("currentUser")
 			if (localStorageUser !== "undefined" && localStorageUser) {
-				localStorageUser = JSON.parse(localStorageUser)
+				let localStorageUserParsed = JSON.parse(localStorageUser)
 				try {
 					const res = await axios.get(
-						`https://localhost:34673/enter/${localStorageUser.password}/${localStorageUser.mail}`
+						`https://localhost:34673/enter/${localStorageUserParsed.password}/${localStorageUserParsed.mail}`
 					)
 					localStorage.setItem("currentUser", JSON.stringify(res.data))
 					dispatch(addCurrentUser(res.data))
+					const curUserBucket = await axios.get(
+						`https://localhost:34673/basket/${res.data.ID}`
+					)
+					setCurUserBucket(curUserBucket.data)
 				} catch (error) {
 					localStorage.clear()
+					console.log(error)
 					dispatch(exitFromUser())
 				}
 			}
@@ -36,7 +43,10 @@ const Bucket = () => {
 		window.addEventListener("addCurUser", handleNewCurUser)
 		return () => window.removeEventListener("addCurUser", handleNewCurUser)
 	}, [])
-	const sumOfProducts = curUserBucket.reduce((acc, elem) => acc + elem.price, 0)
+	const sumOfProducts =
+		curUserBucket !== "nothing" && curUserBucket.length >= 1
+			? curUserBucket.reduce((acc, elem) => acc + elem.price, 0)
+			: 0
 	return (
 		<main style={{ paddingTop: 300, paddingBottom: 300 }}>
 			<div
@@ -54,7 +64,9 @@ const Bucket = () => {
 				<p className="mainInfo__infoBlock">
 					Товаров :{" "}
 					<div className={substring("mainInfo__info", styles.mainInfo__info)}>
-						{curUserBucket.length}
+						{curUserBucket !== "nothing" && curUserBucket
+							? curUserBucket.length
+							: 0}
 					</div>
 				</p>
 				<button className={styles.mainInfo__yelbut}>Купить</button>
@@ -63,15 +75,26 @@ const Bucket = () => {
 						"mainInfo__yelbut--remove",
 						styles.mainInfo__yelbut
 					)}
+					onClick={() => {
+						const clearBucket = async () => {
+							await axios.delete(
+								`https://localhost:34673/basket/${curUser.ID}/clear`
+							)
+						}
+						clearBucket()
+						window.dispatchEvent(new Event("addCurUser"))
+					}}
 				>
 					Очистить корзину
 				</button>
 			</div>
 			<Container>
 				<Row className="gap-5 flex-wrap">
-					{curUserBucket.map((product) => (
-						<BucketProduct images={product.images} name={product.name} />
-					))}
+					{curUserBucket !== "nothing" && curUserBucket.length >= 1
+						? curUserBucket.map((product) => (
+								<BucketProduct key={product.ID} id={product.ID} />
+						  ))
+						: null}
 				</Row>
 			</Container>
 		</main>

@@ -66,19 +66,6 @@ const CreateProduct = () => {
 						<form
 							onSubmit={async (e) => {
 								e.preventDefault()
-								console.log(
-									`https://localhost:34673/products/create/${
-										createdProduct.name
-									}/${createdProduct.price}/${createdProduct.seller}/${
-										createdProduct.country
-									}/${createdProduct.type}/${getCurrentTime()}/${
-										createdProduct.category
-									}/${createdProduct.desript}`,
-									{
-										images: createdProduct.images,
-									}
-								)
-								console.log({ createdProduct })
 								if (
 									!createdProduct.name ||
 									!createdProduct.price ||
