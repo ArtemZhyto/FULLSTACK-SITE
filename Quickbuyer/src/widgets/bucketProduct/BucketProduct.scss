@@ -28,6 +28,7 @@
     .bucketProduct {
         background-color: $dark;
         color: $white;
+        cursor: pointer;
 
         &__imageWrapper {
             background-color: $white;
@@ -46,6 +47,7 @@
     .bucketProduct {
         background-color: $white;
         color: $dark;
+        cursor: pointer;
 
         &__imageWrapper {
             background-color: $dark;

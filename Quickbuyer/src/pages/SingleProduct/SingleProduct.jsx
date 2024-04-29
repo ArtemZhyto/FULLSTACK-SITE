@@ -140,7 +140,7 @@ const SingleProduct = () => {
 							>
 								Код {currentProduct.code}
 							</div>
-							<p className="sinleProduct__textDescription">
+							<p className="sinleProduct__textDescription" style={{maxWidth : 230}}>
 								{currentProduct.desript}
 							</p>
 							<div

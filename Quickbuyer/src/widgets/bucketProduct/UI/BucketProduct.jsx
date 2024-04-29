@@ -3,6 +3,7 @@ import "../BucketProduct.scss"
 import axios from "axios"
 import { useSelector } from "react-redux"
 import { selectCurrentUser } from "../../../app/redux/slices/currentUser"
+import { Link } from "react-router-dom"
 
 const BucketProduct = ({ id }) => {
 	const [productInfo, setProductInfo] = useState()
@@ -22,7 +23,7 @@ const BucketProduct = ({ id }) => {
 		setCurProduct()
 	}, [curUser.id, id])
 	return productInfo ? (
-		<div className="bucketProduct">
+		<Link to={`/products/product?id=${id}`} className="bucketProduct">
 			<div className="bucketProduct__imageWrapper">
 				<img
 					src={productInfo.images[0]}
@@ -54,7 +55,7 @@ const BucketProduct = ({ id }) => {
 					className="bucketProduct__removeBtn"
 				></button>
 			</div>
-		</div>
+		</Link>
 	) : null
 }
 
