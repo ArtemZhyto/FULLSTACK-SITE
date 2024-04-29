@@ -9,9 +9,12 @@ import { substring } from "../../shared/utils/substring"
 import "./SingleProductThemes.scss"
 import "photoswipe/dist/photoswipe.css"
 import { Gallery, Item } from "react-photoswipe-gallery"
+import { useSelector } from "react-redux"
+import { selectCurrentUser } from "../../app/redux/slices/currentUser"
 const SingleProduct = () => {
 	const [currentProduct, setCurrentProduct] = useState({})
 	const currentProductId = queryString.parse(useLocation().search).id
+	const currentUser = useSelector(selectCurrentUser)
 	useEffect(() => {
 		try {
 			getSingleProduct(setCurrentProduct, currentProductId)
@@ -123,7 +126,7 @@ const SingleProduct = () => {
 									</p>
 								</div>
 							</div>
-						</div>	
+						</div>
 
 						<div
 							className={substring(
@@ -140,7 +143,10 @@ const SingleProduct = () => {
 							>
 								Код {currentProduct.code}
 							</div>
-							<p className="sinleProduct__textDescription" style={{maxWidth : 230}}>
+							<p
+								className="sinleProduct__textDescription"
+								style={{ maxWidth: 230 }}
+							>
 								{currentProduct.desript}
 							</p>
 							<div
@@ -158,6 +164,12 @@ const SingleProduct = () => {
 										styles.singleProduct__actionBtn,
 										"singleProduct__whiteDarkButton"
 									)}
+									onClick={async () => {
+										await axios.post(
+											`https://localhost:34673/basket/${currentUser.ID}/add/${currentProductId}`
+										)
+										console.log("DONE")
+									}}
 								>
 									В корзину
 								</button>

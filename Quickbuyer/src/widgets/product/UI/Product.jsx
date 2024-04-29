@@ -56,7 +56,6 @@ const Product = ({ name, img, seller, price, id }) => {
 							`https://localhost:34674/basket/${currentUser.ID}/add/${id}`
 						)
 						try {
-							console.log({ user: currentUser.ID, id })
 							await axios.post(
 								`https://localhost:34673/basket/${currentUser.ID}/add/${id}`
 							)
@@ -68,11 +67,6 @@ const Product = ({ name, img, seller, price, id }) => {
 								`https://localhost:34673/basket/${currentUser.ID}/add/${id}`
 							)
 						}
-						// console.log/
-						// const resp = await axios.get(
-						// 	`https://localhost:34673/enter/${profile.password}/${profile.mail}`
-						// )
-						// return resp
 					}}
 				>
 					В корзину

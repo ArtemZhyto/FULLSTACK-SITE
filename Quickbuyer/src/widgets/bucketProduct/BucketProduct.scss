@@ -22,6 +22,7 @@
         justify-content: center;
         align-items: center;
     }
+
 }
 
 #white {
@@ -39,6 +40,13 @@
             width: 25px;
             height: 25px;
             background: url("../../../public/photos/trashcan-white.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__viewBtn {
+            display: block;
+            width: 25px;
+            height: 25px;
+            background: url("../../../public/photos/white-theme/password-eye.svg") 0 0/100% no-repeat;
         }
     }
 }
@@ -58,6 +66,13 @@
             width: 25px;
             height: 25px;
             background: url("../../../public/photos/trashcan-dark.svg") 0 0/ 100% no-repeat;
+        }
+
+        &__viewBtn {
+            display: block;
+            width: 25px;
+            height: 25px;
+            background: url("../../../public/photos/dark-theme/password-eye.svg") 0 0/100% no-repeat;
         }
     }
 }

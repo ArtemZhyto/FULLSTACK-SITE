@@ -23,7 +23,7 @@ const BucketProduct = ({ id }) => {
 		setCurProduct()
 	}, [curUser.id, id])
 	return productInfo ? (
-		<Link to={`/products/product?id=${id}`} className="bucketProduct">
+		<div className="bucketProduct">
 			<div className="bucketProduct__imageWrapper">
 				<img
 					src={productInfo.images[0]}
@@ -54,8 +54,12 @@ const BucketProduct = ({ id }) => {
 					}}
 					className="bucketProduct__removeBtn"
 				></button>
+				<Link
+					to={`/products/product?id=${id}`}
+					className="bucketProduct__viewBtn"
+				></Link>
 			</div>
-		</Link>
+		</div>
 	) : null
 }
 
