@@ -1,8 +1,8 @@
 import React from "react"
 import { Item } from "react-photoswipe-gallery"
-import { substring } from "../../shared/utils/substring"
-import "./AdditionalImageThemes.scss"
-import styles from "./AdditionalImage.module.scss"
+import { substring } from "@shared/utils/jsFunctions/substring"
+import "../AdditionalImageThemes.scss"
+import styles from "../AdditionalImage.module.scss"
 const AdditionalImage = ({ createdProduct, setCreatedProduct, index }) => {
 	return (
 		<label className="createProduct__additionalImage">

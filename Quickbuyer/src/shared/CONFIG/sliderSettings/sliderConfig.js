@@ -1,5 +1,5 @@
-import Rarrow from "../../widgets/arrows/Rarrow"
-import Larrow from "../../widgets/arrows/Larrow"
+import Rarrow from "@widgets/Arrows/ui/Rarrow"
+import Larrow from "@widgets/Arrows/ui/Larrow"
 
 export const settings = {
 	prevArrow: <Larrow />,

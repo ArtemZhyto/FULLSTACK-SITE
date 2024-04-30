@@ -1,10 +1,10 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import { chooseTheme } from "../../features/slices/mainpage/mainPageInfo"
-import Navbar from "../navbar/UI/Navbar"
-import BurgerTarget from "../../widgets/burgerTarget/UI/BurgerTarget"
-import Categorys from "../../widgets/categorys/UI/Categorys"
-import Footer from "../footer/UI/Footer"
+import { chooseTheme } from "@features/slices/mainPageSlice"
+import Navbar from "@pages/NavBar/UI/Navbar"
+import BurgerTarget from "../../../widgets/burgerTarget/UI/BurgerTarget"
+import Categorys from "../../../widgets/categorys/UI/Categorys"
+import Footer from "@pages/Footer/UI/Footer"
 
 const ErrorPage = () => {
 	const theme = useSelector(chooseTheme)

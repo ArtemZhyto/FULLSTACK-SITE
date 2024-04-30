@@ -3,7 +3,7 @@ import "./AccordionItemThemes.scss"
 import AccordionAdditionalItem from "./AccordionAdditionalItem"
 import { useLocation, useNavigate } from "react-router"
 import { useDispatch } from "react-redux"
-import { changeFilter } from "../../../app/redux/slices/FilterSlice"
+import { changeFilter } from "@features/slices/FilterSlice"
 const AccordionItem = ({ title, value }) => {
 	const location = useLocation().pathname
 	const navigate = useNavigate()

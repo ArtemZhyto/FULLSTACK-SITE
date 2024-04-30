@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import styles from "../LeftPanelWrapper.module.scss"
-import { substring } from "../../../shared/utils/substring"
+import { substring } from "@shared/utils/jsFunctions/substring"
 import "../LeftPanelWrapperThemes.scss"
 const LeftPanelWrapper = ({
 	children,
@@ -19,7 +19,7 @@ const LeftPanelWrapper = ({
 							"leftPanel",
 							styles.leftPanel,
 							additionalStyles
-					)
+					  )
 			}
 		>
 			{children}

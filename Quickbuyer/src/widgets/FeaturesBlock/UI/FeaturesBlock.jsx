@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react"
 import style from "../featuresblock.module.scss"
 import "../featuresblockThemes.scss"
 import { Link } from "react-router-dom"
-import { changeTheme } from "../../../features/slices/mainpage/mainPageInfo"
+import { changeTheme } from "@features/slices/mainPageSlice"
 import { useDispatch, useSelector } from "react-redux"
-import { selectCurrentUser } from "../../../app/redux/slices/currentUser"
+import { selectCurrentUser } from "@features/slices/currentUserSlice"
 const FeaturesBlock = () => {
 	const dispatch = useDispatch()
 	const currentUserId = useSelector(selectCurrentUser).ID

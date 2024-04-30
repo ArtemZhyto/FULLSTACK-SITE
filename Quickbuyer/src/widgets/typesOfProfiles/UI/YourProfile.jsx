@@ -5,16 +5,13 @@ import { ToastContainer } from "react-toastify"
 import TextInput from "../../../shared/ui/textInput/UI/TextInput.jsx"
 import { Col, Container, Row } from "react-bootstrap"
 import styles from "../globalProfile.module.scss"
-import { substring } from "../../../shared/utils/substring.js"
+import { substring } from "@shared/utils/jsFunctions/substring"
 import "../ProfileThemes.scss"
 import SelectCountry from "../../selectCountry/UI/SelectCountry.jsx"
-import { countries } from "../../../entities/data/countries.js"
-import {
-	exitFromUser,
-	sendUpdate,
-} from "../../../app/redux/slices/currentUser.js"
-import { chooseTheme } from "../../../features/slices/mainpage/mainPageInfo.js"
-import { addCurrentUser } from "../../../app/redux/slices/currentUser.js"
+import { countries } from "@entities/selectCountries/countries.js"
+import { exitFromUser, sendUpdate } from "@features/slices/currentUserSlice.js"
+import { chooseTheme } from "@features/slices/mainPageSlice.js"
+import { addCurrentUser } from "@features/slices/currentUserSlice.js"
 import { useNavigate } from "react-router"
 const YourProfile = ({ currentUser }) => {
 	const theme = useSelector(chooseTheme) === "white" ? "light" : "dark"
@@ -227,7 +224,7 @@ const YourProfile = ({ currentUser }) => {
 								<TextInput
 									customInput={
 										<input
-										type="phone"
+											type="phone"
 											value={checkIsNo(currentUser.phone)}
 											onChange={(e) => {
 												dispatch(
@@ -269,7 +266,7 @@ const YourProfile = ({ currentUser }) => {
 								<label className={"yourProfile__label"}>
 									Получать уведовмления и новости
 									<input
-									readOnly
+										readOnly
 										type="checkbox"
 										className={styles.yourProfile__checkbox}
 										onClick={(e) => {

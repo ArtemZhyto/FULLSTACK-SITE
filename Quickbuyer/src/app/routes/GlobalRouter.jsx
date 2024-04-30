@@ -3,16 +3,16 @@ import {
 	createBrowserRouter,
 	createRoutesFromElements,
 } from "react-router-dom"
-import Main from "../Main"
-import Profile from "../../pages/profile/UI/Profle"
-import ThemeWrapper from "../../shared/ui/themeWrapper/ThemeWrapper"
-import Products from "../../pages/products/UI/Products"
-import Form from "../../pages/registratiion/UI/Form"
-import Categorys from "../../widgets/categorys/UI/Categorys"
-import SingleProduct from "../../pages/SingleProduct/SingleProduct"
-import ErrorPage from "../../pages/errorPage/ErrorPage"
-import CreateProduct from "../../pages/createProduct/UI/CreateProduct"
-import Bucket from "../../pages/bucket/UI/Bucket"
+import Main from "@/app/Main"
+import Profile from "@pages/Profile/UI/Profle"
+import ThemeWrapper from "@shared/layouts/ThemeWrapper/ThemeWrapper"
+import Products from "@pages/Products/UI/Products"
+import Form from "@pages/Registaration/UI/Form"
+import Categorys from "@widgets/categorys/UI/Categorys"
+import SingleProduct from "@pages/SingleProduct/UI/SingleProduct"
+import ErrorPage from "@pages/ErrorPage/UI/ErrorPage"
+import CreateProduct from "@pages/CreateProduct/UI/CreateProduct"
+import Bucket from "@pages/Bucket/UI/Bucket"
 
 const router = createBrowserRouter(
 	createRoutesFromElements(

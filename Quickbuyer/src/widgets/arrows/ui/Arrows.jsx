@@ -1,4 +1,4 @@
-import "./Arrows.scss"
+import "../Arrows.scss"
 import Larrow from "./Larrow"
 import Rarrow from "./Rarrow"
 

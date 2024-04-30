@@ -1,9 +1,9 @@
-import styles from "./Header.module.scss"
+import styles from "../Header.module.scss"
 import { Col, Container, Row, Image } from "react-bootstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
-import "./darkwhitestyles.scss"
+import "../darkwhitestyles.scss"
 import YellowBtn from "../../../shared/ui/yellowBtn/YellowBtn"
-import { substring } from "../../../shared/utils/substring"
+import { substring } from "@shared/utils/jsFunctions/substring"
 const Header = () => {
 	return (
 		<header className={styles.header}>

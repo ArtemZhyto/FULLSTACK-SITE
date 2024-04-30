@@ -1,17 +1,17 @@
 import React, { useCallback, useEffect, useState } from "react"
 import { Gallery, Item } from "react-photoswipe-gallery"
-import { countries } from "../../../entities/data/countries"
-import { categories } from "../../../entities/data/categorysList"
+import { countries } from "@entities/selectCountries/countries"
+import { categories } from "@entities/categorysList/categorysList"
 import { Col, Container, Row } from "react-bootstrap"
 import styles from "../CreateProduct.module.scss"
-import { substring } from "../../../shared/utils/substring"
+import { substring } from "@shared/utils/jsFunctions/substring"
 import "../CreateProductThemes.scss"
-import AdditionalImage from "../../../widgets/additionalImage/AdditionalImage"
+import AdditionalImage from "@widgets/AdditionalImage/ui/AdditionalImage"
 import { useDropzone } from "react-dropzone"
 import axios from "axios"
 import { useNavigate } from "react-router"
 import { ToastContainer, toast } from "react-toastify"
-import currentUser from "../../../app/redux/slices/currentUser"
+import currentUserSlice from "../../../features/slices/currentUserSlice"
 const CreateProduct = () => {
 	const [createdProduct, setCreatedProduct] = useState({
 		name: "",

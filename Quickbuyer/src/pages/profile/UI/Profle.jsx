@@ -3,13 +3,13 @@ import { useNavigate, useParams } from "react-router"
 import YourProfile from "../../../widgets/typesOfProfiles/UI/YourProfile"
 import OtherProfile from "../../../widgets/typesOfProfiles/UI/OtherProfile"
 import { useDispatch, useSelector } from "react-redux"
-import { chooseTheme } from "../../../features/slices/mainpage/mainPageInfo"
+import { chooseTheme } from "@features/slices/mainPageSlice"
 import {
 	addCurrentUser,
 	exitFromUser,
 	selectCurrentUser,
 	sendEnter,
-} from "../../../app/redux/slices/currentUser"
+} from "@features/slices/currentUserSlice"
 import axios from "axios"
 
 const Profle = () => {

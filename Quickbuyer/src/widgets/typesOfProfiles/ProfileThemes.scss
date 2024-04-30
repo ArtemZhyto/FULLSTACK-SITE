@@ -1,5 +1,5 @@
-@import "../../shared/utils/colours.scss";
-@import "../../shared/utils/mixins.scss";
+@import "@shared/utils/styles/colours.scss";
+@import "@shared/utils/styles/mixins.scss";
 
 #dark {
 
@@ -36,7 +36,7 @@
         &__line {
             background: $dark;
         }
-        
+
         &__defaultPhoto {
             background: url("../../../public/photos/profile-dark.svg") 0 0/ 100% no-repeat;
         }

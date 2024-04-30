@@ -3,18 +3,18 @@ import { useState } from "react"
 import styles from "../Registration.module.scss"
 import { useDispatch, useSelector } from "react-redux"
 import { ToastContainer } from "react-toastify"
-import { chooseTheme } from "../../../features/slices/mainpage/mainPageInfo"
-import { substring } from "../../../shared/utils/substring"
-import EnterForm from "../../../widgets/form/EnterForm"
-import RegistrationInstruction from "../../../widgets/instruction/RegistrationInstruction"
-import EnterInstruction from "../../../widgets/instruction/EnterInstruction"
-import RegistrationForm from "../../../widgets/form/RegistrationForm"
+import { chooseTheme } from "@features/slices/mainPageSlice"
+import { substring } from "@shared/utils/jsFunctions/substring"
+import EnterForm from "@widgets/form/ui/EnterForm"
+import RegistrationInstruction from "@widgets/instruction/ui/RegistrationInstruction"
+import EnterInstruction from "@widgets/instruction/ui/EnterInstruction"
+import RegistrationForm from "@widgets/form/ui/RegistrationForm"
 import { useEffect } from "react"
 import {
 	addCurrentUser,
 	exitFromUser,
 	selectCurrentUser,
-} from "../../../app/redux/slices/currentUser"
+} from "@features/slices/currentUserSlice"
 import { Link } from "react-router-dom"
 import axios from "axios"
 const Registration = () => {

@@ -3,10 +3,10 @@ import LeftPanelWrapper from "../../leftPanelWrapper/UI/LeftPanelWrapper"
 import {
 	selectIsCategorysOpened,
 	toggleCategorys,
-} from "../../../features/slices/mainpage/mainPageInfo"
+} from "@features/slices/mainPageSlice"
 import AccordionItem from "../../../shared/ui/AccordionItem/AccordionItem"
 import styles from "../Categorys.module.scss"
-import { categories } from "../../../entities/data/categorysList"
+import { categories } from "@entities/categorysList/categorysList"
 const Categorys = () => {
 	const isCategorysOpened = useSelector(selectIsCategorysOpened)
 	return (

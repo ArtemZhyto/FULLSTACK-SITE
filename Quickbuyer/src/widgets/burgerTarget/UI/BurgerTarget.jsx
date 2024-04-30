@@ -5,7 +5,7 @@ import {
 	selectIsBurgerOpened,
 	toggleBurger,
 	toggleFilters,
-} from "../../../features/slices/mainpage/mainPageInfo"
+} from "@features/slices/mainPageSlice"
 import { useDispatch, useSelector } from "react-redux"
 import LeftPanelWrapper from "../../leftPanelWrapper/UI/LeftPanelWrapper"
 import { Link } from "react-router-dom"

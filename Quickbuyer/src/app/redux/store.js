@@ -1,12 +1,12 @@
-import mainpage from "../../features/slices/mainpage/mainPageInfo"
 import { configureStore } from "@reduxjs/toolkit"
-import currentUser from "./slices/currentUser"
-import FilterSlice from "./slices/FilterSlice"
+import mainPageSlice from "@features/slices/mainPageSlice"
+import currentUserSlice from "@features/slices/currentUserSlice"
+import FilterSlice from "@features/slices/FilterSlice"
 
 export const store = configureStore({
 	reducer: {
-		mainpage,
-		currentUser,
-		FilterSlice
+		mainpage: mainPageSlice,
+		currentUser: currentUserSlice,
+		FilterSlice,
 	},
 })

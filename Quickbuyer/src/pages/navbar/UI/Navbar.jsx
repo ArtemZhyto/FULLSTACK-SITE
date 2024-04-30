@@ -12,7 +12,7 @@ import {
 	toggleBurger,
 	toggleCategorys,
 	toggleFilters,
-} from "../../../features/slices/mainpage/mainPageInfo"
+} from "@features/slices/mainPageSlice"
 import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 

@@ -1,5 +1,6 @@
-@import "../../../shared/utils/mixins.scss";
-@import "../../../shared/utils/breakpoints.scss";
+@import "@shared/utils/styles/mixins.scss";
+
+@import "@shared/utils/styles/breakpoints.scss";
 @import 'node_modules/bootstrap/scss/functions';
 @import 'node_modules/bootstrap/scss/variables';
 @import 'node_modules/bootstrap/scss/mixins';

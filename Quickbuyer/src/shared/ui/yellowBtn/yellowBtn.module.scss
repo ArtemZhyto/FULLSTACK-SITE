@@ -1,4 +1,4 @@
-@import "../../utils/mixins.scss";
+@import "@shared/utils/styles/mixins.scss";
 
 .yellowBtn {
     @include yellowButton;

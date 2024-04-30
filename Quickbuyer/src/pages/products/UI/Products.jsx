@@ -4,21 +4,18 @@ import {
 	fetchProducts,
 	selectGoods,
 	selectSearch,
-} from "../../../features/slices/mainpage/mainPageInfo"
+} from "@features/slices/mainPageSlice"
 import { useDispatch, useSelector } from "react-redux"
 import Product from "../../../widgets/product/UI/Product"
 import styles from "../products.module.scss"
 import { Col, Container, Row } from "react-bootstrap"
-import { substring } from "../../../shared/utils/substring"
+import { substring } from "@shared/utils/jsFunctions/substring"
 import { useLocation, useParams } from "react-router"
 import queryString from "query-string"
-import { chooseFilters } from "../../../app/redux/slices/FilterSlice"
-import { productsFilter } from "../../../features/classic/productsFilter/productsFilter"
+import { chooseFilters } from "@features/slices/FilterSlice"
+import { productsFilter } from "@features/productsFilter/productsFilter"
 import Filters from "../../../widgets/filters/UI/Filters"
-import {
-	addCurrentUser,
-	exitFromUser,
-} from "../../../app/redux/slices/currentUser"
+import { addCurrentUser, exitFromUser } from "@features/slices/currentUserSlice"
 import axios from "axios"
 const Products = () => {
 	const dispatch = useDispatch()

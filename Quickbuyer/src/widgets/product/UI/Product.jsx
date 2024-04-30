@@ -1,5 +1,5 @@
 import { Image } from "react-bootstrap"
-import { substring } from "../../../shared/utils/substring"
+import { substring } from "@shared/utils/jsFunctions/substring"
 import styles from "../Product.module.scss"
 import "../Product.scss"
 import { useNavigate } from "react-router"
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 import {
 	addToCart,
 	selectCurrentUser,
-} from "../../../app/redux/slices/currentUser"
+} from "@features/slices/currentUserSlice"
 import { useSelector } from "react-redux"
 import axios from "axios"
 

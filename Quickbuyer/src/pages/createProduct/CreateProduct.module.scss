@@ -1,5 +1,6 @@
-@import "../../shared/utils/mixins.scss";
-@import "../../shared/utils/breakpoints";
+@import "@shared/utils/styles/mixins.scss";
+@import "@shared/utils/styles/_breakpoints.scss";
+
 
 .createProduct {
     padding: 200px 0;

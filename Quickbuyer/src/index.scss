@@ -1,3 +1,5 @@
+@import "@shared/utils/styles/colours.scss";
+
 ::-webkit-scrollbar {
     width: 0;
     height: 0;
@@ -8,7 +10,6 @@
     src: url("../public/Anybody/Anybody-VariableFont_wdth\,wght.ttf") format("ttf");
 }
 
-@import "./shared/utils/colours.scss";
 
 .main {
     font-size: 17px;

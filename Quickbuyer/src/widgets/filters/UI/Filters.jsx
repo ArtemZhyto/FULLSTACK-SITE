@@ -1,16 +1,18 @@
 import React from "react"
 import LeftPanelWrapper from "../../leftPanelWrapper/UI/LeftPanelWrapper"
 import { useDispatch, useSelector } from "react-redux"
-import { selectIsFiltersOpened } from "../../../features/slices/mainpage/mainPageInfo"
-import { toggleFilters } from "../../../features/slices/mainpage/mainPageInfo"
-import { countries } from "../../../entities/data/countries"
+import {
+	selectIsFiltersOpened,
+	toggleFilters,
+} from "@features/slices/mainPageSlice"
+import { countries } from "@/entities/selectCountries/countries"
 import styles from "../Filters.module.scss"
-import { substring } from "../../../shared/utils/substring"
+import { substring } from "@shared/utils/jsFunctions/substring"
 import "../FiltersThemes.scss"
 import {
 	changeFilter,
 	chooseFilters,
-} from "../../../app/redux/slices/FilterSlice"
+} from "@features/slices/FilterSlice"
 const Filters = () => {
 	const filters = useSelector(chooseFilters)
 
@@ -74,7 +76,7 @@ const Filters = () => {
 					<p className="w-100">Тип: </p>
 					<li>
 						<input
-                        readOnly
+							readOnly
 							checked={filters.type === "Б/У"}
 							type="radio"
 							name="type"

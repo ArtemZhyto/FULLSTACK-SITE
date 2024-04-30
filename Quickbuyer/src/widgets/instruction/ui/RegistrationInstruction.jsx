@@ -1,6 +1,6 @@
-import styles from "./instruction.module.scss"
-import { substring } from "../../shared/utils/substring"
+import styles from "../instruction.module.scss"
 
+import { substring } from "@shared/utils/jsFunctions/substring"
 import React from "react"
 
 const RegistrationInstruction = () => {

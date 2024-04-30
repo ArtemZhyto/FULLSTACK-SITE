@@ -1,9 +1,10 @@
-@import "../../shared/utils/mixins.scss";
-@import "../../shared/utils/colours.scss";
+@import "@shared/utils/styles/colours.scss";
+@import "@shared/utils/styles/mixins.scss";
 
 #dark {
     .products {
-        color  : $dark;
+        color: $dark;
+
         &__addToCart {
             background-color: $dark;
             color: $white;
@@ -16,6 +17,7 @@
         &__product {
             background-color: $white;
         }
+
         &__line {
             background-color: $dark;
         }
@@ -24,7 +26,8 @@
 
 #white {
     .products {
-        color : $white;     
+        color: $white;
+
         &__addToCart {
             background-color: $white;
             color: $dark;
@@ -37,6 +40,7 @@
         &__product {
             background-color: $dark;
         }
+
         &__line {
             background-color: $white;
         }

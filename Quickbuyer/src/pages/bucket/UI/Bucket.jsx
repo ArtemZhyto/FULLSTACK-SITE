@@ -5,11 +5,11 @@ import {
 	addCurrentUser,
 	exitFromUser,
 	selectCurrentUser,
-} from "../../../app/redux/slices/currentUser"
-import BucketProduct from "../../../widgets/bucketProduct/UI/BucketProduct"
+} from "@features/slices/currentUserSlice"
+import BucketProduct from "@widgets/BucketProduct/UI/BucketProduct"
 import { Col, Container, Row } from "react-bootstrap"
 import styles from "../Bucket.module.scss"
-import { substring } from "../../../shared/utils/substring"
+import { substring } from "@shared/utils/jsFunctions/substring"
 import "../BucketThemes.scss"
 
 const Bucket = () => {

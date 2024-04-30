@@ -7,11 +7,10 @@ import router from "./app/routes/GlobalRouter"
 import "./resetglobal.css"
 import { Provider } from "react-redux"
 import { store } from "./app/redux/store"
-import ThemeWrapper from "./shared/ui/themeWrapper/ThemeWrapper"
+import ThemeWrapper from "@shared/layouts/ThemeWrapper/ThemeWrapper"
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
 	<Provider store={store}>
 		<RouterProvider router={router} />
 	</Provider>
 )
-	

@@ -1,5 +1,6 @@
-@import "../../shared/utils/mixins.scss";
-@import "../../shared/utils/colours.scss";
+@import "@shared/utils/styles/colours.scss";
+@import "@shared/utils/styles/mixins.scss";
+
 @import 'node_modules/bootstrap/scss/functions';
 @import 'node_modules/bootstrap/scss/variables';
 @import 'node_modules/bootstrap/scss/mixins';
@@ -102,7 +103,7 @@
             height: 0px;
         }
 
-        &__ye   ars {
+        &__ye ars {
             margin: 0;
         }
     }

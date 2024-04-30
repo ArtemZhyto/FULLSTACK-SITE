@@ -1,37 +1,31 @@
-import styles from "./Form.module.scss"
+import styles from "../Form.module.scss"
 import { useState } from "react"
 import { toast } from "react-toastify"
-import { sendRegistration } from "../../app/redux/slices/currentUser"
-import "./FormThemes.scss"
-import { substring } from "../../shared/utils/substring"
+import { sendEnter } from "@features/slices/currentUserSlice"
+import "../FormThemes.scss"
+import { substring } from "@shared/utils/jsFunctions/substring"
 import "react-toastify/dist/ReactToastify.css"
 import { useDispatch } from "react-redux"
-const RegistrationForm = ({ setTypeOfSending, theme }) => {
+const EnterForm = ({ setTypeOfSending, theme }) => {
 	const dispatch = useDispatch()
 	const initalState = {
 		mail: "",
 		password: "",
-		submitPassword: "",
 	}
 	const [registrationVals, setRegistrationVals] = useState(initalState)
-	const { mail, password, submitPassword } = registrationVals
-	
+	const { mail, password } = registrationVals
 	return (
 		<form
 			onSubmit={(e) => {
 				e.preventDefault()
-				if (!password || !mail || !submitPassword) {
+				if (!password || !mail) {
 					toast.info("Заполните все поля перед отправкой 🙂", {
 						theme,
 					})
 					setRegistrationVals(initalState)
-				} else if (password !== submitPassword) {
-					toast.error("Пароли не совпадают 😒 ", { theme })
-					setRegistrationVals(initalState)
 				} else {
-					dispatch(sendRegistration(registrationVals))
-					// setRegistrationVals(initalState)
-					localStorage.setItem("currentUser", initalState)
+					dispatch(sendEnter(registrationVals))
+					setRegistrationVals(initalState)
 				}
 			}}
 			className={substring(styles.registration__form, "registration__form")}
@@ -39,7 +33,7 @@ const RegistrationForm = ({ setTypeOfSending, theme }) => {
 			<label className={styles.registration__label}>
 				<p>Почта</p>
 				<input
-					type="mail"
+					type="email"
 					className={substring(
 						"registration__input",
 						styles.registration__input
@@ -72,38 +66,21 @@ const RegistrationForm = ({ setTypeOfSending, theme }) => {
 					}
 				/>
 			</label>
-			<label className={styles.registration__label}>
-				<p>Потвердите пароль</p>
-				<input
-					type="password"
-					className={substring(
-						"registration__input",
-						styles.registration__input
-					)}
-					value={registrationVals.submitPassword}
-					onChange={(e) =>
-						setRegistrationVals({
-							...registrationVals,
-							submitPassword: e.target.value,
-						})
-					}
-				/>
-			</label>
 			<button type="submit" className={styles.registration__registrate}>
-				Зарегестрироваться
+				Войти
 			</button>
-			<p>Уже есть аккаунт?</p>
+			<p>Нету аккаунта?</p>
 			<button
 				type="button"
 				onClick={() => {
-					setTypeOfSending("enter")
+					setTypeOfSending("registration")
 				}}
 				className={styles.registration__enter}
 			>
-				Войти
+				Зарегестрироваться
 			</button>
 		</form>
 	)
 }
 
-export default RegistrationForm
+export default EnterForm

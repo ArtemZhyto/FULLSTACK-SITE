@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react"
 import "../BucketProduct.scss"
 import axios from "axios"
 import { useSelector } from "react-redux"
-import { selectCurrentUser } from "../../../app/redux/slices/currentUser"
+import { selectCurrentUser } from "@features/slices/currentUserSlice"
 import { Link } from "react-router-dom"
 
 const BucketProduct = ({ id }) => {
