@@ -22,7 +22,7 @@ const SingleProduct = () => {
 			console.log(error)
 		}
 	}, [currentProductId])
-	return currentProduct.ID ? (
+	return currentProduct.id ? (
 		<main>
 			<Container>
 				<Row className={"singleProduct"}>
@@ -35,7 +35,7 @@ const SingleProduct = () => {
 					>
 						<div className={styles.singleProduct__imgblock}>
 							<div className={styles.singleProduct__imageWithName}>
-								{currentProduct?.images ? (
+								{currentProduct?.images  ? (
 									<div className={styles.singleProduct__additonalPhotosList}>
 										<Gallery>
 											{currentProduct.images.map((additionalImg, index) =>
@@ -147,7 +147,7 @@ const SingleProduct = () => {
 								className="sinleProduct__textDescription"
 								style={{ maxWidth: 230 }}
 							>
-								{currentProduct.desript}
+								{currentProduct.description}
 							</p>
 							<div
 								className={substring(

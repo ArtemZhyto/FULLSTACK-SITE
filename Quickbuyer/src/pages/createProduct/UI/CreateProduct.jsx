@@ -16,12 +16,12 @@ const CreateProduct = () => {
 	const [createdProduct, setCreatedProduct] = useState({
 		name: "",
 		price: 0,
-		seller: "",
+		seller_id: "",
 		country: "Австралия",
 		type: "Новое",
 		category: "Электроника",
 		images: [],
-		desript: "",
+		description: "",
 	})
 	const onDrop = useCallback(
 		(acceptedFiles) => {
@@ -45,19 +45,14 @@ const CreateProduct = () => {
 	const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 	useEffect(() => {
 		let currentUser = localStorage.getItem("currentUser")
-		if (currentUser !== undefined && currentUser) {
+		if (currentUser !== undefined && currentUser && currentUser !== "undefined") {
 			currentUser = JSON.parse(currentUser)
-			setCreatedProduct({ ...createdProduct, seller: currentUser.name })
+			setCreatedProduct({ ...createdProduct, seller_id: currentUser.id })
 		} else {
 			navigate("/registration")
 		}
 	}, [])
-	const getCurrentTime = useCallback(() => {
-		const date = new Date()
-		return date.getFullYear()
-	}, [])
 	return (
-		// https://localhost:34673/products/create/Тест/1488/Я/Украина/Новый/Недавно/Електрика
 		<Container>
 			<ToastContainer></ToastContainer>
 			<Row>
@@ -66,6 +61,7 @@ const CreateProduct = () => {
 						<form
 							onSubmit={async (e) => {
 								e.preventDefault()
+								console.log(createdProduct)
 								if (
 									!createdProduct.name ||
 									!createdProduct.price ||
@@ -73,24 +69,23 @@ const CreateProduct = () => {
 									!createdProduct.type ||
 									!createdProduct.category ||
 									!createdProduct.images[0] ||
-									!createdProduct.desript
+									!createdProduct.description
 								) {
 									toast.info("Убедитесь , что все поля заполнены 😁")
 								} else {
+									console.log({
+										...createdProduct,
+										images: JSON.stringify(createdProduct.images),
+									})
 									await axios.post(
-										`https://localhost:34673/products/create/${
-											createdProduct.name
-										}/${createdProduct.price}/${createdProduct.seller}/${
-											createdProduct.country
-										}/${createdProduct.type}/${getCurrentTime()}/${
-											createdProduct.category
-										}/${JSON.stringify(createdProduct.desript)}`,
+										`http://127.0.0.1:8000/createproduct/`,
 										{
+											...createdProduct,
 											images: JSON.stringify(createdProduct.images),
 										},
 										{
 											headers: {
-												"Content-Type": "application/x-www-form-urlencoded",
+												Authorization: "ApiKey admin:1234",
 											},
 										}
 									)
@@ -325,7 +320,7 @@ const CreateProduct = () => {
 									onChange={(e) => {
 										setCreatedProduct({
 											...createdProduct,
-											desript: e.target.value,
+											description: e.target.value,
 										})
 									}}
 								></textarea>

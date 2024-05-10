@@ -1,19 +1,23 @@
 import { useCallback, useEffect, useState } from "react"
 import "../BucketProduct.scss"
 import axios from "axios"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { selectCurrentUser } from "@features/slices/currentUserSlice"
 import { Link } from "react-router-dom"
+import {
+	changeMainPage,
+	selectSumOfBucket,
+} from "../../../features/slices/mainPageSlice"
 
 const BucketProduct = ({ id }) => {
 	const [productInfo, setProductInfo] = useState()
+	const dispatch = useDispatch()
+	const sumOfBucket = useSelector(selectSumOfBucket)
 	const curUser = useSelector(selectCurrentUser)
 	useEffect(() => {
 		const setCurProduct = async () => {
 			try {
-				const res = await axios.get(
-					`https://localhost:34673/basket/${curUser.id}/${id}`
-				)
+				const res = await axios.get(`http://127.0.0.1:8000/products/${id}`)
 				setProductInfo(res.data)
 			} catch (error) {
 				console.error(error)
@@ -26,7 +30,7 @@ const BucketProduct = ({ id }) => {
 		<div className="bucketProduct">
 			<div className="bucketProduct__imageWrapper">
 				<img
-					src={productInfo.images[0]}
+					src={JSON.parse(productInfo.images)[0]}
 					alt=""
 					className="bucketProduct__image"
 				/>
@@ -37,20 +41,24 @@ const BucketProduct = ({ id }) => {
 				<button
 					onClick={() => {
 						const deleteFromCart = async () => {
-							console.log({
-								curUser: curUser.ID,
-								id,
-							})
-							await axios.delete(
-								`https://localhost:34673/basket/${curUser.ID}/delete/${id}`
+							await axios.post(
+								`http://127.0.0.1:8000/removefrombusket/`,
+								{
+									user_id: curUser.id,
+									product_id: id,
+								},
+								{
+									headers: {
+										Authorization: "ApiKey admin:1234",
+									},
+								}
 							)
-							const res = await axios.get(
-								`https://localhost:34673/enter/${curUser.password}/${curUser.mail}`
-							)
-							localStorage.setItem("currentUser", JSON.stringify(res.data))
 							window.dispatchEvent(new Event("addCurUser"))
 						}
 						deleteFromCart()
+						dispatch(
+							changeMainPage({ sumOfBucket: sumOfBucket - productInfo.price })
+						)
 					}}
 					className="bucketProduct__removeBtn"
 				></button>

@@ -28,16 +28,18 @@ const Registration = () => {
 			let localStorageUser = localStorage.getItem("currentUser")
 			if (localStorageUser !== "undefined" && localStorageUser) {
 				localStorageUser = JSON.parse(localStorageUser)
+				console.log(localStorageUser)
 				try {
 					const res = await axios.get(
-						`https://localhost:34673/enter/${localStorageUser.password}/${localStorageUser.mail}`
+						`http://127.0.0.1:8000/enter/?user_password=${localStorageUser.password}&user_email=${localStorageUser.mail}`
 					)
-					localStorage.setItem("currentUser", JSON.stringify(res.data))
-					dispatch(addCurrentUser(res.data))
+					localStorage.setItem("currentUser", JSON.stringify(res.data.objects[0]))
+					dispatch(addCurrentUser(res.data.objects[0]))
 				} catch (error) {
-					localStorage.clear()
-					console.log("cleared!!")
-					dispatch(exitFromUser())
+					console.log("CLEARED")
+					// localStorage.clear()
+					// console.log("cleared!!")
+					// dispatch(exitFromUser())
 				}
 			}
 		}
@@ -70,10 +72,10 @@ const Registration = () => {
 							"registration__regblock"
 						)}
 					>
-						{currentUser.ID ? (
+						{currentUser.id ? (
 							<Link
 								className={styles.registration__userLink}
-								to={`/user/${currentUser.ID}`}
+								to={`/user/${currentUser.id}`}
 							>
 								Войти в профиль
 							</Link>

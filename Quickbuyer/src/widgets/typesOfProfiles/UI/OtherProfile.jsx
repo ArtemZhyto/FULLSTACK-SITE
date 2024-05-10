@@ -9,15 +9,16 @@ import { useEffect, useState } from "react"
 import { useLocation } from "react-router"
 const OtherProfile = () => {
 	const location = useLocation()
-	const sellerName = decodeURI(location.pathname.split(/\//)[2].toString())
+	const sellerId = decodeURI(location.pathname.split(/\//)[2])
 	const [currentSeller, setCurrentSeller] = useState({})
 	useEffect(() => {
 		const getSeller = async () => {
 			try {
-				const res = await axios.get(
-					`https://localhost:34673/user/${sellerName}`
-				)
-				setCurrentSeller(res.data)
+				const res = await axios.get(`http://127.0.0.1:8000/users/${sellerId}`)
+				setCurrentSeller({
+					...res.data,
+					registr_data: res.data.registr_data.split(/-/)[0],
+				})
 			} catch (err) {
 				console.log(err)
 			}
@@ -27,7 +28,7 @@ const OtherProfile = () => {
 		}
 	}, [])
 	const theme = useSelector(chooseTheme) === "white" ? "light" : "dark"
-	const checkIsNo = (val) => (val === "no" ? "Не указан" : val)
+	const checkIsNo = (val) => (val === "no" || val === null ? "Не указан" : val)
 	return (
 		<>
 			<ToastContainer theme={theme} />
@@ -43,7 +44,9 @@ const OtherProfile = () => {
 								])}
 							>
 								<div className={styles.otherProfile__imageWithName}>
-									{currentSeller?.image === "no" || !currentSeller?.image ? (
+									{currentSeller?.image === "no" ||
+									currentSeller?.image === null ||
+									!currentSeller?.image ? (
 										<>
 											<label
 												className={substring(
@@ -65,7 +68,7 @@ const OtherProfile = () => {
 								</div>
 								<div className="otherProfile__yearsSoldProducts">
 									<p className={styles.otherProfile__years}>
-										Лет на нашем сайте {currentSeller.regist_data - 2020}
+										Лет на нашем сайте {currentSeller.registr_data - 2023}
 									</p>
 									<p className={styles.otherProfile__soldProducts}>
 										Продано товаров :
@@ -89,7 +92,7 @@ const OtherProfile = () => {
 												"otherProfile__emailPhoto"
 											)}
 										></div>
-										Почта:{currentSeller.contactMail}
+										Почта: {checkIsNo(currentSeller.contact_mail)}
 									</li>
 									<li className={styles.otherProfile__info}>
 										<div

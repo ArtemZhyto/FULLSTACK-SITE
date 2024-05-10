@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { selectCurrentUser } from "@features/slices/currentUserSlice"
 const FeaturesBlock = () => {
 	const dispatch = useDispatch()
-	const currentUserId = useSelector(selectCurrentUser).ID
+	const currentUserId = useSelector(selectCurrentUser).id
 	const [isOpened, setIsOpened] = useState(false)
 	const toggleOpen = (e) => {
 		e.preventDefault()

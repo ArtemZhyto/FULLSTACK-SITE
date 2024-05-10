@@ -21,7 +21,7 @@ const YourProfile = ({ currentUser }) => {
 	}
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
-	const checkIsNo = (val) => (val === "no" ? "Не указан" : val)
+	const checkIsNo = (val) => (val === "no" || val === null ? "Не указан" : val)
 	return (
 		<>
 			<ToastContainer theme={theme} />

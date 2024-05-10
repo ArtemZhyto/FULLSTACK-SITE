@@ -23,14 +23,17 @@ const Profle = () => {
 				localStorageUser = JSON.parse(localStorageUser)
 				try {
 					const res = await axios.get(
-						`https://localhost:34673/enter/${localStorageUser.password}/${localStorageUser.mail}`
+						`http://127.0.0.1:8000/enter/?user_password=${localStorageUser.password}&user_email=${localStorageUser.mail}`
 					)
-					localStorage.setItem("currentUser", JSON.stringify(res.data))
-					dispatch(addCurrentUser(res.data))
+					localStorage.setItem(
+						"currentUser",
+						JSON.stringify(res.data.objects[0])
+					)
+					dispatch(addCurrentUser(res.data.objects[0]))
 				} catch (error) {
-					localStorage.clear()
-					dispatch(exitFromUser())
-					navigate("/registration")
+					// localStorage.clear()
+					// dispatch(exitFromUser())
+					// navigate("/registration")
 				}
 			} else {
 				navigate("/registration")
@@ -39,11 +42,11 @@ const Profle = () => {
 		handleNewCurUser()
 		window.addEventListener("addCurUser", handleNewCurUser)
 		return () => window.removeEventListener("addCurUser", handleNewCurUser)
-	}, [dispatch])
-	const urlId = useParams().id
+	}, [dispatch, navigate])
+	const urlId = parseInt(useParams().id)
 	if (currentUser) {
-		if (currentUser.ID) {
-			if (currentUser.ID === urlId) {
+		if (currentUser.id) {
+			if (currentUser.id === urlId) {
 				return <YourProfile currentUser={currentUser} />
 			} else {
 				return <OtherProfile></OtherProfile>

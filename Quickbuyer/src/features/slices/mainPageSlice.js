@@ -8,16 +8,20 @@ const initialState = {
 	isCategorysOpened: false,
 	themeColour: "white",
 	search: "",
+	sumOfBucket : 0
 }
 
 export const fetchProducts = createAsyncThunk(
-	"goods/fetchproducts",
+	"goods/fetchproducts",	
 	async (_, thunkApi) => {
 		try {
-			const res = await axios.get("https://localhost:34673/products")
-			return res.data
+			const res = await axios.get("http://127.0.0.1:8000/products/?limit=0")
+			res.data.objects.forEach((product) => {
+				product.images = JSON.parse(product.images)
+			})
+			return res.data.objects
 		} catch (error) {
-			console.log("rejected")
+			console.log(error)
 			thunkApi.rejectWithValue(error)
 		}
 	}
@@ -32,6 +36,9 @@ const mainpage = createSlice({
 		},
 		addGood: (state, action) => {
 			state.push(action.payload)
+		},
+		changeMainPage : (state, action) => {
+      return {...state, ...action.payload}
 		},
 		toggleBurger: (state) => {
 			return {
@@ -75,6 +82,7 @@ export const {
 	toggleCategorys,
 	toggleFilters,
 	changeSearch,
+	changeMainPage
 } = mainpage.actions
 export const chooseTheme = (state) => state.mainpage.themeColour
 export const selectIsBurgerOpened = (state) => state.mainpage.isBurgerOpened
@@ -83,4 +91,5 @@ export const selectIsCategorysOpened = (state) =>
 	state.mainpage.isCategorysOpened
 export const selectGoods = (state) => state.mainpage.goods
 export const selectSearch = (state) => state.mainpage.search
+export const selectSumOfBucket = (state) => state.mainpage.sumOfBucket
 export default mainpage.reducer

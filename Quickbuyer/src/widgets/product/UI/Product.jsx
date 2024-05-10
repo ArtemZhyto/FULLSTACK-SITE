@@ -4,16 +4,17 @@ import styles from "../Product.module.scss"
 import "../Product.scss"
 import { useNavigate } from "react-router"
 import { Link } from "react-router-dom"
-import {
-	addToCart,
-	selectCurrentUser,
-} from "@features/slices/currentUserSlice"
-import { useSelector } from "react-redux"
+import { addToCart, selectCurrentUser } from "@features/slices/currentUserSlice"
+import { useDispatch, useSelector } from "react-redux"
 import axios from "axios"
+import { changeMainPage } from "@features/slices/mainPageSlice"
+import { selectSumOfBucket } from "@features/slices/mainPageSlice"
 
 const Product = ({ name, img, seller, price, id }) => {
 	const currentUser = useSelector(selectCurrentUser)
 	const navigate = useNavigate()
+	const dispatch = useDispatch()
+	const sumOfBucket = useSelector(selectSumOfBucket)
 	return (
 		<div className={substring("products__product", styles.products__product)}>
 			<div
@@ -31,7 +32,7 @@ const Product = ({ name, img, seller, price, id }) => {
 				></div>
 				<p className="products__sellerName">
 					Продавец :{" "}
-					<Link to={`/user/${seller}`} className="text-primary">
+					<Link to={`/user/${id}`} className="text-primary">
 						{seller}
 					</Link>
 				</p>
@@ -52,21 +53,27 @@ const Product = ({ name, img, seller, price, id }) => {
 						styles.products__addToCart
 					)}
 					onClick={async () => {
-						console.log(
-							`https://localhost:34674/basket/${currentUser.ID}/add/${id}`
-						)
+						if (!currentUser.id) {
+							navigate("/registration")
+							return ""
+						}
 						try {
 							await axios.post(
-								`https://localhost:34673/basket/${currentUser.ID}/add/${id}`
+								`http://127.0.0.1:8000/addtobasket/`,
+								{
+									user_id: currentUser.id,
+									product_id: id,
+								},
+								{
+									headers: {
+										Authorization: "ApiKey admin:1234",
+									},
+								}
 							)
-
-							console.log("DONE")
 						} catch (error) {
 							console.log(error)
-							console.log(
-								`https://localhost:34673/basket/${currentUser.ID}/add/${id}`
-							)
 						}
+						dispatch(changeMainPage({ sumOfBucket: sumOfBucket + price }))
 					}}
 				>
 					В корзину

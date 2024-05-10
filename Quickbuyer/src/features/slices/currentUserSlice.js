@@ -8,15 +8,25 @@ export const sendRegistration = createAsyncThunk(
 		const { mail, password } = inputVal
 		try {
 			await axios.post(
-				`https://localhost:34673/registration/${password}/${mail}`
+				"http://127.0.0.1:8000/registration/",
+				{
+					password,
+					mail,
+				},
+				{
+					headers: { Authorization: "ApiKey admin:1234" },
+				}
 			)
 			const resp = await axios.get(
-				`https://localhost:34673/enter/${password}/${mail}`
+				`http://127.0.0.1:8000/enter?user_password=${password}&user_email=${mail}`
 			)
-			localStorage.setItem("currentUser", JSON.stringify(resp.data))
+			localStorage.setItem("currentUser", JSON.stringify(resp.data.objects[0]))
 			window.dispatchEvent(new Event("addCurUser"))
-			return resp.data
+			return resp.data.objects[0]
 		} catch (error) {
+			if (error.response.data.error_message === "object already exists!!") {
+				toast.error("Пользователь уже существует, сделайте вход  ^_____^")
+			}
 			console.log(error)
 			thunkApi.rejectWithValue(error)
 		}
@@ -27,18 +37,16 @@ export const sendEnter = createAsyncThunk(
 	"currentUser/sendEnter",
 	async (inputVal, thunkApi) => {
 		const { mail, password } = inputVal
-		console.log(inputVal)
 		try {
 			const resp = await axios.get(
-				`https://localhost:34673/enter/${password}/${mail}`
+				`http://127.0.0.1:8000/enter?user_password=${password}&user_email=${mail}`
 			)
-			localStorage.setItem("currentUser", JSON.stringify(resp.data))
+			localStorage.setItem("currentUser", JSON.stringify(resp.data.objects[0]))
 			window.dispatchEvent(new Event("addCurUser"))
-			console.log("DONE")
-			return resp.data
+			return resp.data.objects[0]
 		} catch (error) {
 			console.log(error)
-			if (error.response.data === "Помилка. Користувач не знайден") {
+			if (error.response.data.error_message === "object already exists!!") {
 				toast.error("Пользователь не найден ^_____^")
 			}
 			thunkApi.rejectWithValue(error)
@@ -51,7 +59,7 @@ export const sendUpdate = createAsyncThunk(
 	async (_, thunkApi) => {
 		const curUser = thunkApi.getState().currentUser
 		const {
-			ID,
+			id,
 			name,
 			mail,
 			password,
@@ -63,23 +71,35 @@ export const sendUpdate = createAsyncThunk(
 			instagram,
 			telegram,
 			image,
+			products,
 		} = curUser
 		try {
 			const headers = {
-				"Content-Type": "application/x-www-form-urlencoded",
+				Authorization: "ApiKey admin:1234",
 			}
-			console.log("ERRISNT HERE")
 			await axios.post(
-				`https://localhost:34673/profile/update/${ID}/${name}/${mail}/${password}/${sold}/${contactMail}/${phone}/${region}/${allowNotifications}/${instagram}/${telegram}`,
-				{ image: image },
+				`http://127.0.0.1:8000/update/`,
+				{
+					id,
+					name,
+					mail,
+					password,
+					sold,
+					contactMail,
+					phone,
+					region,
+					allowNotifications,
+					instagram,
+					telegram,
+					image,
+					products,
+				},
 				{ headers: headers }
 			)
-			console.log("ERRISNT HERE")
 			localStorage.setItem("currentUser", JSON.stringify(curUser))
 			window.dispatchEvent(new Event("addCurUser"))
 			toast.success("Профиль успешно изменен ;)")
 		} catch (error) {
-			console.log({ error })
 			thunkApi.rejectWithValue(error)
 			console.log(error)
 		}
@@ -90,17 +110,17 @@ const initialState = {
 	name: "",
 	mail: "",
 	password: "",
-	ID: "",
+	id: "",
 	regist_data: 2024,
 	sold: 0,
-	contactMail: "no",
-	phone: "no",
-	region: "no",
-	allowNotifications: true,
-	instagram: "no",
-	telegram: "no",
+	contact_mail: null,
+	phone: null,
+	region: null,
+	allowNotifications: false,
+	instagram: null,
+	telegram: null,
 	products: [],
-	image: "no",
+	image: null,
 }
 
 const currentUser = createSlice({
@@ -121,9 +141,6 @@ const currentUser = createSlice({
 		builder.addCase(sendEnter.fulfilled, (state, action) => {
 			return action.payload
 		})
-		// builder.addCase(addToCart.fulfilled, (state, action) => {
-		// 	return action.payload
-		// })
 	},
 })
 

@@ -31,7 +31,7 @@ const RegistrationForm = ({ setTypeOfSending, theme }) => {
 				} else {
 					dispatch(sendRegistration(registrationVals))
 					// setRegistrationVals(initalState)
-					localStorage.setItem("currentUser", initalState)
+					// localStorage.setItem("currentUser", initalState)
 				}
 			}}
 			className={substring(styles.registration__form, "registration__form")}
