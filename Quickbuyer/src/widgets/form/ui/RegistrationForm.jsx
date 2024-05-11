@@ -15,7 +15,12 @@ const RegistrationForm = ({ setTypeOfSending, theme }) => {
 	}
 	const [registrationVals, setRegistrationVals] = useState(initalState)
 	const { mail, password, submitPassword } = registrationVals
-
+	// console.log(
+	// 	!password.match(/[a-z]/) ||
+	// 		!password.match(/[A-Z]/) ||
+	// 		!password.match(/\d/)
+	// )
+	console.log(!mail.match(/@/) || !mail.match(/./))
 	return (
 		<form
 			onSubmit={(e) => {
@@ -24,14 +29,29 @@ const RegistrationForm = ({ setTypeOfSending, theme }) => {
 					toast.info("Заполните все поля перед отправкой 🙂", {
 						theme,
 					})
-					setRegistrationVals(initalState)
 				} else if (password !== submitPassword) {
 					toast.error("Пароли не совпадают 😒 ", { theme })
-					setRegistrationVals(initalState)
+				} else if (
+					password.length < 7 ||
+					password.length >= 50 ||
+					mail.length < 7 ||
+					mail.length >= 50
+				) {
+					toast.info(
+						"Пароль и почта должен быть больше 7 символов, но не меньше 50"
+					)
+				} else if (
+					!password.match(/[a-z]/) ||
+					!password.match(/[A-Z]/) ||
+					!password.match(/\d/)
+				) {
+					toast.info(
+						"Пароль должен соддержать заглавные и обычные буквы , цифры "
+					)
+				} else if (!mail.match(/@/) || !mail.match(/./)) {
+					toast.info("Проверьте валидность почты")
 				} else {
 					dispatch(sendRegistration(registrationVals))
-					// setRegistrationVals(initalState)
-					// localStorage.setItem("currentUser", initalState)
 				}
 			}}
 			className={substring(styles.registration__form, "registration__form")}
