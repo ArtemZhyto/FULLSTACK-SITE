@@ -1,40 +1,26 @@
-project-root/          # Корневая папка проекта
+project-root/          # Main root
 |
-|-- client/            # Клиентская часть (Frontend)
-|   |-- public/        # Статические файлы, например, HTML, изображения, шрифты
-|   |-- src/           # Исходный код клиентской части
-|       |-- components/   # Компоненты интерфейса
-|       |-- styles/       # Стилизация приложения (CSS, SCSS, LESS)
-|       |-- services/     # Клиентские сервисы, например, API-клиенты
-|       |-- pages/        # Компоненты, представляющие отдельные страницы
-|       |-- App.js        # Главный компонент приложения
-|       |-- index.js      # Точка входа для клиентского приложения
+|-- client/                    # Frontend (Client Side)
+|   |-- public/               # Static files like HTML, images, fonts
+|   |-- src/                  # Source code of the client side
+|       |-- app/   
+|       |-- pages/       
+|       |-- entities/         # Client services like API clients
+|       |-- features/         # Components representing individual pages
+|       |-- shared/           # Main application component
+|       |-- index.js          # Entry point for the client-side application
 |   |
-|   |-- package.json    # Зависимости и скрипты для клиентской части
-|   |-- .gitignore      # Файл для указания игнорируемых файлов в Git
-|   |-- README.md       # Документация для клиентской части
-|
-|-- server/            # Серверная часть (Backend)
-|   |-- config/        # Конфигурационные файлы
-|   |-- controllers/   # Контроллеры обработки HTTP-запросов
-|   |-- models/        # Модели данных
-|   |-- routes/        # Маршруты API
-|   |-- services/      # Бизнес-логика
-|   |-- middleware/    # Промежуточное ПО
-|   |-- index.js       # Точка входа для серверного приложения
-|   |-- package.json   # Зависимости и скрипты для серверной части
-|
-|-- database/         # Скрипты для управления базой данных
-|
-|-- tests/            # Тесты
-|
-|-- docs/             # Документация проекта
-|
-|-- .gitignore        # Общий файл для игнорирования в Git
-|-- .editorconfig     # Конфигурация редактора кода
-|-- package.json      # Основной файл зависимостей и скриптов для всего проекта
-|-- README.md         # Основная документация проекта
-|-- LICENSE           # Лицензия проекта
+|   |-- package.json          # Dependencies and scripts for the client side
+|   |-- .gitignore            # File specifying ignored files in Git
+|   |-- README.md             # Documentation for the client side
 
-
-ilpisuni
+|
+|-- server/            # Server part (Backend)
+|   |-- venv/          # Dependencies container
+|   |-- api/           # Main app with all api logic
+|   |-- base/          # Project with all configurations
+|   |-- quickbuyer/    # App with all models that are used ( User, Product )
+|   |
+|   |-- Pipfile.lock   # Dependencies versions
+|   |-- .gitignore     # File specifying ignored files in Git
+|   |-- Pipfile        # All dependencies info

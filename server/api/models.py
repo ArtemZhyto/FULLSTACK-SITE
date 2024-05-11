@@ -13,6 +13,7 @@ from django.http import JsonResponse
 from tastypie.authorization import Authorization
 from json import loads, dumps
 
+
 class UserGetResource(ModelResource):
     class Meta:
         queryset = User.objects.all()
@@ -36,22 +37,23 @@ class CreateProductResource(ModelResource):
         authorization = Authorization()
 
     def hydrate(self, bundle):
-        bundle.obj.seller_id = bundle.data["seller_id"] 
+        bundle.obj.seller_id = bundle.data["seller_id"]
         seller_id = bundle.data['seller_id']
         seller = User.objects.get(id=seller_id)
-        seller.sold +=1
+        seller.sold += 1
         seller.save()
         bundle.obj.seller_id = seller_id
         return bundle
-    
-class ClearBucket(ModelResource) :
+
+
+class ClearBucket(ModelResource):
     class Meta:
         queryset = User.objects.all()
         resource_name = "clearbucket"
         allowed_methods = ["post"]
         authentication = CustomAuthnentication()
         authorization = Authorization()
-    
+
     def obj_create(self, bundle, **kwargs):
         user_id = bundle.data["user_id"]
         if user_id:
@@ -65,6 +67,7 @@ class ClearBucket(ModelResource) :
         else:
             raise ValueError("Id не указан")
 
+
 class AddToBasket(ModelResource):
     class Meta:
         queryset = User.objects.all()
@@ -72,11 +75,11 @@ class AddToBasket(ModelResource):
         allowed_methods = ["post"]
         authentication = CustomAuthnentication()
         authorization = Authorization()
-    
+
     def obj_create(self, bundle, **kwargs):
         user_id = bundle.data["user_id"]
         product_id = bundle.data["product_id"]
-        
+
         if user_id and product_id:
             try:
                 user = User.objects.get(id=user_id)
@@ -92,25 +95,26 @@ class AddToBasket(ModelResource):
         else:
             raise ValueError("Id не указан")
 
-class RemoveFromBasket(ModelResource) :
+
+class RemoveFromBasket(ModelResource):
     class Meta:
         queryset = User.objects.all()
         resource_name = "removefrombusket"
         allowed_methods = ["post"]
         authentication = CustomAuthnentication()
         authorization = Authorization()
-    
+
     def obj_create(self, bundle, **kwargs):
         user_id = bundle.data["user_id"]
         product_id = bundle.data["product_id"]
-        
+
         if user_id and product_id:
             try:
                 user = User.objects.get(id=user_id)
                 products_list = loads(user.products)
                 filtered_list = []
-                for product in products_list :
-                    if not product == product_id :
+                for product in products_list:
+                    if not product == product_id:
                         filtered_list.append(product)
                 user.products = dumps(filtered_list)
                 user.save()
@@ -122,8 +126,10 @@ class RemoveFromBasket(ModelResource) :
         else:
             raise ValueError("Id не указан")
 
+
 class ProductGetResource(ModelResource):
     seller = fields.ForeignKey(UserGetResource, "seller")
+
     class Meta:
         queryset = Product.objects.all()
         resource_name = "products"
@@ -132,9 +138,11 @@ class ProductGetResource(ModelResource):
         ]
         authentication = CustomAuthnentication()
         authorization = Authorization()
+
     def hydrate(self, bundle):
-        bundle.obj.seller = bundle.data["seller"] 
+        bundle.obj.seller = bundle.data["seller"]
         return bundle
+
     def dehydrate(self, bundle):
         bundle.data["seller"] = bundle.obj.seller
         return bundle
@@ -174,8 +182,8 @@ class EnterUser(ModelResource):
             return result
         else:
             print("ERRR")
+
             return bundle
-    # http://127.0.0.1:8000/enter/?user_password=C5w_21N8o&user_email=vkohrdingv@admin.ch
 
 
 class UpdateUser(ModelResource):
@@ -188,17 +196,16 @@ class UpdateUser(ModelResource):
         authentication = CustomAuthnentication()
         authorization = Authorization()
 
-
         def obj_create(self, bundle, request=None, **kwargs):
             user_id = bundle.data["id"]
             try:
                 matched_user = User.objects.filter(id=user_id)
-                if matched_user :
-                  bundle.obj = User(name=matched_user.name, mail=matched_user.mail, password=matched_user.password, registr_data=matched_user.registr_data, sold=matched_user.sold, contact_mail=matched_user.contact_mail,
-                                  phone=matched_user.phone, region=matched_user.region, allowNotifications=matched_user.allowNotifications, instagram=matched_user.instagram, products=matched_user.products, image=matched_user.image)
-                  bundle.obj.save()
-                  return bundle
-                else :
-                  raise NameError("Cannot fing object with that id ")
+                if matched_user:
+                    bundle.obj = User(name=matched_user.name, mail=matched_user.mail, password=matched_user.password, registr_data=matched_user.registr_data, sold=matched_user.sold, contact_mail=matched_user.contact_mail,
+                                    phone=matched_user.phone, region=matched_user.region, allowNotifications=matched_user.allowNotifications, instagram=matched_user.instagram, products=matched_user.products, image=matched_user.image)
+                    bundle.obj.save()
+                    return bundle
+                else:
+                    raise NameError("Cannot fing object with that id ")
             except:
                 print("err")
