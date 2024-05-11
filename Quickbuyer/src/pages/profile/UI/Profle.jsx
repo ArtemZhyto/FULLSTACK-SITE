@@ -48,12 +48,7 @@ const Profle = () => {
 	if (currentUser) {
 		if (currentUser.id) {
 			if (currentUser.id === urlId) {
-				return (
-					<>
-						<ToastContainer></ToastContainer>
-						<YourProfile currentUser={currentUser} />
-					</>
-				)
+				return <YourProfile currentUser={currentUser} />
 			} else {
 				return <OtherProfile></OtherProfile>
 			}

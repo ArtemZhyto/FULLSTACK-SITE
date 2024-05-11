@@ -94,12 +94,13 @@ const YourProfile = ({ currentUser }) => {
 										</TextInput>
 									</>
 								) : (
-									<label>
+									<div>
 										<img
 											className={styles.yourProfile__photo}
 											src={currentUser.image}
 										></img>
 										<label
+											style={{ cursor: "pointer" }}
 											className={substring(
 												"yourProfile__changePhoto",
 												styles.yourProfile__changePhoto
@@ -126,6 +127,7 @@ const YourProfile = ({ currentUser }) => {
 											></input>
 										</label>
 										<TextInput
+											className="mt-5"
 											customInput={
 												<input
 													type="text"
@@ -144,7 +146,7 @@ const YourProfile = ({ currentUser }) => {
 										>
 											{currentUser.name}
 										</TextInput>
-									</label>
+									</div>
 								)}
 							</div>
 							<div className="yourProfile__yearsSoldProducts">
