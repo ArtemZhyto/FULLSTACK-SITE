@@ -1,7 +1,7 @@
 import { CgChevronDown } from "react-icons/cg"
 import React, { useCallback, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { ToastContainer } from "react-toastify"
+import { ToastContainer, toast } from "react-toastify"
 import TextInput from "../../../shared/ui/textInput/UI/TextInput.jsx"
 import { Col, Container, Row } from "react-bootstrap"
 import styles from "../globalProfile.module.scss"
@@ -13,12 +13,14 @@ import { exitFromUser, sendUpdate } from "@features/slices/currentUserSlice.js"
 import { chooseTheme } from "@features/slices/mainPageSlice.js"
 import { addCurrentUser } from "@features/slices/currentUserSlice.js"
 import { useNavigate } from "react-router"
+import { selectCurrentUser } from "../../../features/slices/currentUserSlice.js"
 const YourProfile = ({ currentUser }) => {
 	const theme = useSelector(chooseTheme) === "white" ? "light" : "dark"
 	const [show, setShow] = useState(false)
 	const toggleShow = () => {
 		setShow(!show)
 	}
+	const user = useSelector(selectCurrentUser)
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const checkIsNo = (val) => (val === "no" || val === null ? "Не указан" : val)
@@ -176,7 +178,28 @@ const YourProfile = ({ currentUser }) => {
 								)}
 								onSubmit={(e) => {
 									e.preventDefault()
-									dispatch(sendUpdate(currentUser))
+									if (
+										user.password.length < 7 ||
+										user.password.length >= 50 ||
+										user.mail.length < 7 ||
+										user.mail.length >= 50
+									) {
+										toast.error(
+											"Пароль и почта должен быть больше 7 символов, но не меньше 50"
+										)
+									} else if (
+										!user.password.match(/[a-z]/) ||
+										!user.password.match(/[A-Z]/) ||
+										!user.password.match(/\d/)
+									) {
+										toast.error(
+											"Пароль должен соддержать заглавные и обычные буквы , цифры "
+										)
+									} else if (!user.mail.match(/@/) || !user.mail.match(/./)) {
+										toast.error("Проверьте валидность почты")
+									} else {
+										dispatch(sendUpdate(currentUser))
+									}
 								}}
 							>
 								<TextInput

@@ -11,6 +11,7 @@ import {
 	sendEnter,
 } from "@features/slices/currentUserSlice"
 import axios from "axios"
+import { ToastContainer } from "react-toastify"
 
 const Profle = () => {
 	let currentUser = useSelector(selectCurrentUser)
@@ -31,9 +32,9 @@ const Profle = () => {
 					)
 					dispatch(addCurrentUser(res.data.objects[0]))
 				} catch (error) {
-					// localStorage.clear()
-					// dispatch(exitFromUser())
-					// navigate("/registration")
+					localStorage.clear()
+					dispatch(exitFromUser())
+					navigate("/registration")
 				}
 			} else {
 				navigate("/registration")
@@ -47,7 +48,12 @@ const Profle = () => {
 	if (currentUser) {
 		if (currentUser.id) {
 			if (currentUser.id === urlId) {
-				return <YourProfile currentUser={currentUser} />
+				return (
+					<>
+						<ToastContainer></ToastContainer>
+						<YourProfile currentUser={currentUser} />
+					</>
+				)
 			} else {
 				return <OtherProfile></OtherProfile>
 			}

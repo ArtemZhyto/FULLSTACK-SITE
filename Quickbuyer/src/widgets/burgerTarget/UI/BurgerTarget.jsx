@@ -23,18 +23,25 @@ const BurgerTarget = () => {
 		>
 			<div className={styles.burgertarget__info}>
 				{user.image ? (
-					<img className={styles.burgertarget__usericon} src={user.image} alt="" />
+					<img
+						className={styles.burgertarget__usericon}
+						src={user.image}
+						alt=""
+					/>
 				) : (
 					<div
 						className={`burgertarget__usericon ${styles.burgertarget__usericon}`}
 					></div>
 				)}
-
-				<Link to="/registration" className={styles.burgertarget__infobtns}>
-					<p className="burgertarget__text">Войти</p>
-					<p className="burgertarget__text">ИЛИ</p>
-					<p className="burgertarget__text">Регистрация</p>
-				</Link>
+				{user.name ? (
+					<p className="burgertarget__text text-center m0-auto">{user.name}</p>
+				) : (
+					<Link to="/registration" className={styles.burgertarget__infobtns}>
+						<p className="burgertarget__text">Войти</p>
+						<p className="burgertarget__text">ИЛИ</p>
+						<p className="burgertarget__text">Регистрация</p>
+					</Link>
+				)}
 			</div>
 			<ul className={styles.burgertarget__buttons}>
 				<Link to="/products" className={styles.burgertarget__btn}>

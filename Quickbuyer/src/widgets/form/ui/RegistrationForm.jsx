@@ -15,12 +15,6 @@ const RegistrationForm = ({ setTypeOfSending, theme }) => {
 	}
 	const [registrationVals, setRegistrationVals] = useState(initalState)
 	const { mail, password, submitPassword } = registrationVals
-	// console.log(
-	// 	!password.match(/[a-z]/) ||
-	// 		!password.match(/[A-Z]/) ||
-	// 		!password.match(/\d/)
-	// )
-	console.log(!mail.match(/@/) || !mail.match(/./))
 	return (
 		<form
 			onSubmit={(e) => {
